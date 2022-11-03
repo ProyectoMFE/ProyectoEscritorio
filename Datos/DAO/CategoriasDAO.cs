@@ -64,7 +64,23 @@ namespace Datos.DAO
 
         public bool modificar(object id, CATEGORIAS nuevo)
         {
-            throw new NotImplementedException();
+            CATEGORIAS categoria;
+
+            try
+            {
+                categoria = buscar(id);
+
+                categoria.ID_CATEGORIA = nuevo.ID_CATEGORIA;
+                categoria.NOMBRE = nuevo.NOMBRE;
+
+                contexto.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
