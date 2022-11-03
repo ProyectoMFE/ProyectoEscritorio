@@ -36,7 +36,7 @@ namespace Presentacion.Views
             this.btnFiltroReiniciar = new System.Windows.Forms.Button();
             this.btnFiltroLocalización = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,19 +135,19 @@ namespace Presentacion.Views
             this.dataGridView1.Size = new System.Drawing.Size(770, 400);
             this.dataGridView1.TabIndex = 7;
             // 
-            // textBox1
+            // txtBuscar
             // 
-            this.textBox1.Location = new System.Drawing.Point(703, 154);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(157, 20);
-            this.textBox1.TabIndex = 8;
+            this.txtBuscar.Location = new System.Drawing.Point(703, 154);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(157, 20);
+            this.txtBuscar.TabIndex = 8;
             // 
             // Dispositivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 691);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnFiltroLocalización);
             this.Controls.Add(this.btnFiltroReiniciar);
@@ -172,6 +172,6 @@ namespace Presentacion.Views
         private System.Windows.Forms.Button btnFiltroReiniciar;
         private System.Windows.Forms.Button btnFiltroLocalización;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBuscar;
     }
 }

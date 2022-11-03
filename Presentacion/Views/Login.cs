@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Negocio.EntitiesDTO;
+using Negocio.Management;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -11,13 +15,10 @@ namespace Presentacion.Views
         public Login()
         {
             InitializeComponent();
-
-
         }
-
+      
         public void pintarFondo(object sender, PaintEventArgs e)
         {
-
             Graphics graphics = e.Graphics;
 
             //the rectangle, the same size as our Form
@@ -36,42 +37,63 @@ namespace Presentacion.Views
             string contraseña = txtPassword.Text;
             Regex expresion = new Regex("\\w+@larioja.edu.es");
 
-            if (correo=="")
+            if (correo == "")
             {
                 MessageBox.Show("El campo correo esta vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
 
             if (contraseña == "")
             {
                 MessageBox.Show("El campo contraseña vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            /*
 
             if (!expresion.IsMatch(correo))
             {
                 MessageBox.Show("Correo no es del dominio @.edu.es", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }*/
 
+            UsuarioDTO usuarioDTO = new UsuarioManagement().obtenerUsuario(correo);
+            contraseña = cifrarContraseña(contraseña);
+
+
+            if (!contraseña.Equals(usuarioDTO.contrasenia))
+            {
+                MessageBox.Show("Contraseña incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            if (correo.Equals("marcos@larioja.edu.es"))
+            if (usuarioDTO.tipo.Equals("A"))
             {
                 Administrador principal = new Administrador(this);
                 principal.Show();
                 this.Hide();
                 return;
-
             }
-            if (correo.Equals("edu@larioja.edu.es"))
+
+            if (usuarioDTO.tipo.Equals("P"))
             {
                 Programa principal = new Programa(this);
                 principal.Show();
                 this.Hide();
                 return;
+            }           
+        }
+
+        public static string cifrarContraseña(string input)
+        {
+            StringBuilder hash = new StringBuilder();
+            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
+            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                hash.Append(bytes[i].ToString("x2"));
             }
-            
+            return hash.ToString();
         }
     }
 }
