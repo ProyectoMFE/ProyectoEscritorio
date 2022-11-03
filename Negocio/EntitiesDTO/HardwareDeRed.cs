@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Negocio.EntitiesDTO
 {
-    public class CategoriasDTO
+    public class HardwareDeRed
     {
-        public int idCategoria { get; set; }
-        public string nombre { get; set; }
-
+        public string NUM_SERIE { get; set; }
+        public int NUM_PUERTOS { get; set; }
+        public int VELOCIDAD { get; set; }
     }
 }

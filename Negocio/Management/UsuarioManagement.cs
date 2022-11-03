@@ -40,5 +40,6 @@ namespace Negocio.Management
         {
             usuario.idUsuario = usuOld.ID_USUARIO;
         }
+
     }
 }
