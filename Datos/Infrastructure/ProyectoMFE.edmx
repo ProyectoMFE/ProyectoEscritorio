@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProyectoMFEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CATEGORIAS">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DISPOSITIVOS">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID_CATEGORIA" Type="int" Nullable="false" />
+          <Property Name="MARCA" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="MODELO" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="LOCALIZACION" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HW_RED">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NUM_PUERTOS" Type="int" Nullable="false" />
+          <Property Name="VELOCIDAD" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORDENADORES">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PROCESADOR" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RAM" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="DISCO_PRINCIPAL" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="DISCO_SECUNDARIO" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="PANTALLAS">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PULGADAS" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SOLICITUDES">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CORREO" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="PRIMER_APELLIDO" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="SEGUNDO_APELLIDO" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="TIPO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CONTRASENIA" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <Association Name="DISPOSITIVOS_fk0">
+          <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Principal>
+            <Dependent Role="DISPOSITIVOS">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HW_RED_fk0">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HW_RED" Type="Self.HW_RED" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="NUM_SERIE" />
+            </Principal>
+            <Dependent Role="HW_RED">
+              <PropertyRef Name="NUM_SERIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDENADORES_fk0">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ORDENADORES" Type="Self.ORDENADORES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="NUM_SERIE" />
+            </Principal>
+            <Dependent Role="ORDENADORES">
+              <PropertyRef Name="NUM_SERIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PANTALLAS_fk0">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PANTALLAS" Type="Self.PANTALLAS" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="NUM_SERIE" />
+            </Principal>
+            <Dependent Role="PANTALLAS">
+              <PropertyRef Name="NUM_SERIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDES_fk0">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="1" />
+          <End Role="SOLICITUDES" Type="Self.SOLICITUDES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="NUM_SERIE" />
+            </Principal>
+            <Dependent Role="SOLICITUDES">
+              <PropertyRef Name="NUM_SERIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDES_fk1">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="SOLICITUDES" Type="Self.SOLICITUDES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="SOLICITUDES">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ACEPTAR_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correo" Type="nvarchar" Mode="In" />
+          <Parameter Name="num_dispositivo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FINALIZAR_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correo" Type="nvarchar" Mode="In" />
+          <Parameter Name="num_dispositivo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="INSERTAR_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correo" Type="nvarchar" Mode="In" />
+          <Parameter Name="num_dispositivo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="RECHAZAR_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correo" Type="nvarchar" Mode="In" />
+          <Parameter Name="num_dispositivo" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="ProyectoMFEModelStoreContainer">
+          <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DISPOSITIVOS" EntityType="Self.DISPOSITIVOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HW_RED" EntityType="Self.HW_RED" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDENADORES" EntityType="Self.ORDENADORES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PANTALLAS" EntityType="Self.PANTALLAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SOLICITUDES" EntityType="Self.SOLICITUDES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="DISPOSITIVOS_fk0" Association="Self.DISPOSITIVOS_fk0">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+          </AssociationSet>
+          <AssociationSet Name="HW_RED_fk0" Association="Self.HW_RED_fk0">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="HW_RED" EntitySet="HW_RED" />
+          </AssociationSet>
+          <AssociationSet Name="ORDENADORES_fk0" Association="Self.ORDENADORES_fk0">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="ORDENADORES" EntitySet="ORDENADORES" />
+          </AssociationSet>
+          <AssociationSet Name="PANTALLAS_fk0" Association="Self.PANTALLAS_fk0">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="PANTALLAS" EntitySet="PANTALLAS" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDES_fk0" Association="Self.SOLICITUDES_fk0">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="SOLICITUDES" EntitySet="SOLICITUDES" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDES_fk1" Association="Self.SOLICITUDES_fk1">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="SOLICITUDES" EntitySet="SOLICITUDES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProyectoMFEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CATEGORIAS">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DISPOSITIVOS" Relationship="Self.DISPOSITIVOS_fk0" FromRole="CATEGORIAS" ToRole="DISPOSITIVOS" />
+        </EntityType>
+        <EntityType Name="DISPOSITIVOS">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" />
+          <Property Name="MARCA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MODELO" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LOCALIZACION" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CATEGORIAS" Relationship="Self.DISPOSITIVOS_fk0" FromRole="DISPOSITIVOS" ToRole="CATEGORIAS" />
+          <NavigationProperty Name="HW_RED" Relationship="Self.HW_RED_fk0" FromRole="DISPOSITIVOS" ToRole="HW_RED" />
+          <NavigationProperty Name="ORDENADORES" Relationship="Self.ORDENADORES_fk0" FromRole="DISPOSITIVOS" ToRole="ORDENADORES" />
+          <NavigationProperty Name="PANTALLAS" Relationship="Self.PANTALLAS_fk0" FromRole="DISPOSITIVOS" ToRole="PANTALLAS" />
+          <NavigationProperty Name="SOLICITUDES" Relationship="Self.SOLICITUDES_fk0" FromRole="DISPOSITIVOS" ToRole="SOLICITUDES" />
+        </EntityType>
+        <EntityType Name="HW_RED">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NUM_PUERTOS" Type="Int32" Nullable="false" />
+          <Property Name="VELOCIDAD" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DISPOSITIVOS" Relationship="Self.HW_RED_fk0" FromRole="HW_RED" ToRole="DISPOSITIVOS" />
+        </EntityType>
+        <EntityType Name="ORDENADORES">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PROCESADOR" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RAM" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DISCO_PRINCIPAL" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DISCO_SECUNDARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DISPOSITIVOS" Relationship="Self.ORDENADORES_fk0" FromRole="ORDENADORES" ToRole="DISPOSITIVOS" />
+        </EntityType>
+        <EntityType Name="PANTALLAS">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PULGADAS" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DISPOSITIVOS" Relationship="Self.PANTALLAS_fk0" FromRole="PANTALLAS" ToRole="DISPOSITIVOS" />
+        </EntityType>
+        <EntityType Name="SOLICITUDES">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DISPOSITIVOS" Relationship="Self.SOLICITUDES_fk0" FromRole="SOLICITUDES" ToRole="DISPOSITIVOS" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.SOLICITUDES_fk1" FromRole="SOLICITUDES" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CORREO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRIMER_APELLIDO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SEGUNDO_APELLIDO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TIPO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CONTRASENIA" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SOLICITUDES" Relationship="Self.SOLICITUDES_fk1" FromRole="USUARIOS" ToRole="SOLICITUDES" />
+        </EntityType>
+        <Association Name="DISPOSITIVOS_fk0">
+          <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Principal>
+            <Dependent Role="DISPOSITIVOS">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HW_RED_fk0">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HW_RED" Type="Self.HW_RED" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="NUM_SERIE" />
+            </Principal>
+            <Dependent Role="HW_RED">
+              <PropertyRef Name="NUM_SERIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDENADORES_fk0">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ORDENADORES" Type="Self.ORDENADORES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="NUM_SERIE" />
+            </Principal>
+            <Dependent Role="ORDENADORES">
+              <PropertyRef Name="NUM_SERIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PANTALLAS_fk0">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PANTALLAS" Type="Self.PANTALLAS" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="NUM_SERIE" />
+            </Principal>
+            <Dependent Role="PANTALLAS">
+              <PropertyRef Name="NUM_SERIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDES_fk0">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="1" />
+          <End Role="SOLICITUDES" Type="Self.SOLICITUDES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="NUM_SERIE" />
+            </Principal>
+            <Dependent Role="SOLICITUDES">
+              <PropertyRef Name="NUM_SERIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDES_fk1">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="SOLICITUDES" Type="Self.SOLICITUDES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="SOLICITUDES">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProyectoMFEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" />
+          <EntitySet Name="DISPOSITIVOS" EntityType="Self.DISPOSITIVOS" />
+          <EntitySet Name="HW_RED" EntityType="Self.HW_RED" />
+          <EntitySet Name="ORDENADORES" EntityType="Self.ORDENADORES" />
+          <EntitySet Name="PANTALLAS" EntityType="Self.PANTALLAS" />
+          <EntitySet Name="SOLICITUDES" EntityType="Self.SOLICITUDES" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
+          <AssociationSet Name="DISPOSITIVOS_fk0" Association="Self.DISPOSITIVOS_fk0">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+          </AssociationSet>
+          <AssociationSet Name="HW_RED_fk0" Association="Self.HW_RED_fk0">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="HW_RED" EntitySet="HW_RED" />
+          </AssociationSet>
+          <AssociationSet Name="ORDENADORES_fk0" Association="Self.ORDENADORES_fk0">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="ORDENADORES" EntitySet="ORDENADORES" />
+          </AssociationSet>
+          <AssociationSet Name="PANTALLAS_fk0" Association="Self.PANTALLAS_fk0">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="PANTALLAS" EntitySet="PANTALLAS" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDES_fk0" Association="Self.SOLICITUDES_fk0">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="SOLICITUDES" EntitySet="SOLICITUDES" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDES_fk1" Association="Self.SOLICITUDES_fk1">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="SOLICITUDES" EntitySet="SOLICITUDES" />
+          </AssociationSet>
+          <FunctionImport Name="ACEPTAR_SOLICITUD">
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="num_dispositivo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FINALIZAR_SOLICITUD">
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="num_dispositivo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTAR_SOLICITUD">
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="num_dispositivo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RECHAZAR_SOLICITUD">
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="num_dispositivo" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProyectoMFEModelStoreContainer" CdmEntityContainer="ProyectoMFEEntities">
+          <EntitySetMapping Name="CATEGORIAS">
+            <EntityTypeMapping TypeName="ProyectoMFEModel.CATEGORIAS">
+              <MappingFragment StoreEntitySet="CATEGORIAS">
+                <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DISPOSITIVOS">
+            <EntityTypeMapping TypeName="ProyectoMFEModel.DISPOSITIVOS">
+              <MappingFragment StoreEntitySet="DISPOSITIVOS">
+                <ScalarProperty Name="NUM_SERIE" ColumnName="NUM_SERIE" />
+                <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="MODELO" ColumnName="MODELO" />
+                <ScalarProperty Name="LOCALIZACION" ColumnName="LOCALIZACION" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HW_RED">
+            <EntityTypeMapping TypeName="ProyectoMFEModel.HW_RED">
+              <MappingFragment StoreEntitySet="HW_RED">
+                <ScalarProperty Name="NUM_SERIE" ColumnName="NUM_SERIE" />
+                <ScalarProperty Name="NUM_PUERTOS" ColumnName="NUM_PUERTOS" />
+                <ScalarProperty Name="VELOCIDAD" ColumnName="VELOCIDAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDENADORES">
+            <EntityTypeMapping TypeName="ProyectoMFEModel.ORDENADORES">
+              <MappingFragment StoreEntitySet="ORDENADORES">
+                <ScalarProperty Name="NUM_SERIE" ColumnName="NUM_SERIE" />
+                <ScalarProperty Name="PROCESADOR" ColumnName="PROCESADOR" />
+                <ScalarProperty Name="RAM" ColumnName="RAM" />
+                <ScalarProperty Name="DISCO_PRINCIPAL" ColumnName="DISCO_PRINCIPAL" />
+                <ScalarProperty Name="DISCO_SECUNDARIO" ColumnName="DISCO_SECUNDARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PANTALLAS">
+            <EntityTypeMapping TypeName="ProyectoMFEModel.PANTALLAS">
+              <MappingFragment StoreEntitySet="PANTALLAS">
+                <ScalarProperty Name="NUM_SERIE" ColumnName="NUM_SERIE" />
+                <ScalarProperty Name="PULGADAS" ColumnName="PULGADAS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SOLICITUDES">
+            <EntityTypeMapping TypeName="ProyectoMFEModel.SOLICITUDES">
+              <MappingFragment StoreEntitySet="SOLICITUDES">
+                <ScalarProperty Name="NUM_SERIE" ColumnName="NUM_SERIE" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="ProyectoMFEModel.USUARIOS">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="PRIMER_APELLIDO" ColumnName="PRIMER_APELLIDO" />
+                <ScalarProperty Name="SEGUNDO_APELLIDO" ColumnName="SEGUNDO_APELLIDO" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ACEPTAR_SOLICITUD" FunctionName="ProyectoMFEModel.Store.ACEPTAR_SOLICITUD" />
+          <FunctionImportMapping FunctionImportName="FINALIZAR_SOLICITUD" FunctionName="ProyectoMFEModel.Store.FINALIZAR_SOLICITUD" />
+          <FunctionImportMapping FunctionImportName="INSERTAR_SOLICITUD" FunctionName="ProyectoMFEModel.Store.INSERTAR_SOLICITUD" />
+          <FunctionImportMapping FunctionImportName="RECHAZAR_SOLICITUD" FunctionName="ProyectoMFEModel.Store.RECHAZAR_SOLICITUD" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
