@@ -23,6 +23,17 @@
           <Property Name="LOCALIZACION" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
+        <EntityType Name="HISTORICO_SOLICITUDES">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+            <PropertyRef Name="ID_USUARIO" />
+            <PropertyRef Name="FECHA" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="FECHA" Type="datetime" Nullable="false" />
+          <Property Name="ULTIMATUM" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
         <EntityType Name="HW_RED">
           <Key>
             <PropertyRef Name="NUM_SERIE" />
@@ -166,6 +177,7 @@
         <EntityContainer Name="ProyectoMFEModelStoreContainer">
           <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DISPOSITIVOS" EntityType="Self.DISPOSITIVOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HISTORICO_SOLICITUDES" EntityType="Self.HISTORICO_SOLICITUDES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HW_RED" EntityType="Self.HW_RED" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ORDENADORES" EntityType="Self.ORDENADORES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PANTALLAS" EntityType="Self.PANTALLAS" Schema="dbo" store:Type="Tables" />
@@ -224,6 +236,17 @@
           <NavigationProperty Name="ORDENADORES" Relationship="Self.ORDENADORES_fk0" FromRole="DISPOSITIVOS" ToRole="ORDENADORES" />
           <NavigationProperty Name="PANTALLAS" Relationship="Self.PANTALLAS_fk0" FromRole="DISPOSITIVOS" ToRole="PANTALLAS" />
           <NavigationProperty Name="SOLICITUDES" Relationship="Self.SOLICITUDES_fk0" FromRole="DISPOSITIVOS" ToRole="SOLICITUDES" />
+        </EntityType>
+        <EntityType Name="HISTORICO_SOLICITUDES">
+          <Key>
+            <PropertyRef Name="NUM_SERIE" />
+            <PropertyRef Name="ID_USUARIO" />
+            <PropertyRef Name="FECHA" />
+          </Key>
+          <Property Name="NUM_SERIE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ULTIMATUM" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="HW_RED">
           <Key>
@@ -358,6 +381,7 @@
         <EntityContainer Name="ProyectoMFEEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" />
           <EntitySet Name="DISPOSITIVOS" EntityType="Self.DISPOSITIVOS" />
+          <EntitySet Name="HISTORICO_SOLICITUDES" EntityType="Self.HISTORICO_SOLICITUDES" />
           <EntitySet Name="HW_RED" EntityType="Self.HW_RED" />
           <EntitySet Name="ORDENADORES" EntityType="Self.ORDENADORES" />
           <EntitySet Name="PANTALLAS" EntityType="Self.PANTALLAS" />
@@ -427,6 +451,16 @@
                 <ScalarProperty Name="MODELO" ColumnName="MODELO" />
                 <ScalarProperty Name="LOCALIZACION" ColumnName="LOCALIZACION" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORICO_SOLICITUDES">
+            <EntityTypeMapping TypeName="ProyectoMFEModel.HISTORICO_SOLICITUDES">
+              <MappingFragment StoreEntitySet="HISTORICO_SOLICITUDES">
+                <ScalarProperty Name="NUM_SERIE" ColumnName="NUM_SERIE" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="ULTIMATUM" ColumnName="ULTIMATUM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

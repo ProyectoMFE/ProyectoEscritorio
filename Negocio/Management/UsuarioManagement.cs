@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Datos.DAO;
 using Datos.Infrastructure;
 using Negocio.EntitiesDTO;
@@ -13,18 +9,36 @@ namespace Negocio.Management
     {
         public UsuarioDTO obtenerUsuario(string correo)
         {
-            USUARIOS usu = new UsuarioDAO().buscar(correo);
-            UsuarioDTO usu1 = new UsuarioDTO();
+            USUARIOS usuOld = new UsuarioDAO().buscar(correo);
+            UsuarioDTO usuario = new UsuarioDTO();
 
-            usu1.idUsuario = usu.ID_USUARIO;
-            usu1.correo = usu.CORREO;
-            usu1.contrasenia = usu.CONTRASENIA;
-            usu1.nombre = usu.NOMBRE;
-            usu1.primerApellido = usu.PRIMER_APELLIDO;
-            usu1.segundoApellido = usu.SEGUNDO_APELLIDO;
-            usu1.tipo = usu.TIPO;
+            //Utils.parse(usuOld, ref usuario);
+            
+            parse(usuOld, usuario);
 
-            return usu1;
+            return usuario;
+        }
+
+        public List<UsuarioDTO> obtenerUsuarios()
+        {
+            List<UsuarioDTO> usuarios = new List<UsuarioDTO>();
+            UsuarioDTO usuario;
+
+            foreach (USUARIOS usuOld in new UsuarioDAO().consultar())
+            {
+                usuario = new UsuarioDTO();
+                //Utils.parse(usuOld, ref usuario);
+                usuario.idUsuario = usuOld.ID_USUARIO;
+
+                usuarios.Add(usuario);
+            }
+
+            return usuarios;
+        }
+
+        private void parse(USUARIOS usuOld, UsuarioDTO usuario)
+        {
+            usuario.idUsuario = usuOld.ID_USUARIO;
         }
 
     }
