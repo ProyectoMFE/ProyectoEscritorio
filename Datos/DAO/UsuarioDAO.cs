@@ -28,7 +28,7 @@ namespace Datos.DAO
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -69,7 +69,16 @@ namespace Datos.DAO
             try
             {
                 usuario = buscar(id);
-                usuario = nuevo;
+
+                usuario.CONTRASENIA = nuevo.CONTRASENIA;
+                usuario.SEGUNDO_APELLIDO = nuevo.SEGUNDO_APELLIDO;
+                usuario.PRIMER_APELLIDO = nuevo.PRIMER_APELLIDO;
+                usuario.NOMBRE = nuevo.NOMBRE;
+                usuario.CORREO = nuevo.CORREO;
+                usuario.ID_USUARIO = nuevo.ID_USUARIO;
+                usuario.CORREO = nuevo.CORREO;
+                usuario.TIPO = nuevo.TIPO;
+
                 contexto.SaveChanges();
 
                 return true;
