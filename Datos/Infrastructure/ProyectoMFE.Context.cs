@@ -29,6 +29,7 @@ namespace Datos.Infrastructure
     
         public virtual DbSet<CATEGORIAS> CATEGORIAS { get; set; }
         public virtual DbSet<DISPOSITIVOS> DISPOSITIVOS { get; set; }
+        public virtual DbSet<HISTORICO_SOLICITUDES> HISTORICO_SOLICITUDES { get; set; }
         public virtual DbSet<HW_RED> HW_RED { get; set; }
         public virtual DbSet<ORDENADORES> ORDENADORES { get; set; }
         public virtual DbSet<PANTALLAS> PANTALLAS { get; set; }
