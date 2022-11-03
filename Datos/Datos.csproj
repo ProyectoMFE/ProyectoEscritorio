@@ -101,11 +101,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
     <EntityDeploy Include="Infrastructure\ProyectoMFE.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ProyectoMFE.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Infrastructure\ProyectoMFE.edmx.diagram">
       <DependentUpon>ProyectoMFE.edmx</DependentUpon>
     </None>
