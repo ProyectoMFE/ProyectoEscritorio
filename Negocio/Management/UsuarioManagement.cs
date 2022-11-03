@@ -26,5 +26,28 @@ namespace Negocio.Management
 
             return usu1;
         }
+
+        public List<UsuarioDTO> obtenerUsuarios()
+        {
+            List<UsuarioDTO> usuarios = new List<UsuarioDTO>();
+            UsuarioDTO usuario;
+
+            foreach (USUARIOS usuOld in new UsuarioDAO().consultar())
+            {
+                usuario = new UsuarioDTO();
+
+                usuario.idUsuario = usuOld.ID_USUARIO;
+                usuario.correo = usuOld.CORREO;
+                usuario.nombre = usuOld.NOMBRE;
+                usuario.primerApellido = usuOld.PRIMER_APELLIDO;
+                usuario.segundoApellido = usuOld.SEGUNDO_APELLIDO;
+                usuario.contrasenia = usuOld.CONTRASENIA;
+                usuario.tipo = usuOld.TIPO;
+
+                usuarios.Add(usuario);
+            }
+
+            return usuarios;
+        }
     }
 }
