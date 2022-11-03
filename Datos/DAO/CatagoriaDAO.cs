@@ -11,24 +11,55 @@ namespace Datos.DAO
     {
         private ProyectoMFEEntities contexto;
 
+        public CatagoriaDAO()
+        {
+            this.contexto = new ProyectoMFEEntities();
+        }
+
         public bool borrar(object id)
         {
-            throw new NotImplementedException();
+            CATEGORIAS categoria;
+
+            try
+            {
+                categoria = buscar(id);
+                contexto.CATEGORIAS.Remove(categoria);
+                contexto.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public CATEGORIAS buscar(object id)
         {
-            throw new NotImplementedException();
+            return contexto.CATEGORIAS.Where(p => p.ID_CATEGORIA == Convert.ToInt32(id)).First();
         }
 
         public List<CATEGORIAS> consultar()
         {
-            throw new NotImplementedException();
+            return contexto.CATEGORIAS.ToList();
         }
 
         public bool insertar(CATEGORIAS id)
         {
-            throw new NotImplementedException();
+            CATEGORIAS categoria;
+
+            try
+            {
+                categoria = buscar(id);
+                contexto.CATEGORIAS.Add(categoria);
+                contexto.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool modificar(object id, CATEGORIAS nuevo)
