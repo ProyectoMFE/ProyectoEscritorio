@@ -26,5 +26,6 @@ namespace Negocio.Management
 
             return usu1;
         }
+
     }
 }
