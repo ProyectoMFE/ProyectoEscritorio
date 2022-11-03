@@ -58,10 +58,14 @@
     <Compile Include="DAO\SolicitudDAO.cs" />
     <Compile Include="DAO\DispositivoDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Infrastructure\Acceder.cs" />
     <Compile Include="Infrastructure\CATEGORIAS.cs">
       <DependentUpon>ProyectoMFE.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\DISPOSITIVOS.cs">
+      <DependentUpon>ProyectoMFE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\HISTORICO_SOLICITUDES.cs">
       <DependentUpon>ProyectoMFE.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\HW_RED.cs">
@@ -94,20 +98,7 @@
     <Compile Include="Infrastructure\USUARIOS.cs">
       <DependentUpon>ProyectoMFE.tt</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\Acceder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Infrastructure\ProyectoMFE.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProyectoMFE.edmx</DependentUpon>
-      <LastGenOutput>ProyectoMFE.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Infrastructure\ProyectoMFE.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProyectoMFE.edmx</DependentUpon>
-      <LastGenOutput>ProyectoMFE.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -122,6 +113,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Infrastructure\ProyectoMFE.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProyectoMFE.edmx</DependentUpon>
+      <LastGenOutput>ProyectoMFE.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Infrastructure\ProyectoMFE.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProyectoMFE.edmx</DependentUpon>
+      <LastGenOutput>ProyectoMFE.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
