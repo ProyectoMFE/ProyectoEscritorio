@@ -44,14 +44,11 @@ namespace Datos.DAO
             return contexto.ORDENADORES.ToList();
         }
 
-        public bool Insertar(ORDENADORES id)
+        public bool Insertar(ORDENADORES objeto)
         {
-            ORDENADORES dispositivo;
-
             try
             {
-                dispositivo = Buscar(id);
-                contexto.ORDENADORES.Add(dispositivo);
+                contexto.ORDENADORES.Add(objeto);
                 contexto.SaveChanges();
 
                 return true;

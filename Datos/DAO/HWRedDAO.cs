@@ -44,14 +44,11 @@ namespace Datos.DAO
             return contexto.HW_RED.ToList();
         }
 
-        public bool Insertar(HW_RED id)
+        public bool Insertar(HW_RED objeto)
         {
-            HW_RED dispositivo;
-
             try
             {
-                dispositivo = Buscar(id);
-                contexto.HW_RED.Add(dispositivo);
+                contexto.HW_RED.Add(objeto);
                 contexto.SaveChanges();
 
                 return true;

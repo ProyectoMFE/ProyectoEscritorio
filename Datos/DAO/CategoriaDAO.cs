@@ -44,14 +44,11 @@ namespace Datos.DAO
             return contexto.CATEGORIAS.ToList();
         }
 
-        public bool Insertar(CATEGORIAS id)
+        public bool Insertar(CATEGORIAS objeto)
         {
-            CATEGORIAS categoria;
-
             try
             {
-                categoria = Buscar(id);
-                contexto.CATEGORIAS.Add(categoria);
+                contexto.CATEGORIAS.Add(objeto);
                 contexto.SaveChanges();
 
                 return true;

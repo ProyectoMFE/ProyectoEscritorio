@@ -9,7 +9,7 @@ namespace Datos.DAO
 {
     interface DAO<T>
     {
-        bool Insertar(T id);
+        bool Insertar(T objeto);
         T Buscar(object id);
         bool Borrar(object id);
         bool Modificar(object id, T nuevo);

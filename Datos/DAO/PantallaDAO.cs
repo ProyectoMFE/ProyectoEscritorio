@@ -44,14 +44,11 @@ namespace Datos.DAO
             return contexto.PANTALLAS.ToList();
         }
 
-        public bool Insertar(PANTALLAS id)
+        public bool Insertar(PANTALLAS objeto)
         {
-            PANTALLAS dispositivo;
-
             try
             {
-                dispositivo = Buscar(id);
-                contexto.PANTALLAS.Add(dispositivo);
+                contexto.PANTALLAS.Add(objeto);
                 contexto.SaveChanges();
 
                 return true;

@@ -43,14 +43,11 @@ namespace Datos.DAO
             return contexto.DISPOSITIVOS.ToList();
         }
 
-        public bool Insertar(DISPOSITIVOS id)
+        public bool Insertar(DISPOSITIVOS objeto)
         {
-            DISPOSITIVOS dispositivo;
-
             try
             {
-                dispositivo = Buscar(id);
-                contexto.DISPOSITIVOS.Add(dispositivo);
+                contexto.DISPOSITIVOS.Add(objeto);
                 contexto.SaveChanges();
 
                 return true;

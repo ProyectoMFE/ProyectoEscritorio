@@ -44,14 +44,11 @@ namespace Datos.DAO
             return contexto.SOLICITUDES.ToList();
         }
 
-        public bool Insertar(SOLICITUDES id)
+        public bool Insertar(SOLICITUDES objeto)
         {
-            SOLICITUDES solicitud;
-
             try
             {
-                solicitud = Buscar(id);
-                contexto.SOLICITUDES.Add(solicitud);
+                contexto.SOLICITUDES.Add(objeto);
                 contexto.SaveChanges();
 
                 return true;
