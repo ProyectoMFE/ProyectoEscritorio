@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Negocio.EntitiesDTO
 {
-    public class PantallaDTO : CaracteristicaDTO
+    public interface CaracteristicaDTO
     {
-        public string NUM_SERIE { get; set; }
-        public int PULGADAS { get; set; }
     }
 }

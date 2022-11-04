@@ -1,29 +1,29 @@
-﻿using System;
+﻿using Datos.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
-    public class SolicitudDAO : DAO<SOLICITUDES>
+    public class HWRedDAO : DAO<HW_RED>
     {
         private ProyectoMFEEntities contexto;
 
-        public SolicitudDAO()
+        public HWRedDAO()
         {
             this.contexto = new ProyectoMFEEntities();
         }
 
         public bool Borrar(object id)
         {
-            SOLICITUDES solicitud;
+            HW_RED dispositivo;
 
             try
             {
-                solicitud = Buscar(id);
-                contexto.SOLICITUDES.Remove(solicitud);
+                dispositivo = Buscar(id);
+                contexto.HW_RED.Remove(dispositivo);
                 contexto.SaveChanges();
 
                 return true;
@@ -34,21 +34,21 @@ namespace Datos.DAO
             }
         }
 
-        public SOLICITUDES Buscar(object id)
+        public HW_RED Buscar(object id)
         {
-            return contexto.SOLICITUDES.Where(p => p.ID_USUARIO.Equals(id)).First();
+            return contexto.HW_RED.Where(p => p.NUM_SERIE.Equals(id)).First();
         }
 
-        public List<SOLICITUDES> Consultar()
+        public List<HW_RED> Consultar()
         {
-            return contexto.SOLICITUDES.ToList();
+            return contexto.HW_RED.ToList();
         }
 
-        public bool Insertar(SOLICITUDES objeto)
+        public bool Insertar(HW_RED objeto)
         {
             try
             {
-                contexto.SOLICITUDES.Add(objeto);
+                contexto.HW_RED.Add(objeto);
                 contexto.SaveChanges();
 
                 return true;
@@ -59,17 +59,17 @@ namespace Datos.DAO
             }
         }
 
-        public bool Modificar(object id, SOLICITUDES nuevo)
+        public bool Modificar(object id, HW_RED nuevo)
         {
-            SOLICITUDES solicitud;
+            HW_RED dispositivo;
 
             try
             {
-                solicitud = Buscar(id);
+                dispositivo = Buscar(id);
 
-                solicitud.NUM_SERIE = nuevo.NUM_SERIE;
-                solicitud.ID_USUARIO = nuevo.ID_USUARIO;
-                solicitud.ESTADO = nuevo.ESTADO;
+                dispositivo.NUM_SERIE = nuevo.NUM_SERIE;
+                dispositivo.VELOCIDAD = nuevo.VELOCIDAD;
+                dispositivo.NUM_PUERTOS = nuevo.NUM_PUERTOS;
 
                 contexto.SaveChanges();
 

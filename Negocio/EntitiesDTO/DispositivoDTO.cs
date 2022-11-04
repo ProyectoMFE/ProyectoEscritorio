@@ -14,5 +14,6 @@ namespace Negocio.EntitiesDTO
         public string MODELO { get; set; }
         public string LOCALIZACION { get; set; }
         public string ESTADO { get; set; }
+        public CaracteristicaDTO caracteristica { get; set; }
     }
 }

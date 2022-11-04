@@ -7,28 +7,27 @@ namespace Negocio.Management
 {
     public class UsuarioManagement
     {
-        public UsuarioDTO obtenerUsuario(string correo)
+        public UsuarioDTO ObtenerUsuario(string correo)
         {
-            USUARIOS usuOld = new UsuarioDAO().buscar(correo);
+            USUARIOS usuOld = new UsuarioDAO().Buscar(correo);
             UsuarioDTO usuario = new UsuarioDTO();
 
-            //Utils.parse(usuOld, ref usuario);
-            
-            parse(usuOld, usuario);
+            // Utils.parse(usuOld, ref usuario);
+            Parse(usuOld, usuario);
 
             return usuario;
         }
 
-        public List<UsuarioDTO> obtenerUsuarios()
+        public List<UsuarioDTO> ObtenerUsuarios()
         {
             List<UsuarioDTO> usuarios = new List<UsuarioDTO>();
             UsuarioDTO usuario;
 
-            foreach (USUARIOS usuOld in new UsuarioDAO().consultar())
+            foreach (USUARIOS usuOld in new UsuarioDAO().Consultar())
             {
                 usuario = new UsuarioDTO();
-                //Utils.parse(usuOld, ref usuario);
-                usuario.idUsuario = usuOld.ID_USUARIO;
+
+                Parse(usuOld, usuario);
 
                 usuarios.Add(usuario);
             }
@@ -36,10 +35,9 @@ namespace Negocio.Management
             return usuarios;
         }
 
-        private void parse(USUARIOS usuOld, UsuarioDTO usuario)
+        private void Parse(USUARIOS usuOld, UsuarioDTO usuario)
         {
             usuario.idUsuario = usuOld.ID_USUARIO;
         }
-
     }
 }
