@@ -61,7 +61,6 @@
     <Compile Include="DAO\DispositivoDAO.cs" />
     <Compile Include="DAO\PantallaDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
-    <Compile Include="Infrastructure\Acceder.cs" />
     <Compile Include="Infrastructure\CATEGORIAS.cs">
       <DependentUpon>ProyectoMFE.tt</DependentUpon>
     </Compile>

@@ -7,8 +7,9 @@ using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
-    public class SolicitudDAO : DAO<SOLICITUDES>
+    public class SolicitudDAO
     {
+        /*
         private ProyectoMFEEntities contexto;
 
         public SolicitudDAO()
@@ -16,13 +17,13 @@ namespace Datos.DAO
             this.contexto = new ProyectoMFEEntities();
         }
 
-        public bool Borrar(object id)
+        public bool Borrar(object id1, object id2)
         {
             SOLICITUDES solicitud;
 
             try
             {
-                solicitud = Buscar(id);
+                solicitud = Buscar(id1, id2);
                 contexto.SOLICITUDES.Remove(solicitud);
                 contexto.SaveChanges();
 
@@ -34,9 +35,14 @@ namespace Datos.DAO
             }
         }
 
+        public SOLICITUDES Buscar(object idusu, object iddis)
+        {
+            return contexto.SOLICITUDES.Where(p => p.ID_USUARIO.Equals(idusu)).First();
+        }
+
         public SOLICITUDES Buscar(object id)
         {
-            return contexto.SOLICITUDES.Where(p => p.ID_USUARIO.Equals(id)).First();
+            throw new NotImplementedException();
         }
 
         public List<SOLICITUDES> Consultar()
@@ -57,15 +63,15 @@ namespace Datos.DAO
             {
                 return false;
             }
-        }
+        } 
 
-        public bool Modificar(object id, SOLICITUDES nuevo)
+        public bool Modificar(object id1, object id2, SOLICITUDES nuevo)
         {
             SOLICITUDES solicitud;
 
             try
             {
-                solicitud = Buscar(id);
+                solicitud = Buscar(id1, id2);
 
                 solicitud.NUM_SERIE = nuevo.NUM_SERIE;
                 solicitud.ID_USUARIO = nuevo.ID_USUARIO;
@@ -80,5 +86,11 @@ namespace Datos.DAO
                 return false;
             }
         }
+
+        public bool Modificar(object id, SOLICITUDES nuevo)
+        {
+            throw new NotImplementedException();
+        }
+        */
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Datos.DAO;
 using Datos.Infrastructure;
 using Negocio.EntitiesDTO;
@@ -12,8 +13,7 @@ namespace Negocio.Management
             USUARIOS usuOld = new UsuarioDAO().Buscar(correo);
             UsuarioDTO usuario = new UsuarioDTO();
 
-            // Utils.parse(usuOld, ref usuario);
-            Parse(usuOld, usuario);
+            Utils.parse(usuOld, ref usuario);
 
             return usuario;
         }
@@ -27,7 +27,7 @@ namespace Negocio.Management
             {
                 usuario = new UsuarioDTO();
 
-                Parse(usuOld, usuario);
+                Utils.parse(usuOld, ref usuario);
 
                 usuarios.Add(usuario);
             }
@@ -35,9 +35,31 @@ namespace Negocio.Management
             return usuarios;
         }
 
-        private void Parse(USUARIOS usuOld, UsuarioDTO usuario)
+        public bool ModificarUsuario(UsuarioDTO usuario)
         {
-            usuario.idUsuario = usuOld.ID_USUARIO;
+            USUARIOS usuOld = new USUARIOS();
+
+            Utils.parse(usuario, ref usuOld);
+
+            return new UsuarioDAO().Modificar(usuOld.ID_USUARIO, usuOld);
+        }
+
+        public bool InsertarUsuario(UsuarioDTO usuario)
+        {
+            USUARIOS usuOld = new USUARIOS();
+
+            Utils.parse(usuario, ref usuOld);
+
+            return new UsuarioDAO().Insertar(usuOld);
+        }
+
+        public bool BorrarUsuario(UsuarioDTO usuario)
+        {
+            USUARIOS usuOld = new USUARIOS();
+
+            Utils.parse(usuario, ref usuOld);
+
+            return new UsuarioDAO().Borrar(usuOld);
         }
     }
 }
