@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Datos.DAO
 {
-    public interface DAO<T>
+    interface DAO<T>
     {
-        bool insertar(T id);
-        T buscar(object id);
-        bool borrar(object id);
-        bool modificar(object id, T nuevo);
-        List<T> consultar();
+        bool Insertar(T id);
+        T Buscar(object id);
+        bool Borrar(object id);
+        bool Modificar(object id, T nuevo);
+        List<T> Consultar();
     }
 }

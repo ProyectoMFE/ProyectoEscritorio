@@ -1,56 +1,29 @@
-﻿using System;
+﻿using Datos.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
-    public class DispositivoDAO : DAO<DISPOSITIVOS>
+    public class PantallaDAO : DAO<PANTALLAS>
     {
         private ProyectoMFEEntities contexto;
 
-        public DispositivoDAO()
+        public PantallaDAO()
         {
             this.contexto = new ProyectoMFEEntities();
         }
 
         public bool Borrar(object id)
         {
-            DISPOSITIVOS dispositivo;
+            PANTALLAS dispositivo;
 
             try
             {
                 dispositivo = Buscar(id);
-                contexto.DISPOSITIVOS.Remove(dispositivo);
-                contexto.SaveChanges();
-
-                return true;
-            } catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public DISPOSITIVOS Buscar(object id)
-        {
-            return contexto.DISPOSITIVOS.Where(p => p.NUM_SERIE.Equals(id)).First();
-        }
-
-        public List<DISPOSITIVOS> Consultar()
-        {
-            return contexto.DISPOSITIVOS.ToList();
-        }
-
-        public bool Insertar(DISPOSITIVOS id)
-        {
-            DISPOSITIVOS dispositivo;
-
-            try
-            {
-                dispositivo = Buscar(id);
-                contexto.DISPOSITIVOS.Add(dispositivo);
+                contexto.PANTALLAS.Remove(dispositivo);
                 contexto.SaveChanges();
 
                 return true;
@@ -61,20 +34,44 @@ namespace Datos.DAO
             }
         }
 
-        public bool Modificar(object id, DISPOSITIVOS nuevo)
+        public PANTALLAS Buscar(object id)
         {
-            DISPOSITIVOS dispositivo;
+            return contexto.PANTALLAS.Where(p => p.NUM_SERIE.Equals(id)).First();
+        }
+
+        public List<PANTALLAS> Consultar()
+        {
+            return contexto.PANTALLAS.ToList();
+        }
+
+        public bool Insertar(PANTALLAS id)
+        {
+            PANTALLAS dispositivo;
+
+            try
+            {
+                dispositivo = Buscar(id);
+                contexto.PANTALLAS.Add(dispositivo);
+                contexto.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Modificar(object id, PANTALLAS nuevo)
+        {
+            PANTALLAS dispositivo;
 
             try
             {
                 dispositivo = Buscar(id);
 
                 dispositivo.NUM_SERIE = nuevo.NUM_SERIE;
-                dispositivo.ID_CATEGORIA = nuevo.ID_CATEGORIA;
-                dispositivo.ESTADO = nuevo.ESTADO;
-                dispositivo.MARCA = nuevo.MARCA;
-                dispositivo.MODELO = nuevo.MODELO;
-                dispositivo.LOCALIZACION = nuevo.LOCALIZACION;
+                dispositivo.PULGADAS = nuevo.PULGADAS;
 
                 contexto.SaveChanges();
 

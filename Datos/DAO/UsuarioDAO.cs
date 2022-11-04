@@ -16,13 +16,13 @@ namespace Datos.DAO
             this.contexto = new ProyectoMFEEntities();
         }
 
-        public bool borrar(object id)
+        public bool Borrar(object id)
         {
             USUARIOS usuario;
 
             try
             {
-                usuario = buscar(id);
+                usuario = Buscar(id);
                 contexto.USUARIOS.Remove(usuario);
                 contexto.SaveChanges();
 
@@ -34,41 +34,41 @@ namespace Datos.DAO
             }
         }
 
-        public USUARIOS buscar(object id)
+        public USUARIOS Buscar(object id)
         {
-            return contexto.USUARIOS.Where(p => p.CORREO == id).First();
+            return contexto.USUARIOS.Where(p => p.CORREO.Equals(id)).First();
         }
 
-        public List<USUARIOS> consultar()
+        public List<USUARIOS> Consultar()
         {
             return contexto.USUARIOS.ToList();
         }
 
-        public bool insertar(USUARIOS id)
+        public bool Insertar(USUARIOS id)
         {
             USUARIOS usuario;
 
             try
             {
-                usuario = buscar(id);
+                usuario = Buscar(id);
                 contexto.USUARIOS.Add(usuario);
                 contexto.SaveChanges();
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
         }
 
-        public bool modificar(object id, USUARIOS nuevo)
+        public bool Modificar(object id, USUARIOS nuevo)
         {
             USUARIOS usuario;
 
             try
             {
-                usuario = buscar(id);
+                usuario = Buscar(id);
 
                 usuario.CONTRASENIA = nuevo.CONTRASENIA;
                 usuario.SEGUNDO_APELLIDO = nuevo.SEGUNDO_APELLIDO;
@@ -83,7 +83,7 @@ namespace Datos.DAO
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

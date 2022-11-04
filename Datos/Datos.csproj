@@ -53,10 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\CatagoriaDAO.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\DAO.cs" />
+    <Compile Include="DAO\HWRedDAO.cs" />
+    <Compile Include="DAO\OrdenadorDAO.cs" />
     <Compile Include="DAO\SolicitudDAO.cs" />
     <Compile Include="DAO\DispositivoDAO.cs" />
+    <Compile Include="DAO\PantallaDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Infrastructure\Acceder.cs" />
     <Compile Include="Infrastructure\CATEGORIAS.cs">

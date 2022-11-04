@@ -7,23 +7,23 @@ using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
-    public class SolicitudDAO : DAO<SOLICITUDES>
+    public class CategoriaDAO : DAO<CATEGORIAS>
     {
         private ProyectoMFEEntities contexto;
 
-        public SolicitudDAO()
+        public CategoriaDAO()
         {
             this.contexto = new ProyectoMFEEntities();
         }
 
         public bool Borrar(object id)
         {
-            SOLICITUDES solicitud;
+            CATEGORIAS categoria;
 
             try
             {
-                solicitud = Buscar(id);
-                contexto.SOLICITUDES.Remove(solicitud);
+                categoria = Buscar(id);
+                contexto.CATEGORIAS.Remove(categoria);
                 contexto.SaveChanges();
 
                 return true;
@@ -34,24 +34,24 @@ namespace Datos.DAO
             }
         }
 
-        public SOLICITUDES Buscar(object id)
+        public CATEGORIAS Buscar(object id)
         {
-            return contexto.SOLICITUDES.Where(p => p.ID_USUARIO.Equals(id)).First();
+            return contexto.CATEGORIAS.Where(p => p.ID_CATEGORIA == Convert.ToInt32(id)).First();
         }
 
-        public List<SOLICITUDES> Consultar()
+        public List<CATEGORIAS> Consultar()
         {
-            return contexto.SOLICITUDES.ToList();
+            return contexto.CATEGORIAS.ToList();
         }
 
-        public bool Insertar(SOLICITUDES id)
+        public bool Insertar(CATEGORIAS id)
         {
-            SOLICITUDES solicitud;
+            CATEGORIAS categoria;
 
             try
             {
-                solicitud = Buscar(id);
-                contexto.SOLICITUDES.Add(solicitud);
+                categoria = Buscar(id);
+                contexto.CATEGORIAS.Add(categoria);
                 contexto.SaveChanges();
 
                 return true;
@@ -62,17 +62,16 @@ namespace Datos.DAO
             }
         }
 
-        public bool Modificar(object id, SOLICITUDES nuevo)
+        public bool Modificar(object id, CATEGORIAS nuevo)
         {
-            SOLICITUDES solicitud;
+            CATEGORIAS categoria;
 
             try
             {
-                solicitud = Buscar(id);
+                categoria = Buscar(id);
 
-                solicitud.NUM_SERIE = nuevo.NUM_SERIE;
-                solicitud.ID_USUARIO = nuevo.ID_USUARIO;
-                solicitud.ESTADO = nuevo.ESTADO;
+                categoria.ID_CATEGORIA = nuevo.ID_CATEGORIA;
+                categoria.NOMBRE = nuevo.NOMBRE;
 
                 contexto.SaveChanges();
 

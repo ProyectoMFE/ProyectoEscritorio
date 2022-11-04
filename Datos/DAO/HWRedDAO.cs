@@ -1,29 +1,29 @@
-﻿using System;
+﻿using Datos.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
-    public class CategoriasDAO : DAO<CATEGORIAS>
+    public class HWRedDAO : DAO<HW_RED>
     {
         private ProyectoMFEEntities contexto;
 
-        public CategoriasDAO()
+        public HWRedDAO()
         {
             this.contexto = new ProyectoMFEEntities();
         }
 
-        public bool borrar(object id)
+        public bool Borrar(object id)
         {
-            CATEGORIAS categoria;
+            HW_RED dispositivo;
 
             try
             {
-                categoria = buscar(id);
-                contexto.CATEGORIAS.Remove(categoria);
+                dispositivo = Buscar(id);
+                contexto.HW_RED.Remove(dispositivo);
                 contexto.SaveChanges();
 
                 return true;
@@ -34,24 +34,24 @@ namespace Datos.DAO
             }
         }
 
-        public CATEGORIAS buscar(object id)
+        public HW_RED Buscar(object id)
         {
-            return contexto.CATEGORIAS.Where(p => p.ID_CATEGORIA == Convert.ToInt32(id)).First();
+            return contexto.HW_RED.Where(p => p.NUM_SERIE.Equals(id)).First();
         }
 
-        public List<CATEGORIAS> consultar()
+        public List<HW_RED> Consultar()
         {
-            return contexto.CATEGORIAS.ToList();
+            return contexto.HW_RED.ToList();
         }
 
-        public bool insertar(CATEGORIAS id)
+        public bool Insertar(HW_RED id)
         {
-            CATEGORIAS categoria;
+            HW_RED dispositivo;
 
             try
             {
-                categoria = buscar(id);
-                contexto.CATEGORIAS.Add(categoria);
+                dispositivo = Buscar(id);
+                contexto.HW_RED.Add(dispositivo);
                 contexto.SaveChanges();
 
                 return true;
@@ -62,16 +62,17 @@ namespace Datos.DAO
             }
         }
 
-        public bool modificar(object id, CATEGORIAS nuevo)
+        public bool Modificar(object id, HW_RED nuevo)
         {
-            CATEGORIAS categoria;
+            HW_RED dispositivo;
 
             try
             {
-                categoria = buscar(id);
+                dispositivo = Buscar(id);
 
-                categoria.ID_CATEGORIA = nuevo.ID_CATEGORIA;
-                categoria.NOMBRE = nuevo.NOMBRE;
+                dispositivo.NUM_SERIE = nuevo.NUM_SERIE;
+                dispositivo.VELOCIDAD = nuevo.VELOCIDAD;
+                dispositivo.NUM_PUERTOS = nuevo.NUM_PUERTOS;
 
                 contexto.SaveChanges();
 
