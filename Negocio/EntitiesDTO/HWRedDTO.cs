@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Negocio.EntitiesDTO
 {
-    public class PantallaDTO : CaracteristicaDTO
+    public class HWRedDTO : CaracteristicaDTO
     {
         public string NUM_SERIE { get; set; }
-        public int PULGADAS { get; set; }
+        public int NUM_PUERTOS { get; set; }
+        public int VELOCIDAD { get; set; }
     }
 }

@@ -41,7 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntitiesDTO\CategoriasDTO.cs" />
+    <Compile Include="EntitiesDTO\CaracteristicaDTO.cs" />
+    <Compile Include="EntitiesDTO\CategoriaDTO.cs" />
+    <Compile Include="EntitiesDTO\DispositivoDTO.cs" />
+    <Compile Include="EntitiesDTO\HWRedDTO.cs" />
+    <Compile Include="EntitiesDTO\OrdenadorDTO.cs" />
+    <Compile Include="EntitiesDTO\PantallaDTO.cs" />
+    <Compile Include="EntitiesDTO\SolicitudDTO.cs" />
     <Compile Include="EntitiesDTO\UsuarioDTO.cs" />
     <Compile Include="Management\PruebaDeConexion.cs" />
     <Compile Include="Management\UsuarioManagement.cs" />

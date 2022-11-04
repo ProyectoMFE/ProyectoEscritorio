@@ -1,53 +1,29 @@
-﻿using System;
+﻿using Datos.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
-    public class DispositivoDAO : DAO<DISPOSITIVOS>
+    public class OrdenadorDAO : DAO<ORDENADORES>
     {
         private ProyectoMFEEntities contexto;
 
-        public DispositivoDAO()
+        public OrdenadorDAO()
         {
             this.contexto = new ProyectoMFEEntities();
         }
 
         public bool Borrar(object id)
         {
-            DISPOSITIVOS dispositivo;
+            ORDENADORES dispositivo;
 
             try
             {
                 dispositivo = Buscar(id);
-                contexto.DISPOSITIVOS.Remove(dispositivo);
-                contexto.SaveChanges();
-
-                return true;
-            } catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public DISPOSITIVOS Buscar(object id)
-        {
-            return contexto.DISPOSITIVOS.Where(p => p.NUM_SERIE.Equals(id)).First();
-        }
-
-        public List<DISPOSITIVOS> Consultar()
-        {
-            return contexto.DISPOSITIVOS.ToList();
-        }
-
-        public bool Insertar(DISPOSITIVOS objeto)
-        {
-            try
-            {
-                contexto.DISPOSITIVOS.Add(objeto);
+                contexto.ORDENADORES.Remove(dispositivo);
                 contexto.SaveChanges();
 
                 return true;
@@ -58,20 +34,44 @@ namespace Datos.DAO
             }
         }
 
-        public bool Modificar(object id, DISPOSITIVOS nuevo)
+        public ORDENADORES Buscar(object id)
         {
-            DISPOSITIVOS dispositivo;
+            return contexto.ORDENADORES.Where(p => p.NUM_SERIE.Equals(id)).First();
+        }
+
+        public List<ORDENADORES> Consultar()
+        {
+            return contexto.ORDENADORES.ToList();
+        }
+
+        public bool Insertar(ORDENADORES objeto)
+        {
+            try
+            {
+                contexto.ORDENADORES.Add(objeto);
+                contexto.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Modificar(object id, ORDENADORES nuevo)
+        {
+            ORDENADORES dispositivo;
 
             try
             {
                 dispositivo = Buscar(id);
 
                 dispositivo.NUM_SERIE = nuevo.NUM_SERIE;
-                dispositivo.ID_CATEGORIA = nuevo.ID_CATEGORIA;
-                dispositivo.ESTADO = nuevo.ESTADO;
-                dispositivo.MARCA = nuevo.MARCA;
-                dispositivo.MODELO = nuevo.MODELO;
-                dispositivo.LOCALIZACION = nuevo.LOCALIZACION;
+                dispositivo.RAM = nuevo.RAM;
+                dispositivo.PROCESADOR = nuevo.PROCESADOR;
+                dispositivo.DISCO_PRINCIPAL = nuevo.DISCO_PRINCIPAL;
+                dispositivo.DISCO_SECUNDARIO = nuevo.DISCO_SECUNDARIO;
 
                 contexto.SaveChanges();
 
