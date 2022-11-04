@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Negocio.EntitiesDTO
 {
-    internal interface CaracteristicaDTO
+    public interface CaracteristicaDTO
     {
     }
 }
