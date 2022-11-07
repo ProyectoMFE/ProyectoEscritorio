@@ -12,7 +12,7 @@ namespace Negocio.Management
             CATEGORIAS catOld = new CategoriaDAO().Buscar(id);
             CategoriaDTO categoria = new CategoriaDTO();
 
-            Utils.parse(catOld, ref categoria);
+            ParseNew(catOld, categoria);
 
             return categoria;
         }
@@ -26,7 +26,7 @@ namespace Negocio.Management
             {
                 categoria = new CategoriaDTO();
 
-                Utils.parse(catOld, ref categoria);
+                ParseNew(catOld, categoria);
 
                 categorias.Add(categoria);
             }
@@ -38,7 +38,7 @@ namespace Negocio.Management
         {
             CATEGORIAS catOld = new CATEGORIAS();
 
-            Utils.parse(categoria, ref catOld);
+            ParseOld(categoria, catOld);
 
             return new CategoriaDAO().Modificar(catOld.ID_CATEGORIA, catOld);
         }
@@ -47,18 +47,26 @@ namespace Negocio.Management
         {
             CATEGORIAS catOld = new CATEGORIAS();
 
-            Utils.parse(categoria, ref catOld);
+            ParseOld(categoria, catOld);
 
             return new CategoriaDAO().Insertar(catOld);
         }
 
-        public bool BorrarCategoria(CategoriaDTO categoria)
+        public bool BorrarCategoria(int idCategoria)
         {
-            CATEGORIAS catOld = new CATEGORIAS();
+            return new CategoriaDAO().Borrar(idCategoria);
+        }
 
-            Utils.parse(categoria, ref catOld);
+        private void ParseNew(CATEGORIAS catOld, CategoriaDTO catNew)
+        {
+            catNew.idCategoria = catOld.ID_CATEGORIA;
+            catNew.nombre = catOld.NOMBRE;
+        }
 
-            return new CategoriaDAO().Borrar(catOld);
+        private void ParseOld(CategoriaDTO catNew, CATEGORIAS catOld)
+        {
+            catOld.ID_CATEGORIA = catNew.idCategoria;
+            catOld.NOMBRE = catNew.nombre;
         }
     }
 }

@@ -81,7 +81,9 @@
           <Property Name="CONTRASENIA" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <Association Name="DISPOSITIVOS_fk0">
-          <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+          <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CATEGORIAS">
@@ -301,7 +303,9 @@
           <NavigationProperty Name="SOLICITUDES" Relationship="Self.SOLICITUDES_fk1" FromRole="USUARIOS" ToRole="SOLICITUDES" />
         </EntityType>
         <Association Name="DISPOSITIVOS_fk0">
-          <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+          <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CATEGORIAS">

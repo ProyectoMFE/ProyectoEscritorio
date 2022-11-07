@@ -36,7 +36,14 @@ namespace Datos.DAO
 
         public PANTALLAS Buscar(object id)
         {
-            return contexto.PANTALLAS.Where(p => p.NUM_SERIE.Equals(id)).First();
+            try
+            {
+                return contexto.PANTALLAS.Where(p => p.NUM_SERIE == id).First();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<PANTALLAS> Consultar()

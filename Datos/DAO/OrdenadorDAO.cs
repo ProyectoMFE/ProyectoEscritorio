@@ -36,7 +36,14 @@ namespace Datos.DAO
 
         public ORDENADORES Buscar(object id)
         {
-            return contexto.ORDENADORES.Where(p => p.NUM_SERIE.Equals(id)).First();
+            try
+            {
+                return contexto.ORDENADORES.Where(p => p.NUM_SERIE == id).First();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<ORDENADORES> Consultar()

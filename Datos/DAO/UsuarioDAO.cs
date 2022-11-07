@@ -36,7 +36,14 @@ namespace Datos.DAO
 
         public USUARIOS Buscar(object id)
         {
-            return contexto.USUARIOS.Where(p => p.CORREO.Equals(id)).First();
+            try
+            {
+                return contexto.USUARIOS.Where(p => p.CORREO == id).First();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<USUARIOS> Consultar()
@@ -73,7 +80,6 @@ namespace Datos.DAO
                 usuario.NOMBRE = nuevo.NOMBRE;
                 usuario.CORREO = nuevo.CORREO;
                 usuario.ID_USUARIO = nuevo.ID_USUARIO;
-                usuario.CORREO = nuevo.CORREO;
                 usuario.TIPO = nuevo.TIPO;
 
                 contexto.SaveChanges();

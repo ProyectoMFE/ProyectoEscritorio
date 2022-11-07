@@ -19,9 +19,5 @@ namespace Datos.Infrastructure
         public int VELOCIDAD { get; set; }
     
         public virtual DISPOSITIVOS DISPOSITIVOS { get; set; }
-
-        public class GetType
-        {
-        }
     }
 }

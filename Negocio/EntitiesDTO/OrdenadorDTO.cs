@@ -8,10 +8,10 @@ namespace Negocio.EntitiesDTO
 {
     public class OrdenadorDTO : CaracteristicaDTO
     {
-        public string NUM_SERIE { get; set; }
-        public string PROCESADOR { get; set; }
-        public string RAM { get; set; }
-        public string DISCO_PRINCIPAL { get; set; }
-        public string DISCO_SECUNDARIO { get; set; }
+        public string numSerie { get; set; }
+        public string procesador { get; set; }
+        public string ram { get; set; }
+        public string discoPrincipal { get; set; }
+        public string discoSecundario { get; set; }
     }
 }

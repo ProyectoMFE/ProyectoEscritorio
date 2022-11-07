@@ -36,7 +36,13 @@ namespace Datos.DAO
 
         public CATEGORIAS Buscar(object id)
         {
-            return contexto.CATEGORIAS.Where(p => p.ID_CATEGORIA == Convert.ToInt32(id)).First();
+            try
+            {
+                return contexto.CATEGORIAS.Where(p => p.ID_CATEGORIA == Convert.ToInt32(id)).First();
+            } catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<CATEGORIAS> Consultar()

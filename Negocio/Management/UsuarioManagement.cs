@@ -13,7 +13,7 @@ namespace Negocio.Management
             USUARIOS usuOld = new UsuarioDAO().Buscar(correo);
             UsuarioDTO usuario = new UsuarioDTO();
 
-            Utils.parse(usuOld, ref usuario);
+            ParseNew(usuOld, usuario);
 
             return usuario;
         }
@@ -27,7 +27,7 @@ namespace Negocio.Management
             {
                 usuario = new UsuarioDTO();
 
-                Utils.parse(usuOld, ref usuario);
+                ParseNew(usuOld, usuario);
 
                 usuarios.Add(usuario);
             }
@@ -39,7 +39,7 @@ namespace Negocio.Management
         {
             USUARIOS usuOld = new USUARIOS();
 
-            Utils.parse(usuario, ref usuOld);
+            ParseOld(usuario, usuOld);
 
             return new UsuarioDAO().Modificar(usuOld.ID_USUARIO, usuOld);
         }
@@ -48,7 +48,7 @@ namespace Negocio.Management
         {
             USUARIOS usuOld = new USUARIOS();
 
-            Utils.parse(usuario, ref usuOld);
+            ParseOld(usuario, usuOld);
 
             return new UsuarioDAO().Insertar(usuOld);
         }
@@ -57,9 +57,31 @@ namespace Negocio.Management
         {
             USUARIOS usuOld = new USUARIOS();
 
-            Utils.parse(usuario, ref usuOld);
+            ParseOld(usuario, usuOld);
 
             return new UsuarioDAO().Borrar(usuOld);
+        }
+
+        private void ParseNew(USUARIOS usuOld, UsuarioDTO usuNew)
+        {
+            usuNew.contrasenia = usuOld.CONTRASENIA;
+            usuNew.segundoApellido = usuOld.SEGUNDO_APELLIDO;
+            usuNew.primerApellido = usuOld.PRIMER_APELLIDO;
+            usuNew.nombre = usuOld.NOMBRE;
+            usuNew.correo = usuOld.CORREO;
+            usuNew.idUsuario = usuOld.ID_USUARIO;
+            usuNew.tipo = usuOld.TIPO;
+        }
+
+        private void ParseOld(UsuarioDTO usuNew, USUARIOS usuOld)
+        {
+            usuOld.CONTRASENIA = usuNew.contrasenia;
+            usuOld.SEGUNDO_APELLIDO = usuNew.segundoApellido;
+            usuOld.PRIMER_APELLIDO = usuNew.primerApellido;
+            usuOld.NOMBRE = usuNew.nombre;
+            usuOld.CORREO = usuNew.correo;
+            usuOld.ID_USUARIO = usuNew.idUsuario;
+            usuOld.TIPO = usuNew.tipo;
         }
     }
 }
