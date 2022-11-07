@@ -8,7 +8,7 @@ namespace Negocio.EntitiesDTO
 {
     public class PantallaDTO : CaracteristicaDTO
     {
-        public string NUM_SERIE { get; set; }
-        public int PULGADAS { get; set; }
+        public string numSerie { get; set; }
+        public int pulgadas { get; set; }
     }
 }

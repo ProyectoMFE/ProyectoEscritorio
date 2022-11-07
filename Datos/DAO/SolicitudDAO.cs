@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Datos.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
     public class SolicitudDAO
     {
-        /*
         private ProyectoMFEEntities contexto;
 
         public SolicitudDAO()
@@ -17,16 +16,11 @@ namespace Datos.DAO
             this.contexto = new ProyectoMFEEntities();
         }
 
-        public bool Borrar(object id1, object id2)
+        public bool insertar(string correo, string numSerie)
         {
-            SOLICITUDES solicitud;
-
             try
             {
-                solicitud = Buscar(id1, id2);
-                contexto.SOLICITUDES.Remove(solicitud);
-                contexto.SaveChanges();
-
+                contexto.ACEPTAR_SOLICITUD(correo, numSerie);
                 return true;
             }
             catch (Exception)
@@ -35,62 +29,48 @@ namespace Datos.DAO
             }
         }
 
-        public SOLICITUDES Buscar(object idusu, object iddis)
+        public bool rechazar(string correo, string numSerie)
         {
-            return contexto.SOLICITUDES.Where(p => p.ID_USUARIO.Equals(idusu)).First();
+            try
+            {
+                contexto.RECHAZAR_SOLICITUD(correo, numSerie);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public SOLICITUDES Buscar(object id)
+        public bool finalizar(string correo, string numSerie)
         {
-            throw new NotImplementedException();
+            try
+            {
+                contexto.FINALIZAR_SOLICITUD(correo, numSerie);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool aceptar(string correo, string numSerie)
+        {
+            try
+            {
+                contexto.ACEPTAR_SOLICITUD(correo, numSerie);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public List<SOLICITUDES> Consultar()
         {
             return contexto.SOLICITUDES.ToList();
         }
-
-        public bool Insertar(SOLICITUDES objeto)
-        {
-            try
-            {
-                contexto.SOLICITUDES.Add(objeto);
-                contexto.SaveChanges();
-
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        } 
-
-        public bool Modificar(object id1, object id2, SOLICITUDES nuevo)
-        {
-            SOLICITUDES solicitud;
-
-            try
-            {
-                solicitud = Buscar(id1, id2);
-
-                solicitud.NUM_SERIE = nuevo.NUM_SERIE;
-                solicitud.ID_USUARIO = nuevo.ID_USUARIO;
-                solicitud.ESTADO = nuevo.ESTADO;
-
-                contexto.SaveChanges();
-
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public bool Modificar(object id, SOLICITUDES nuevo)
-        {
-            throw new NotImplementedException();
-        }
-        */
     }
 }

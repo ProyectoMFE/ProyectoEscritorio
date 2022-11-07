@@ -16,7 +16,7 @@ namespace Negocio.Management
             HW_RED disOld = new HWRedDAO().Buscar(numSerie);
             HWRedDTO dispositivo = new HWRedDTO();
 
-            Utils.parse(disOld, ref dispositivo);
+            ParseNew(disOld, dispositivo);
 
             return dispositivo;
         }
@@ -30,7 +30,7 @@ namespace Negocio.Management
             {
                 dispositivo = new HWRedDTO();
 
-                Utils.parse(disOld, ref dispositivo);
+                ParseNew(disOld, dispositivo);
 
                 dispositivos.Add(dispositivo);
             }
@@ -42,7 +42,7 @@ namespace Negocio.Management
         {
             HW_RED disOld = new HW_RED();
 
-            Utils.parse(dispositivo, ref disOld);
+            ParseOld(dispositivo, disOld);
 
             return new HWRedDAO().Modificar(disOld.NUM_SERIE, disOld);
         }
@@ -51,18 +51,28 @@ namespace Negocio.Management
         {
             HW_RED disOld = new HW_RED();
 
-            Utils.parse(dispositivo, ref disOld);
+            ParseOld(dispositivo, disOld);
 
             return new HWRedDAO().Insertar(disOld);
         }
 
-        public bool BorrarHWRed(HWRedDTO dispositivo)
+        public bool BorrarHWRed(string numSerie)
         {
-            HW_RED disOld = new HW_RED();
+            return new HWRedDAO().Borrar(numSerie);
+        }
 
-            Utils.parse(dispositivo, ref disOld);
+        private void ParseNew(HW_RED disOld, HWRedDTO disNew)
+        {
+            disNew.numSerie = disOld.NUM_SERIE;
+            disNew.numPuertos = disOld.NUM_PUERTOS;
+            disNew.velocidad = disOld.VELOCIDAD;
+        }
 
-            return new HWRedDAO().Borrar(disOld);
+        private void ParseOld(HWRedDTO disNew, HW_RED disOld)
+        {
+            disOld.NUM_SERIE = disNew.numSerie;
+            disOld.VELOCIDAD = disNew.velocidad;
+            disOld.NUM_PUERTOS = disNew.numPuertos;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Negocio.Management
             PANTALLAS disOld = new PantallaDAO().Buscar(numSerie);
             PantallaDTO dispositivo = new PantallaDTO();
 
-            Utils.parse(disOld, ref dispositivo);
+            ParseNew(disOld, dispositivo);
 
             return dispositivo;
         }
@@ -30,7 +30,7 @@ namespace Negocio.Management
             {
                 dispositivo = new PantallaDTO();
 
-                Utils.parse(disOld, ref dispositivo);
+                ParseNew(disOld, dispositivo);
 
                 dispositivos.Add(dispositivo);
             }
@@ -42,7 +42,7 @@ namespace Negocio.Management
         {
             PANTALLAS disOld = new PANTALLAS();
 
-            Utils.parse(dispositivo, ref disOld);
+            ParseOld(dispositivo, disOld);
 
             return new PantallaDAO().Modificar(disOld.NUM_SERIE, disOld);
         }
@@ -51,18 +51,26 @@ namespace Negocio.Management
         {
             PANTALLAS disOld = new PANTALLAS();
 
-            Utils.parse(dispositivo, ref disOld);
+            ParseOld(dispositivo, disOld);
 
             return new PantallaDAO().Insertar(disOld);
         }
 
-        public bool BorrarPantalla(PantallaDTO dispositivo)
+        public bool BorrarPantalla(string numSerie)
         {
-            PANTALLAS disOld = new PANTALLAS();
+            return new PantallaDAO().Borrar(numSerie);
+        }
 
-            Utils.parse(dispositivo, ref disOld);
+        private void ParseNew(PANTALLAS disOld, PantallaDTO disNew)
+        {
+            disNew.numSerie = disOld.NUM_SERIE;
+            disNew.pulgadas = disOld.PULGADAS;
+        }
 
-            return new PantallaDAO().Borrar(disOld);
+        private void ParseOld(PantallaDTO disNew, PANTALLAS disOld)
+        {
+            disOld.NUM_SERIE = disNew.numSerie;
+            disOld.PULGADAS = disNew.pulgadas;
         }
     }
 }

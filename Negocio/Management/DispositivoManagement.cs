@@ -16,12 +16,8 @@ namespace Negocio.Management
             DISPOSITIVOS disOld = new DispositivoDAO().Buscar(numSerie);
             DispositivoDTO dispositivo = new DispositivoDTO();
 
-            Utils.parse(disOld, ref dispositivo);
-
-            if (new HWRedDAO().Buscar(numSerie) != null)
-            {
-
-            }
+            ParseNew(disOld, dispositivo);
+            ObtenerCaracteristicas(dispositivo);
 
             return dispositivo;
         }
@@ -35,7 +31,8 @@ namespace Negocio.Management
             {
                 dispositivo = new DispositivoDTO();
 
-                Utils.parse(disOld, ref dispositivo);
+                ParseNew(disOld, dispositivo);
+                ObtenerCaracteristicas(dispositivo);
 
                 dispositivos.Add(dispositivo);
             }
@@ -47,7 +44,8 @@ namespace Negocio.Management
         {
             DISPOSITIVOS disOld = new DISPOSITIVOS();
 
-            Utils.parse(dispositivo, ref disOld);
+            ParseOld(dispositivo, disOld);
+            ModificarCaracteristicas(dispositivo);
 
             return new DispositivoDAO().Modificar(disOld.NUM_SERIE, disOld);
         }
@@ -56,18 +54,88 @@ namespace Negocio.Management
         {
             DISPOSITIVOS disOld = new DISPOSITIVOS();
 
-            Utils.parse(dispositivo, ref disOld);
+            ParseOld(dispositivo, disOld);
+            InsertarCaracteristicas(dispositivo);
 
             return new DispositivoDAO().Insertar(disOld);
         }
 
-        public bool BorrarDispositivo(DispositivoDTO dispositivo)
+        public bool BorrarDispositivo(string numSerie)
         {
-            DISPOSITIVOS disOld = new DISPOSITIVOS();
+            return new DispositivoDAO().Borrar(numSerie);
+        }
 
-            Utils.parse(dispositivo, ref disOld);
+        private void ParseNew(DISPOSITIVOS disOld, DispositivoDTO disNew)
+        {
+            disNew.numSerie = disOld.NUM_SERIE;
+            disNew.idCategoria = disOld.ID_CATEGORIA;
+            disNew.estado = disOld.ESTADO;
+            disNew.marca = disOld.MARCA;
+            disNew.modelo = disOld.MODELO;
+            disNew.localizacion = disOld.LOCALIZACION;
+        }
 
-            return new DispositivoDAO().Borrar(disOld);
+        private void ParseOld(DispositivoDTO disNew, DISPOSITIVOS disOld)
+        {
+            disOld.NUM_SERIE = disNew.numSerie;
+            disOld.ID_CATEGORIA = disNew.idCategoria;
+            disOld.ESTADO = disNew.estado;
+            disOld.MARCA = disNew.marca;
+            disOld.MODELO = disNew.modelo;
+            disOld.LOCALIZACION = disNew.localizacion;
+        }
+
+        private void ObtenerCaracteristicas(DispositivoDTO dispositivo)
+        {
+            string numSerie = dispositivo.numSerie;
+
+            if (new HWRedDAO().Buscar(numSerie) != null)
+            {
+                dispositivo.caracteristica = new HWManagement().ObtenerHWRed(numSerie);
+            }else if (new OrdenadorDAO().Buscar(numSerie) != null)
+            {
+                dispositivo.caracteristica = new OrdenadorManagement().ObtenerOrdenador(numSerie);
+            }
+            else if (new PantallaDAO().Buscar(numSerie) != null)
+            {
+                dispositivo.caracteristica = new PantallaManagement().ObtenerPantalla(numSerie);
+            }
+        }
+
+        private void InsertarCaracteristicas(DispositivoDTO dispositivo)
+        {
+            string numSerie = dispositivo.numSerie;
+
+            if (new HWRedDAO().Buscar(numSerie) != null)
+            {
+                new HWManagement().InsertarHWRed((HWRedDTO) dispositivo.caracteristica);
+            }
+            else if (new OrdenadorDAO().Buscar(numSerie) != null)
+            {
+                new OrdenadorManagement().InsertarOrdenador((OrdenadorDTO) dispositivo.caracteristica);
+            }
+            else if (new PantallaDAO().Buscar(numSerie) != null)
+            {
+                new PantallaManagement().InsertarPantalla((PantallaDTO) dispositivo.caracteristica);
+            }
+        }
+
+        private void ModificarCaracteristicas(DispositivoDTO dispositivo)
+        {
+            string numSerie = dispositivo.numSerie;
+
+            if (new HWRedDAO().Buscar(numSerie) != null)
+            {
+                new HWManagement().ModificarHWRed((HWRedDTO)dispositivo.caracteristica);
+            }
+            else if (new OrdenadorDAO().Buscar(numSerie) != null)
+            {
+                new OrdenadorManagement().ModificarOrdenador((OrdenadorDTO)dispositivo.caracteristica);
+            }
+            else if (new PantallaDAO().Buscar(numSerie) != null)
+            {
+                new PantallaManagement().ModificarPantalla((PantallaDTO)dispositivo.caracteristica);
+            }
         }
     }
 }

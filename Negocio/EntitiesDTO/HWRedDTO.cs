@@ -8,8 +8,8 @@ namespace Negocio.EntitiesDTO
 {
     public class HWRedDTO : CaracteristicaDTO
     {
-        public string NUM_SERIE { get; set; }
-        public int NUM_PUERTOS { get; set; }
-        public int VELOCIDAD { get; set; }
+        public string numSerie { get; set; }
+        public int numPuertos { get; set; }
+        public int velocidad { get; set; }
     }
 }

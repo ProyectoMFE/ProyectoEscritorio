@@ -8,8 +8,8 @@ namespace Negocio.EntitiesDTO
 {
     public class SolicitudDTO
     {
-        public string NUM_SERIE { get; set; }
-        public int ID_USUARIO { get; set; }
-        public string ESTADO { get; set; }
+        public string numSerie { get; set; }
+        public int idUsuario { get; set; }
+        public string estado { get; set; }
     }
 }

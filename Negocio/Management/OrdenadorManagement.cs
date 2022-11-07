@@ -16,7 +16,7 @@ namespace Negocio.Management
             ORDENADORES disOld = new OrdenadorDAO().Buscar(numSerie);
             OrdenadorDTO dispositivo = new OrdenadorDTO();
 
-            Utils.parse(disOld, ref dispositivo);
+            ParseNew(disOld, dispositivo);
 
             return dispositivo;
         }
@@ -30,7 +30,7 @@ namespace Negocio.Management
             {
                 dispositivo = new OrdenadorDTO();
 
-                Utils.parse(disOld, ref dispositivo);
+                ParseNew(disOld, dispositivo);
 
                 dispositivos.Add(dispositivo);
             }
@@ -42,7 +42,7 @@ namespace Negocio.Management
         {
             ORDENADORES disOld = new ORDENADORES();
 
-            Utils.parse(dispositivo, ref disOld);
+            ParseOld(dispositivo, disOld);
 
             return new OrdenadorDAO().Modificar(disOld.NUM_SERIE, disOld);
         }
@@ -51,18 +51,32 @@ namespace Negocio.Management
         {
             ORDENADORES disOld = new ORDENADORES();
 
-            Utils.parse(dispositivo, ref disOld);
+            ParseOld(dispositivo, disOld);
 
             return new OrdenadorDAO().Insertar(disOld);
         }
 
-        public bool BorrarOrdenador(OrdenadorDTO dispositivo)
+        public bool BorrarOrdenador(string numSerie)
         {
-            ORDENADORES disOld = new ORDENADORES();
+            return new OrdenadorDAO().Borrar(numSerie);
+        }
 
-            Utils.parse(dispositivo, ref disOld);
+        private void ParseNew(ORDENADORES disOld, OrdenadorDTO disNew)
+        {
+            disNew.numSerie = disOld.NUM_SERIE;
+            disNew.ram = disOld.RAM;
+            disNew.procesador = disOld.PROCESADOR;
+            disNew.discoPrincipal = disOld.DISCO_PRINCIPAL;
+            disNew.discoSecundario = disOld.DISCO_SECUNDARIO;
+        }
 
-            return new OrdenadorDAO().Borrar(disOld);
+        private void ParseOld(OrdenadorDTO disNew, ORDENADORES disOld)
+        {
+            disOld.NUM_SERIE = disNew.numSerie;
+            disOld.RAM = disNew.ram;
+            disOld.PROCESADOR = disNew.procesador;
+            disOld.DISCO_PRINCIPAL = disNew.discoPrincipal;
+            disOld.DISCO_SECUNDARIO = disNew.discoSecundario;
         }
     }
 }

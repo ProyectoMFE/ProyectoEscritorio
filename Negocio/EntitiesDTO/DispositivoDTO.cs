@@ -8,12 +8,12 @@ namespace Negocio.EntitiesDTO
 {
     public class DispositivoDTO
     {
-        public string NUM_SERIE { get; set; }
-        public int ID_CATEGORIA { get; set; }
-        public string MARCA { get; set; }
-        public string MODELO { get; set; }
-        public string LOCALIZACION { get; set; }
-        public string ESTADO { get; set; }
+        public string numSerie { get; set; }
+        public int idCategoria { get; set; }
+        public string marca { get; set; }
+        public string modelo { get; set; }
+        public string localizacion { get; set; }
+        public string estado { get; set; }
         public CaracteristicaDTO caracteristica { get; set; }
     }
 }

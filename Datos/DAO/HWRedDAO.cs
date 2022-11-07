@@ -36,7 +36,14 @@ namespace Datos.DAO
 
         public HW_RED Buscar(object id)
         {
-            return contexto.HW_RED.Where(p => p.NUM_SERIE.Equals(id)).First();
+            try
+            {
+                return contexto.HW_RED.Where(p => p.NUM_SERIE == id).First();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<HW_RED> Consultar()

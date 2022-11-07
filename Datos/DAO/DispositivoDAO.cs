@@ -35,7 +35,14 @@ namespace Datos.DAO
 
         public DISPOSITIVOS Buscar(object id)
         {
-            return contexto.DISPOSITIVOS.Where(p => p.NUM_SERIE.Equals(id)).First();
+            try
+            {
+                return contexto.DISPOSITIVOS.Where(p => p.NUM_SERIE == id).First();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<DISPOSITIVOS> Consultar()
