@@ -30,32 +30,32 @@ namespace Presentacion.Views
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewPrestamos = new System.Windows.Forms.DataGridView();
             this.btnFiltroLocalización = new System.Windows.Forms.Button();
             this.btnFiltroReiniciar = new System.Windows.Forms.Button();
             this.btnFiltroModelo = new System.Windows.Forms.Button();
             this.btnFiltroMarca = new System.Windows.Forms.Button();
             this.btnFiltroDispositivo = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrestamos)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(695, 160);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(157, 50);
+            this.textBox1.Size = new System.Drawing.Size(157, 20);
             this.textBox1.TabIndex = 16;
             // 
-            // dataGridView1
+            // dataGridViewPrestamos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(82, 235);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 400);
-            this.dataGridView1.TabIndex = 15;
+            this.dataGridViewPrestamos.AllowUserToAddRows = false;
+            this.dataGridViewPrestamos.AllowUserToDeleteRows = false;
+            this.dataGridViewPrestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPrestamos.Location = new System.Drawing.Point(82, 235);
+            this.dataGridViewPrestamos.Name = "dataGridViewPrestamos";
+            this.dataGridViewPrestamos.ReadOnly = true;
+            this.dataGridViewPrestamos.Size = new System.Drawing.Size(770, 400);
+            this.dataGridViewPrestamos.TabIndex = 15;
             // 
             // btnFiltroLocalización
             // 
@@ -133,7 +133,7 @@ namespace Presentacion.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 691);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewPrestamos);
             this.Controls.Add(this.btnFiltroLocalización);
             this.Controls.Add(this.btnFiltroReiniciar);
             this.Controls.Add(this.btnFiltroModelo);
@@ -141,7 +141,7 @@ namespace Presentacion.Views
             this.Controls.Add(this.btnFiltroDispositivo);
             this.Name = "Prestamos";
             this.Text = "Prestamos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrestamos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +150,7 @@ namespace Presentacion.Views
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewPrestamos;
         private System.Windows.Forms.Button btnFiltroLocalización;
         private System.Windows.Forms.Button btnFiltroReiniciar;
         private System.Windows.Forms.Button btnFiltroModelo;
