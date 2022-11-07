@@ -21,14 +21,14 @@ namespace Negocio.Management
             return dispositivo;
         }
 
-        public List<DispositivoDTO> ObtenerDispositivos()
+        public List<HWRedDTO> ObtenerHWReds()
         {
-            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
-            DispositivoDTO dispositivo;
+            List<HWRedDTO> dispositivos = new List<HWRedDTO>();
+            HWRedDTO dispositivo;
 
-            foreach (DISPOSITIVOS disOld in new DispositivoDAO().Consultar())
+            foreach (HW_RED disOld in new HWRedDAO().Consultar())
             {
-                dispositivo = new DispositivoDTO();
+                dispositivo = new HWRedDTO();
 
                 Utils.parse(disOld, ref dispositivo);
 
@@ -38,31 +38,31 @@ namespace Negocio.Management
             return dispositivos;
         }
 
-        public bool ModificarDispositivo(DispositivoDTO dispositivo)
+        public bool ModificarHWRed(HWRedDTO dispositivo)
         {
-            DISPOSITIVOS disOld = new DISPOSITIVOS();
+            HW_RED disOld = new HW_RED();
 
             Utils.parse(dispositivo, ref disOld);
 
-            return new DispositivoDAO().Modificar(disOld.NUM_SERIE, disOld);
+            return new HWRedDAO().Modificar(disOld.NUM_SERIE, disOld);
         }
 
-        public bool InsertarDispositivo(DispositivoDTO dispositivo)
+        public bool InsertarHWRed(HWRedDTO dispositivo)
         {
-            DISPOSITIVOS disOld = new DISPOSITIVOS();
+            HW_RED disOld = new HW_RED();
 
             Utils.parse(dispositivo, ref disOld);
 
-            return new DispositivoDAO().Insertar(disOld);
+            return new HWRedDAO().Insertar(disOld);
         }
 
-        public bool BorrarDispositivo(DispositivoDTO dispositivo)
+        public bool BorrarHWRed(HWRedDTO dispositivo)
         {
-            DISPOSITIVOS disOld = new DISPOSITIVOS();
+            HW_RED disOld = new HW_RED();
 
             Utils.parse(dispositivo, ref disOld);
 
-            return new DispositivoDAO().Borrar(disOld);
+            return new HWRedDAO().Borrar(disOld);
         }
     }
 }

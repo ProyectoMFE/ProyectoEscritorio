@@ -18,6 +18,11 @@ namespace Negocio.Management
 
             Utils.parse(disOld, ref dispositivo);
 
+            if (new HWRedDAO().Buscar(numSerie) != null)
+            {
+
+            }
+
             return dispositivo;
         }
 
