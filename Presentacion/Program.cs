@@ -18,7 +18,7 @@ namespace Presentacion
         static void Main()
         {
             UsuarioManagement bd = new UsuarioManagement();
-            MessageBox.Show(bd.obtenerUsuario("jaime@iescomercio.com").idUsuario.ToString());
+            MessageBox.Show(bd.ObtenerUsuario("jaime@iescomercio.com").idUsuario.ToString());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
