@@ -53,12 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\CatagoriaDAO.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\DAO.cs" />
-    <Compile Include="DAO\SolicitudDAO.cs" />
+    <Compile Include="DAO\HWRedDAO.cs" />
+    <Compile Include="DAO\OrdenadorDAO.cs" />
     <Compile Include="DAO\DispositivoDAO.cs" />
+    <Compile Include="DAO\PantallaDAO.cs" />
+    <Compile Include="DAO\SolicitudDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
-    <Compile Include="Infrastructure\Acceder.cs" />
     <Compile Include="Infrastructure\CATEGORIAS.cs">
       <DependentUpon>ProyectoMFE.tt</DependentUpon>
     </Compile>
@@ -114,6 +116,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Infrastructure\ProyectoMFE.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

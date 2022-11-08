@@ -41,12 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntitiesDTO\CategoriasDTO.cs" />
+    <Compile Include="EntitiesDTO\CaracteristicaDTO.cs" />
+    <Compile Include="EntitiesDTO\CategoriaDTO.cs" />
+    <Compile Include="EntitiesDTO\DispositivoDTO.cs" />
+    <Compile Include="EntitiesDTO\HWRedDTO.cs" />
+    <Compile Include="EntitiesDTO\OrdenadorDTO.cs" />
+    <Compile Include="EntitiesDTO\PantallaDTO.cs" />
+    <Compile Include="EntitiesDTO\SolicitudDTO.cs" />
     <Compile Include="EntitiesDTO\UsuarioDTO.cs" />
-    <Compile Include="Management\PruebaDeConexion.cs" />
+    <Compile Include="Management\CategoriaManagement.cs" />
+    <Compile Include="Management\DispositivoManagement.cs" />
+    <Compile Include="Management\HWManagement.cs" />
+    <Compile Include="Management\OrdenadorManagement.cs" />
+    <Compile Include="Management\PantallaManagement.cs" />
+    <Compile Include="Management\SolicitudManagement.cs" />
     <Compile Include="Management\UsuarioManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datos\Datos.csproj">

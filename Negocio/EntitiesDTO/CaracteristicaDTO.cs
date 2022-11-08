@@ -6,9 +6,5 @@ using System.Threading.Tasks;
 
 namespace Negocio.EntitiesDTO
 {
-    public class PantallaDTO : CaracteristicaDTO
-    {
-        public string numSerie { get; set; }
-        public int pulgadas { get; set; }
-    }
+    public interface CaracteristicaDTO{}
 }

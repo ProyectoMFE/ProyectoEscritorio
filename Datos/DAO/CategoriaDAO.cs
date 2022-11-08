@@ -7,23 +7,23 @@ using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
-    public class UsuarioDAO : DAO<USUARIOS>
+    public class CategoriaDAO : DAO<CATEGORIAS>
     {
         private ProyectoMFEEntities contexto;
 
-        public UsuarioDAO ()
+        public CategoriaDAO()
         {
             this.contexto = new ProyectoMFEEntities();
         }
 
         public bool Borrar(object id)
         {
-            USUARIOS usuario;
+            CATEGORIAS categoria;
 
             try
             {
-                usuario = Buscar(id);
-                contexto.USUARIOS.Remove(usuario);
+                categoria = Buscar(id);
+                contexto.CATEGORIAS.Remove(categoria);
                 contexto.SaveChanges();
 
                 return true;
@@ -34,28 +34,27 @@ namespace Datos.DAO
             }
         }
 
-        public USUARIOS Buscar(object id)
+        public CATEGORIAS Buscar(object id)
         {
             try
             {
-                return contexto.USUARIOS.Where(p => p.CORREO == id).First();
-            }
-            catch (Exception)
+                return contexto.CATEGORIAS.Where(p => p.ID_CATEGORIA == Convert.ToInt32(id)).First();
+            } catch (Exception)
             {
                 return null;
             }
         }
 
-        public List<USUARIOS> Consultar()
+        public List<CATEGORIAS> Consultar()
         {
-            return contexto.USUARIOS.ToList();
+            return contexto.CATEGORIAS.ToList();
         }
 
-        public bool Insertar(USUARIOS objeto)
+        public bool Insertar(CATEGORIAS objeto)
         {
             try
             {
-                contexto.USUARIOS.Add(objeto);
+                contexto.CATEGORIAS.Add(objeto);
                 contexto.SaveChanges();
 
                 return true;
@@ -66,21 +65,16 @@ namespace Datos.DAO
             }
         }
 
-        public bool Modificar(object id, USUARIOS nuevo)
+        public bool Modificar(object id, CATEGORIAS nuevo)
         {
-            USUARIOS usuario;
+            CATEGORIAS categoria;
 
             try
             {
-                usuario = Buscar(id);
+                categoria = Buscar(id);
 
-                usuario.CONTRASENIA = nuevo.CONTRASENIA;
-                usuario.SEGUNDO_APELLIDO = nuevo.SEGUNDO_APELLIDO;
-                usuario.PRIMER_APELLIDO = nuevo.PRIMER_APELLIDO;
-                usuario.NOMBRE = nuevo.NOMBRE;
-                usuario.CORREO = nuevo.CORREO;
-                usuario.ID_USUARIO = nuevo.ID_USUARIO;
-                usuario.TIPO = nuevo.TIPO;
+                categoria.ID_CATEGORIA = nuevo.ID_CATEGORIA;
+                categoria.NOMBRE = nuevo.NOMBRE;
 
                 contexto.SaveChanges();
 

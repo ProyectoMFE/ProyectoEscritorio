@@ -1,43 +1,44 @@
-﻿using System;
+﻿using Datos.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
-    public class DispositivoDAO : DAO<DISPOSITIVOS>
+    public class HWRedDAO : DAO<HW_RED>
     {
         private ProyectoMFEEntities contexto;
 
-        public DispositivoDAO()
+        public HWRedDAO()
         {
             this.contexto = new ProyectoMFEEntities();
         }
 
         public bool Borrar(object id)
         {
-            DISPOSITIVOS dispositivo;
+            HW_RED dispositivo;
 
             try
             {
                 dispositivo = Buscar(id);
-                contexto.DISPOSITIVOS.Remove(dispositivo);
+                contexto.HW_RED.Remove(dispositivo);
                 contexto.SaveChanges();
 
                 return true;
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 return false;
             }
         }
 
-        public DISPOSITIVOS Buscar(object id)
+        public HW_RED Buscar(object id)
         {
             try
             {
-                return contexto.DISPOSITIVOS.Where(p => p.NUM_SERIE == id).First();
+                return contexto.HW_RED.Where(p => p.NUM_SERIE == id).First();
             }
             catch (Exception)
             {
@@ -45,16 +46,16 @@ namespace Datos.DAO
             }
         }
 
-        public List<DISPOSITIVOS> Consultar()
+        public List<HW_RED> Consultar()
         {
-            return contexto.DISPOSITIVOS.ToList();
+            return contexto.HW_RED.ToList();
         }
 
-        public bool Insertar(DISPOSITIVOS objeto)
+        public bool Insertar(HW_RED objeto)
         {
             try
             {
-                contexto.DISPOSITIVOS.Add(objeto);
+                contexto.HW_RED.Add(objeto);
                 contexto.SaveChanges();
 
                 return true;
@@ -65,20 +66,17 @@ namespace Datos.DAO
             }
         }
 
-        public bool Modificar(object id, DISPOSITIVOS nuevo)
+        public bool Modificar(object id, HW_RED nuevo)
         {
-            DISPOSITIVOS dispositivo;
+            HW_RED dispositivo;
 
             try
             {
                 dispositivo = Buscar(id);
 
                 dispositivo.NUM_SERIE = nuevo.NUM_SERIE;
-                dispositivo.ID_CATEGORIA = nuevo.ID_CATEGORIA;
-                dispositivo.ESTADO = nuevo.ESTADO;
-                dispositivo.MARCA = nuevo.MARCA;
-                dispositivo.MODELO = nuevo.MODELO;
-                dispositivo.LOCALIZACION = nuevo.LOCALIZACION;
+                dispositivo.VELOCIDAD = nuevo.VELOCIDAD;
+                dispositivo.NUM_PUERTOS = nuevo.NUM_PUERTOS;
 
                 contexto.SaveChanges();
 

@@ -1,38 +1,76 @@
-﻿using System;
+﻿using Datos.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
-    class SolicitudDAO : DAO<SOLICITUDES>
+    public class SolicitudDAO
     {
         private ProyectoMFEEntities contexto;
-        public bool borrar(object id)
+
+        public SolicitudDAO()
         {
-            throw new NotImplementedException();
+            this.contexto = new ProyectoMFEEntities();
         }
 
-        public SOLICITUDES buscar(object id)
+        public bool insertar(string correo, string numSerie)
         {
-            throw new NotImplementedException();
+            try
+            {
+                contexto.ACEPTAR_SOLICITUD(correo, numSerie);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public List<SOLICITUDES> consultar()
+        public bool rechazar(string correo, string numSerie)
         {
-            throw new NotImplementedException();
+            try
+            {
+                contexto.RECHAZAR_SOLICITUD(correo, numSerie);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public bool insertar(SOLICITUDES id)
+        public bool finalizar(string correo, string numSerie)
         {
-            throw new NotImplementedException();
+            try
+            {
+                contexto.FINALIZAR_SOLICITUD(correo, numSerie);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public bool modificar(object id, SOLICITUDES nuevo)
+        public bool aceptar(string correo, string numSerie)
         {
-            throw new NotImplementedException();
+            try
+            {
+                contexto.ACEPTAR_SOLICITUD(correo, numSerie);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public List<SOLICITUDES> Consultar()
+        {
+            return contexto.SOLICITUDES.ToList();
         }
     }
 }
