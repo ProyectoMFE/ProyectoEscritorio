@@ -29,11 +29,10 @@ namespace Presentacion.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnFiltroDispositivo = new Guna.UI2.WinForms.Guna2Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.boton = new Guna.UI2.WinForms.Guna2Button();
             this.btnFiltroModelo = new Guna.UI2.WinForms.Guna2Button();
             this.btnFiltroMarca = new Guna.UI2.WinForms.Guna2Button();
             this.btnFiltroEstado = new Guna.UI2.WinForms.Guna2Button();
@@ -46,45 +45,26 @@ namespace Presentacion.Views
             this.Localizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reservar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDispositivos)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtBuscar
-            // 
-            this.txtBuscar.BorderRadius = 10;
-            this.txtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBuscar.DefaultText = "";
-            this.txtBuscar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBuscar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBuscar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBuscar.IconRight = global::Presentacion.Properties.Resources.search;
-            this.txtBuscar.Location = new System.Drawing.Point(660, 157);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.PasswordChar = '\0';
-            this.txtBuscar.PlaceholderText = "";
-            this.txtBuscar.SelectedText = "";
-            this.txtBuscar.Size = new System.Drawing.Size(200, 36);
-            this.txtBuscar.TabIndex = 9;
-            // 
             // btnFiltroDispositivo
             // 
-            this.btnFiltroDispositivo.BorderRadius = 10;
-            this.btnFiltroDispositivo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnFiltroDispositivo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnFiltroDispositivo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnFiltroDispositivo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnFiltroDispositivo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
-            this.btnFiltroDispositivo.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnFiltroDispositivo.ForeColor = System.Drawing.Color.White;
-            this.btnFiltroDispositivo.Location = new System.Drawing.Point(90, 50);
-            this.btnFiltroDispositivo.Name = "btnFiltroDispositivo";
-            this.btnFiltroDispositivo.Size = new System.Drawing.Size(120, 45);
-            this.btnFiltroDispositivo.TabIndex = 10;
-            this.btnFiltroDispositivo.Text = "Dispositivo";
+            this.boton.BorderRadius = 10;
+            this.boton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.boton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.boton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.boton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.boton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
+            this.boton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.boton.ForeColor = System.Drawing.Color.White;
+            this.boton.Location = new System.Drawing.Point(90, 50);
+            this.boton.Name = "btnFiltroDispositivo";
+            this.boton.Size = new System.Drawing.Size(120, 45);
+            this.boton.TabIndex = 10;
+            this.boton.Text = "Dispositivo";
+            this.boton.Click += new System.EventHandler(this.btnFiltroDispositivo_Click);
             // 
             // btnFiltroModelo
             // 
@@ -101,6 +81,7 @@ namespace Presentacion.Views
             this.btnFiltroModelo.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroModelo.TabIndex = 11;
             this.btnFiltroModelo.Text = "Modelo";
+            this.btnFiltroModelo.Click += new System.EventHandler(this.btnFiltroModelo_Click);
             // 
             // btnFiltroMarca
             // 
@@ -117,6 +98,7 @@ namespace Presentacion.Views
             this.btnFiltroMarca.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroMarca.TabIndex = 12;
             this.btnFiltroMarca.Text = "Marca";
+            this.btnFiltroMarca.Click += new System.EventHandler(this.btnFiltroMarca_Click);
             // 
             // btnFiltroEstado
             // 
@@ -133,6 +115,7 @@ namespace Presentacion.Views
             this.btnFiltroEstado.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroEstado.TabIndex = 13;
             this.btnFiltroEstado.Text = "Estado";
+            this.btnFiltroEstado.Click += new System.EventHandler(this.btnFiltroEstado_Click);
             // 
             // btnReiniciar
             // 
@@ -149,6 +132,7 @@ namespace Presentacion.Views
             this.btnReiniciar.Size = new System.Drawing.Size(120, 45);
             this.btnReiniciar.TabIndex = 14;
             this.btnReiniciar.Text = "Reiniciar";
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // btnFiltroLocalizacion
             // 
@@ -165,6 +149,7 @@ namespace Presentacion.Views
             this.btnFiltroLocalizacion.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroLocalizacion.TabIndex = 15;
             this.btnFiltroLocalizacion.Text = "Localizacion";
+            this.btnFiltroLocalizacion.Click += new System.EventHandler(this.btnFiltroLocalizacion_Click);
             // 
             // tablaDispositivos
             // 
@@ -172,16 +157,16 @@ namespace Presentacion.Views
             this.tablaDispositivos.AllowUserToDeleteRows = false;
             this.tablaDispositivos.AllowUserToResizeColumns = false;
             this.tablaDispositivos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.tablaDispositivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaDispositivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.tablaDispositivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaDispositivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.tablaDispositivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumSerie,
             this.Marca,
@@ -189,14 +174,14 @@ namespace Presentacion.Views
             this.Localizacion,
             this.Estado,
             this.Reservar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaDispositivos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaDispositivos.DefaultCellStyle = dataGridViewCellStyle15;
             this.tablaDispositivos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tablaDispositivos.Location = new System.Drawing.Point(90, 228);
             this.tablaDispositivos.Name = "tablaDispositivos";
@@ -263,6 +248,27 @@ namespace Presentacion.Views
             this.Reservar.Name = "Reservar";
             this.Reservar.ReadOnly = true;
             // 
+            // txtBuscar
+            // 
+            this.txtBuscar.BorderRadius = 10;
+            this.txtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBuscar.DefaultText = "";
+            this.txtBuscar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBuscar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBuscar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBuscar.IconRight = global::Presentacion.Properties.Resources.search;
+            this.txtBuscar.Location = new System.Drawing.Point(660, 157);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.PasswordChar = '\0';
+            this.txtBuscar.PlaceholderText = "";
+            this.txtBuscar.SelectedText = "";
+            this.txtBuscar.Size = new System.Drawing.Size(200, 36);
+            this.txtBuscar.TabIndex = 9;
+            // 
             // Dispositivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,7 +280,7 @@ namespace Presentacion.Views
             this.Controls.Add(this.btnFiltroEstado);
             this.Controls.Add(this.btnFiltroMarca);
             this.Controls.Add(this.btnFiltroModelo);
-            this.Controls.Add(this.btnFiltroDispositivo);
+            this.Controls.Add(this.boton);
             this.Controls.Add(this.txtBuscar);
             this.Name = "Dispositivos";
             this.Text = "Dispositivos";
@@ -285,7 +291,7 @@ namespace Presentacion.Views
 
         #endregion
         private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
-        private Guna.UI2.WinForms.Guna2Button btnFiltroDispositivo;
+        private Guna.UI2.WinForms.Guna2Button boton;
         private Guna.UI2.WinForms.Guna2Button btnFiltroModelo;
         private Guna.UI2.WinForms.Guna2Button btnFiltroMarca;
         private Guna.UI2.WinForms.Guna2Button btnFiltroEstado;

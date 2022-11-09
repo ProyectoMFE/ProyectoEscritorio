@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio.EntitiesDTO;
 using Negocio.Management;
 
 namespace Presentacion.Views
@@ -16,18 +17,9 @@ namespace Presentacion.Views
         public Prestamos()
         {
             InitializeComponent();
-            List<Button> lista = new List<Button>();
-            Button b1 = new Button();
-            Button b2 = new Button();
-            Button b3 = new Button();
 
-            lista.Add(b1);
-            lista.Add(b2);
-            lista.Add(b3);
-            dataGridViewPrestamos.DataSource = lista;
-            //dataGridViewPrestamos.DataSource = new DispositivoManagement().ObtenerDispositivos();
         }
 
-      
+
     }
 }

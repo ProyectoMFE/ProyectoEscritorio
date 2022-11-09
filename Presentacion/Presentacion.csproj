@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGridViewDisableButtonCell.cs" />
+    <Compile Include="Filtrar.cs" />
     <Compile Include="Views\Administrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +76,30 @@
     </Compile>
     <Compile Include="Views\FiltroDispositivo.Designer.cs">
       <DependentUpon>FiltroDispositivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FiltroEstado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FiltroEstado.Designer.cs">
+      <DependentUpon>FiltroEstado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FiltroLocalizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FiltroLocalizacion.Designer.cs">
+      <DependentUpon>FiltroLocalizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FiltroMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FiltroMarca.Designer.cs">
+      <DependentUpon>FiltroMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FiltroModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FiltroModelo.Designer.cs">
+      <DependentUpon>FiltroModelo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -117,6 +143,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FiltroDispositivo.resx">
       <DependentUpon>FiltroDispositivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FiltroEstado.resx">
+      <DependentUpon>FiltroEstado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FiltroLocalizacion.resx">
+      <DependentUpon>FiltroLocalizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FiltroMarca.resx">
+      <DependentUpon>FiltroMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FiltroModelo.resx">
+      <DependentUpon>FiltroModelo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

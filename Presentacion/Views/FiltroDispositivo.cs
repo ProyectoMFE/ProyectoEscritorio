@@ -14,21 +14,46 @@ namespace Presentacion.Views
 {
     public partial class FiltroDispositivo : Form
     {
-        public FiltroDispositivo()
+
+        public Filtrar filtro { get; set; }
+        public FiltroDispositivo(Filtrar filtro)
         {
             InitializeComponent();
             cargarListBox();
+            this.filtro = filtro;
+            
         }
 
         public void cargarListBox()
         {
             List<CategoriaDTO> listaCategorias = new CategoriaManagement().ObtenerCategorias();
 
-            for (int i = 0; i < listaCategorias.Count; i++)
+            foreach (CategoriaDTO categoria in listaCategorias)
             {
-                CategoriaDTO categoria = listaCategorias[i];                
-               
+                tablaFiltroDispositivos.Rows.Add(categoria.nombre);
             }
+
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            List<string> categorias = new List<string>();
+
+            foreach (DataGridViewRow fila in tablaFiltroDispositivos.Rows)
+            {
+                if (fila.Cells[1].Value != null)
+                {
+                    String categoria = fila.Cells[0].Value.ToString();
+                    categorias.Add(categoria);                   
+                }
+            }
+            filtro.listaParaFiltrar = categorias;
+            this.Close();
         }
     }
 }
