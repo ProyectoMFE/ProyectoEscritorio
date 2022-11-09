@@ -2,6 +2,7 @@
 using Presentacion.Views;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,12 +17,10 @@ namespace Presentacion
         /// </summary>
         [STAThread]
         static void Main()
-        {
-            UsuarioManagement bd = new UsuarioManagement();
-            MessageBox.Show(bd.ObtenerUsuario("jaime@iescomercio.com").idUsuario.ToString());
+        {        
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Programa(new Login()));
         }
     }
 }

@@ -29,149 +29,280 @@ namespace Presentacion.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnFiltroDispositivo = new System.Windows.Forms.Button();
-            this.btnFiltroMarca = new System.Windows.Forms.Button();
-            this.btnFiltroModelo = new System.Windows.Forms.Button();
-            this.btnFiltroEstado = new System.Windows.Forms.Button();
-            this.btnFiltroReiniciar = new System.Windows.Forms.Button();
-            this.btnFiltroLocalización = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.boton = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFiltroModelo = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFiltroMarca = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFiltroEstado = new Guna.UI2.WinForms.Guna2Button();
+            this.btnReiniciar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFiltroLocalizacion = new Guna.UI2.WinForms.Guna2Button();
+            this.tablaDispositivos = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.NumSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Localizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reservar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDispositivos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnFiltroDispositivo
             // 
-            this.btnFiltroDispositivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
-            this.btnFiltroDispositivo.FlatAppearance.BorderSize = 0;
-            this.btnFiltroDispositivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltroDispositivo.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnFiltroDispositivo.ForeColor = System.Drawing.Color.White;
-            this.btnFiltroDispositivo.Location = new System.Drawing.Point(90, 50);
-            this.btnFiltroDispositivo.Name = "btnFiltroDispositivo";
-            this.btnFiltroDispositivo.Size = new System.Drawing.Size(120, 50);
-            this.btnFiltroDispositivo.TabIndex = 0;
-            this.btnFiltroDispositivo.Text = "Dispositivo";
-            this.btnFiltroDispositivo.UseVisualStyleBackColor = false;
-            // 
-            // btnFiltroMarca
-            // 
-            this.btnFiltroMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
-            this.btnFiltroMarca.FlatAppearance.BorderSize = 0;
-            this.btnFiltroMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltroMarca.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnFiltroMarca.ForeColor = System.Drawing.Color.White;
-            this.btnFiltroMarca.Location = new System.Drawing.Point(350, 50);
-            this.btnFiltroMarca.Name = "btnFiltroMarca";
-            this.btnFiltroMarca.Size = new System.Drawing.Size(120, 50);
-            this.btnFiltroMarca.TabIndex = 1;
-            this.btnFiltroMarca.Text = "Marca";
-            this.btnFiltroMarca.UseVisualStyleBackColor = false;
+            this.boton.BorderRadius = 10;
+            this.boton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.boton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.boton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.boton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.boton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
+            this.boton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.boton.ForeColor = System.Drawing.Color.White;
+            this.boton.Location = new System.Drawing.Point(90, 50);
+            this.boton.Name = "btnFiltroDispositivo";
+            this.boton.Size = new System.Drawing.Size(120, 45);
+            this.boton.TabIndex = 10;
+            this.boton.Text = "Dispositivo";
+            this.boton.Click += new System.EventHandler(this.btnFiltroDispositivo_Click);
             // 
             // btnFiltroModelo
             // 
-            this.btnFiltroModelo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
-            this.btnFiltroModelo.FlatAppearance.BorderSize = 0;
-            this.btnFiltroModelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltroModelo.BorderRadius = 10;
+            this.btnFiltroModelo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFiltroModelo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFiltroModelo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFiltroModelo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFiltroModelo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
             this.btnFiltroModelo.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnFiltroModelo.ForeColor = System.Drawing.Color.White;
-            this.btnFiltroModelo.Location = new System.Drawing.Point(220, 50);
+            this.btnFiltroModelo.Location = new System.Drawing.Point(350, 50);
             this.btnFiltroModelo.Name = "btnFiltroModelo";
-            this.btnFiltroModelo.Size = new System.Drawing.Size(120, 50);
-            this.btnFiltroModelo.TabIndex = 2;
+            this.btnFiltroModelo.Size = new System.Drawing.Size(120, 45);
+            this.btnFiltroModelo.TabIndex = 11;
             this.btnFiltroModelo.Text = "Modelo";
-            this.btnFiltroModelo.UseVisualStyleBackColor = false;
+            this.btnFiltroModelo.Click += new System.EventHandler(this.btnFiltroModelo_Click);
+            // 
+            // btnFiltroMarca
+            // 
+            this.btnFiltroMarca.BorderRadius = 10;
+            this.btnFiltroMarca.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFiltroMarca.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFiltroMarca.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFiltroMarca.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFiltroMarca.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
+            this.btnFiltroMarca.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnFiltroMarca.ForeColor = System.Drawing.Color.White;
+            this.btnFiltroMarca.Location = new System.Drawing.Point(220, 50);
+            this.btnFiltroMarca.Name = "btnFiltroMarca";
+            this.btnFiltroMarca.Size = new System.Drawing.Size(120, 45);
+            this.btnFiltroMarca.TabIndex = 12;
+            this.btnFiltroMarca.Text = "Marca";
+            this.btnFiltroMarca.Click += new System.EventHandler(this.btnFiltroMarca_Click);
             // 
             // btnFiltroEstado
             // 
-            this.btnFiltroEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
-            this.btnFiltroEstado.FlatAppearance.BorderSize = 0;
-            this.btnFiltroEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltroEstado.BorderRadius = 10;
+            this.btnFiltroEstado.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFiltroEstado.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFiltroEstado.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFiltroEstado.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFiltroEstado.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
             this.btnFiltroEstado.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnFiltroEstado.ForeColor = System.Drawing.Color.White;
-            this.btnFiltroEstado.Location = new System.Drawing.Point(480, 50);
+            this.btnFiltroEstado.Location = new System.Drawing.Point(610, 50);
             this.btnFiltroEstado.Name = "btnFiltroEstado";
-            this.btnFiltroEstado.Size = new System.Drawing.Size(120, 50);
-            this.btnFiltroEstado.TabIndex = 3;
+            this.btnFiltroEstado.Size = new System.Drawing.Size(120, 45);
+            this.btnFiltroEstado.TabIndex = 13;
             this.btnFiltroEstado.Text = "Estado";
-            this.btnFiltroEstado.UseVisualStyleBackColor = false;
+            this.btnFiltroEstado.Click += new System.EventHandler(this.btnFiltroEstado_Click);
             // 
-            // btnFiltroReiniciar
+            // btnReiniciar
             // 
-            this.btnFiltroReiniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
-            this.btnFiltroReiniciar.FlatAppearance.BorderSize = 0;
-            this.btnFiltroReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltroReiniciar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnFiltroReiniciar.ForeColor = System.Drawing.Color.White;
-            this.btnFiltroReiniciar.Location = new System.Drawing.Point(740, 50);
-            this.btnFiltroReiniciar.Name = "btnFiltroReiniciar";
-            this.btnFiltroReiniciar.Size = new System.Drawing.Size(120, 50);
-            this.btnFiltroReiniciar.TabIndex = 5;
-            this.btnFiltroReiniciar.Text = "Reiniciar";
-            this.btnFiltroReiniciar.UseVisualStyleBackColor = false;
+            this.btnReiniciar.BorderRadius = 10;
+            this.btnReiniciar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReiniciar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReiniciar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReiniciar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReiniciar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
+            this.btnReiniciar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnReiniciar.ForeColor = System.Drawing.Color.White;
+            this.btnReiniciar.Location = new System.Drawing.Point(740, 50);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(120, 45);
+            this.btnReiniciar.TabIndex = 14;
+            this.btnReiniciar.Text = "Reiniciar";
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
-            // btnFiltroLocalización
+            // btnFiltroLocalizacion
             // 
-            this.btnFiltroLocalización.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
-            this.btnFiltroLocalización.FlatAppearance.BorderSize = 0;
-            this.btnFiltroLocalización.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltroLocalización.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnFiltroLocalización.ForeColor = System.Drawing.Color.White;
-            this.btnFiltroLocalización.Location = new System.Drawing.Point(610, 50);
-            this.btnFiltroLocalización.Name = "btnFiltroLocalización";
-            this.btnFiltroLocalización.Size = new System.Drawing.Size(120, 50);
-            this.btnFiltroLocalización.TabIndex = 6;
-            this.btnFiltroLocalización.Text = "Localización";
-            this.btnFiltroLocalización.UseVisualStyleBackColor = false;
+            this.btnFiltroLocalizacion.BorderRadius = 10;
+            this.btnFiltroLocalizacion.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFiltroLocalizacion.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFiltroLocalizacion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFiltroLocalizacion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFiltroLocalizacion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
+            this.btnFiltroLocalizacion.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnFiltroLocalizacion.ForeColor = System.Drawing.Color.White;
+            this.btnFiltroLocalizacion.Location = new System.Drawing.Point(480, 50);
+            this.btnFiltroLocalizacion.Name = "btnFiltroLocalizacion";
+            this.btnFiltroLocalizacion.Size = new System.Drawing.Size(120, 45);
+            this.btnFiltroLocalizacion.TabIndex = 15;
+            this.btnFiltroLocalizacion.Text = "Localizacion";
+            this.btnFiltroLocalizacion.Click += new System.EventHandler(this.btnFiltroLocalizacion_Click);
             // 
-            // dataGridView1
+            // tablaDispositivos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(90, 229);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 400);
-            this.dataGridView1.TabIndex = 7;
+            this.tablaDispositivos.AllowUserToAddRows = false;
+            this.tablaDispositivos.AllowUserToDeleteRows = false;
+            this.tablaDispositivos.AllowUserToResizeColumns = false;
+            this.tablaDispositivos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.tablaDispositivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaDispositivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.tablaDispositivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NumSerie,
+            this.Marca,
+            this.Modelo,
+            this.Localizacion,
+            this.Estado,
+            this.Reservar});
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaDispositivos.DefaultCellStyle = dataGridViewCellStyle15;
+            this.tablaDispositivos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tablaDispositivos.Location = new System.Drawing.Point(90, 228);
+            this.tablaDispositivos.Name = "tablaDispositivos";
+            this.tablaDispositivos.ReadOnly = true;
+            this.tablaDispositivos.RowHeadersVisible = false;
+            this.tablaDispositivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.tablaDispositivos.Size = new System.Drawing.Size(770, 374);
+            this.tablaDispositivos.TabIndex = 16;
+            this.tablaDispositivos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.tablaDispositivos.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.tablaDispositivos.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.tablaDispositivos.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.tablaDispositivos.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.tablaDispositivos.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.tablaDispositivos.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tablaDispositivos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.tablaDispositivos.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tablaDispositivos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tablaDispositivos.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.tablaDispositivos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tablaDispositivos.ThemeStyle.HeaderStyle.Height = 23;
+            this.tablaDispositivos.ThemeStyle.ReadOnly = true;
+            this.tablaDispositivos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.tablaDispositivos.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tablaDispositivos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tablaDispositivos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.tablaDispositivos.ThemeStyle.RowsStyle.Height = 22;
+            this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // NumSerie
+            // 
+            this.NumSerie.HeaderText = "Dispositivo";
+            this.NumSerie.Name = "NumSerie";
+            this.NumSerie.ReadOnly = true;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            // 
+            // Modelo
+            // 
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            // 
+            // Localizacion
+            // 
+            this.Localizacion.HeaderText = "Localizacion";
+            this.Localizacion.Name = "Localizacion";
+            this.Localizacion.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
+            // Reservar
+            // 
+            this.Reservar.HeaderText = "Reservar";
+            this.Reservar.Name = "Reservar";
+            this.Reservar.ReadOnly = true;
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(703, 154);
+            this.txtBuscar.BorderRadius = 10;
+            this.txtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBuscar.DefaultText = "";
+            this.txtBuscar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBuscar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBuscar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBuscar.IconRight = global::Presentacion.Properties.Resources.search;
+            this.txtBuscar.Location = new System.Drawing.Point(660, 157);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(157, 20);
-            this.txtBuscar.TabIndex = 8;
+            this.txtBuscar.PasswordChar = '\0';
+            this.txtBuscar.PlaceholderText = "";
+            this.txtBuscar.SelectedText = "";
+            this.txtBuscar.Size = new System.Drawing.Size(200, 36);
+            this.txtBuscar.TabIndex = 9;
             // 
             // Dispositivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 691);
-            this.Controls.Add(this.txtBuscar);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnFiltroLocalización);
-            this.Controls.Add(this.btnFiltroReiniciar);
+            this.Controls.Add(this.tablaDispositivos);
+            this.Controls.Add(this.btnFiltroLocalizacion);
+            this.Controls.Add(this.btnReiniciar);
             this.Controls.Add(this.btnFiltroEstado);
-            this.Controls.Add(this.btnFiltroModelo);
             this.Controls.Add(this.btnFiltroMarca);
-            this.Controls.Add(this.btnFiltroDispositivo);
+            this.Controls.Add(this.btnFiltroModelo);
+            this.Controls.Add(this.boton);
+            this.Controls.Add(this.txtBuscar);
             this.Name = "Dispositivos";
             this.Text = "Dispositivos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDispositivos)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnFiltroDispositivo;
-        private System.Windows.Forms.Button btnFiltroMarca;
-        private System.Windows.Forms.Button btnFiltroModelo;
-        private System.Windows.Forms.Button btnFiltroEstado;
-        private System.Windows.Forms.Button btnFiltroReiniciar;
-        private System.Windows.Forms.Button btnFiltroLocalización;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
+        private Guna.UI2.WinForms.Guna2Button boton;
+        private Guna.UI2.WinForms.Guna2Button btnFiltroModelo;
+        private Guna.UI2.WinForms.Guna2Button btnFiltroMarca;
+        private Guna.UI2.WinForms.Guna2Button btnFiltroEstado;
+        private Guna.UI2.WinForms.Guna2Button btnReiniciar;
+        private Guna.UI2.WinForms.Guna2Button btnFiltroLocalizacion;
+        private Guna.UI2.WinForms.Guna2DataGridView tablaDispositivos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumSerie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Localizacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewButtonColumn Reservar;
     }
 }
