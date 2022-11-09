@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\DAO.cs" />
+    <Compile Include="DAO\HistoricoSolicitudesDAO.cs" />
     <Compile Include="DAO\HWRedDAO.cs" />
     <Compile Include="DAO\OrdenadorDAO.cs" />
     <Compile Include="DAO\DispositivoDAO.cs" />
