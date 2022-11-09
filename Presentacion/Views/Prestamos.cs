@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio.EntitiesDTO;
+using Negocio.Management;
 
 namespace Presentacion.Views
 {
@@ -15,8 +17,9 @@ namespace Presentacion.Views
         public Prestamos()
         {
             InitializeComponent();
+
         }
 
-      
+
     }
 }

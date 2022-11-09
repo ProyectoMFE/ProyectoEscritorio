@@ -38,7 +38,7 @@ namespace Datos.DAO
         {
             try
             {
-                return contexto.CATEGORIAS.Where(p => p.ID_CATEGORIA == Convert.ToInt32(id)).First();
+                return contexto.CATEGORIAS.Where(p => p.ID_CATEGORIA == (int)id).First();
             } catch (Exception)
             {
                 return null;

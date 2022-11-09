@@ -13,7 +13,7 @@ namespace Negocio.Management
     {
         public bool insertarSolicitud(string correo, string numSerie)
         {
-            return 
+            return false;
         }
     }
 }
