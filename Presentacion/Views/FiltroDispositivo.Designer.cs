@@ -31,7 +31,7 @@ namespace Presentacion.Views
         {
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.checkedListBoxDispositivos = new System.Windows.Forms.CheckedListBox();
+            this.guna2PanelDispositivos = new Guna.UI2.WinForms.Guna2Panel();
             this.SuspendLayout();
             // 
             // btnCerrar
@@ -62,20 +62,19 @@ namespace Presentacion.Views
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = false;
             // 
-            // checkedListBoxDispositivos
+            // guna2PanelDispositivos
             // 
-            this.checkedListBoxDispositivos.FormattingEnabled = true;
-            this.checkedListBoxDispositivos.Location = new System.Drawing.Point(142, 98);
-            this.checkedListBoxDispositivos.Name = "checkedListBoxDispositivos";
-            this.checkedListBoxDispositivos.Size = new System.Drawing.Size(202, 154);
-            this.checkedListBoxDispositivos.TabIndex = 3;
+            this.guna2PanelDispositivos.Location = new System.Drawing.Point(100, 96);
+            this.guna2PanelDispositivos.Name = "guna2PanelDispositivos";
+            this.guna2PanelDispositivos.Size = new System.Drawing.Size(268, 248);
+            this.guna2PanelDispositivos.TabIndex = 3;
             // 
             // FiltroDispositivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
-            this.Controls.Add(this.checkedListBoxDispositivos);
+            this.Controls.Add(this.guna2PanelDispositivos);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.btnCerrar);
             this.Name = "FiltroDispositivo";
@@ -88,6 +87,6 @@ namespace Presentacion.Views
 
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.CheckedListBox checkedListBoxDispositivos;
+        private Guna.UI2.WinForms.Guna2Panel guna2PanelDispositivos;
     }
 }

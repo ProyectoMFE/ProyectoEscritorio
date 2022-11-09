@@ -27,7 +27,7 @@ namespace Presentacion.Views
             for (int i = 0; i < listaCategorias.Count; i++)
             {
                 CategoriaDTO categoria = listaCategorias[i];                
-                checkedListBoxDispositivos.Items.Add(categoria.nombre);
+               
             }
         }
     }
