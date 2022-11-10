@@ -36,29 +36,24 @@ namespace Presentacion.Views
                 CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
 
 
-                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion, "Reservar");
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Reservar");
 
             }
         }
 
         private void RellenarTablaFiltradaPorDispositivos(List<string> categoriasSelecionadas)
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().ObtenerDispositivos();
+            List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorCategoria(categoriasSelecionadas);
 
             tablaDispositivos.Rows.Clear();
             foreach (DispositivoDTO dispositivo in dispositivos)
             {
                 string estado = formatearEstado(dispositivo.estado);
 
-                CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                foreach (string item in categoriasSelecionadas)
-                {
-                    if (item.Equals(categoria.nombre))
-                    {
-                        tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);
-                    }
 
-                }
+                CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado,  "Reservar");
+
             }
         }
 
@@ -72,7 +67,7 @@ namespace Presentacion.Views
                 string estado = formatearEstado(dispositivo.estado);
 
                 CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);               
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado,  "Reservar");
             }
         }
 
@@ -86,7 +81,7 @@ namespace Presentacion.Views
                 string estado = formatearEstado(dispositivo.estado);
 
                 CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);               
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Reservar");
             }
         }
 
@@ -100,8 +95,8 @@ namespace Presentacion.Views
                 string estado = formatearEstado(dispositivo.estado);
 
                 CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);
-               
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado,  "Reservar");
+
             }
         }
 
@@ -115,7 +110,7 @@ namespace Presentacion.Views
                 string estado = formatearEstado(dispositivo.estado);
 
                 CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);               
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado,  "Reservar");
             }
         }
 
@@ -212,6 +207,49 @@ namespace Presentacion.Views
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
             RellenarTabla();
+        }
+
+
+        private void tablaDispositivos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow fila = tablaDispositivos.Rows[e.RowIndex];
+            string estado = fila.Cells[5].Value.ToString();
+          
+            if (!estado.Equals("Disponible"))
+            {
+                MessageBox.Show(this, "Este dispositivo no se puede reservar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string numSerie = fila.Cells[0].Value.ToString();
+                Reservar(numSerie);
+            }
+        }
+
+        private void Reservar(string numSerie)
+        {
+            Dispositivo dispositivo = new Dispositivo(numSerie);
+
+            dispositivo.ShowDialog();
+        }
+
+        private void tablaDispositivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.ColumnIndex == 6)
+            {
+                DataGridViewRow fila = tablaDispositivos.Rows[e.RowIndex];
+                string estado = fila.Cells[5].Value.ToString();
+                if (!estado.Equals("Disponible"))
+                {
+                    MessageBox.Show(this, "Este dispositivo no se puede reservar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string numSerie = fila.Cells[0].Value.ToString();
+                    Reservar(numSerie);
+                }
+            }
         }
     }
 }

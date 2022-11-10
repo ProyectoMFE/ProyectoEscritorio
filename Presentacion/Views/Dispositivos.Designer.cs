@@ -29,9 +29,9 @@ namespace Presentacion.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.boton = new Guna.UI2.WinForms.Guna2Button();
             this.btnFiltroModelo = new Guna.UI2.WinForms.Guna2Button();
             this.btnFiltroMarca = new Guna.UI2.WinForms.Guna2Button();
@@ -39,17 +39,18 @@ namespace Presentacion.Views
             this.btnReiniciar = new Guna.UI2.WinForms.Guna2Button();
             this.btnFiltroLocalizacion = new Guna.UI2.WinForms.Guna2Button();
             this.tablaDispositivos = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Localizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reservar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnReservar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDispositivos)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnFiltroDispositivo
+            // boton
             // 
             this.boton.BorderRadius = 10;
             this.boton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -60,7 +61,7 @@ namespace Presentacion.Views
             this.boton.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.boton.ForeColor = System.Drawing.Color.White;
             this.boton.Location = new System.Drawing.Point(90, 50);
-            this.boton.Name = "btnFiltroDispositivo";
+            this.boton.Name = "boton";
             this.boton.Size = new System.Drawing.Size(120, 45);
             this.boton.TabIndex = 10;
             this.boton.Text = "Dispositivo";
@@ -157,31 +158,32 @@ namespace Presentacion.Views
             this.tablaDispositivos.AllowUserToDeleteRows = false;
             this.tablaDispositivos.AllowUserToResizeColumns = false;
             this.tablaDispositivos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.tablaDispositivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaDispositivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.tablaDispositivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaDispositivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tablaDispositivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.NumSerie,
             this.Marca,
             this.Modelo,
             this.Localizacion,
             this.Estado,
-            this.Reservar});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaDispositivos.DefaultCellStyle = dataGridViewCellStyle15;
+            this.btnReservar});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaDispositivos.DefaultCellStyle = dataGridViewCellStyle3;
             this.tablaDispositivos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tablaDispositivos.Location = new System.Drawing.Point(90, 228);
             this.tablaDispositivos.Name = "tablaDispositivos";
@@ -211,6 +213,36 @@ namespace Presentacion.Views
             this.tablaDispositivos.ThemeStyle.RowsStyle.Height = 22;
             this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.tablaDispositivos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaDispositivos_CellContentClick);
+            this.tablaDispositivos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaDispositivos_CellContentDoubleClick);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.BorderRadius = 10;
+            this.txtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBuscar.DefaultText = "";
+            this.txtBuscar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBuscar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBuscar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBuscar.IconRight = global::Presentacion.Properties.Resources.search;
+            this.txtBuscar.Location = new System.Drawing.Point(660, 157);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.PasswordChar = '\0';
+            this.txtBuscar.PlaceholderText = "";
+            this.txtBuscar.SelectedText = "";
+            this.txtBuscar.Size = new System.Drawing.Size(200, 36);
+            this.txtBuscar.TabIndex = 9;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
             // NumSerie
             // 
@@ -242,32 +274,11 @@ namespace Presentacion.Views
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
             // 
-            // Reservar
+            // btnReservar
             // 
-            this.Reservar.HeaderText = "Reservar";
-            this.Reservar.Name = "Reservar";
-            this.Reservar.ReadOnly = true;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.BorderRadius = 10;
-            this.txtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBuscar.DefaultText = "";
-            this.txtBuscar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBuscar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBuscar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBuscar.IconRight = global::Presentacion.Properties.Resources.search;
-            this.txtBuscar.Location = new System.Drawing.Point(660, 157);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.PasswordChar = '\0';
-            this.txtBuscar.PlaceholderText = "";
-            this.txtBuscar.SelectedText = "";
-            this.txtBuscar.Size = new System.Drawing.Size(200, 36);
-            this.txtBuscar.TabIndex = 9;
+            this.btnReservar.HeaderText = "Reservar";
+            this.btnReservar.Name = "btnReservar";
+            this.btnReservar.ReadOnly = true;
             // 
             // Dispositivos
             // 
@@ -298,11 +309,12 @@ namespace Presentacion.Views
         private Guna.UI2.WinForms.Guna2Button btnReiniciar;
         private Guna.UI2.WinForms.Guna2Button btnFiltroLocalizacion;
         private Guna.UI2.WinForms.Guna2DataGridView tablaDispositivos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumSerie;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Localizacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewButtonColumn Reservar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnReservar;
     }
 }

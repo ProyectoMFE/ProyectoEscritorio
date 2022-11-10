@@ -65,6 +65,20 @@ namespace Negocio.Management
             return new DispositivoDAO().Borrar(numSerie);
         }
 
+        public List<DispositivoDTO> obtenerDispositivosPorCategoria(List<string> categorias)
+        {
+            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
+            List<DISPOSITIVOS> dispositivosBD = new DispositivoDAO().ObtenerDispositivosPorCategoria(categorias);
+
+            foreach (DISPOSITIVOS DISPOSITIVO in dispositivosBD)
+            {
+                DispositivoDTO dispositivo = new DispositivoDTO();
+                ParseNew(DISPOSITIVO, dispositivo);
+                dispositivos.Add(dispositivo);
+            }
+            return dispositivos;
+        }
+
         public List<DispositivoDTO> obtenerDispositivosPorMarca(List<string>marcas)
         {
             List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();

@@ -90,6 +90,34 @@ namespace Datos.DAO
             }
         }
  
+        public List<DISPOSITIVOS> ObtenerDispositivosPorCategoria(List<string> categorias)
+        {
+            List<DISPOSITIVOS> listaDispositivos = new List<DISPOSITIVOS>();
+            List<DISPOSITIVOS> listaDispositivosPorCategoria = null;           
+
+            try
+            {
+                foreach (string categoria in categorias)
+                {
+                    listaDispositivosPorCategoria =  contexto.DISPOSITIVOS.ToList();
+
+                    foreach (DISPOSITIVOS dispositivo in listaDispositivosPorCategoria)
+                    {
+                        if (dispositivo.CATEGORIAS.NOMBRE.Equals(categoria))
+                        {
+                            listaDispositivos.Add(dispositivo);
+                        }
+                  
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return listaDispositivos;
+
+        }
+
         public List<DISPOSITIVOS> ObtenerDispositivosPorMarca(List<string>marcas)
         {
             List<DISPOSITIVOS> listaDispositivos = new List<DISPOSITIVOS>();

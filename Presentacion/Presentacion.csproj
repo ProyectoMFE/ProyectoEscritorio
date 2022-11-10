@@ -55,13 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataGridViewDisableButtonCell.cs" />
     <Compile Include="Filtrar.cs" />
     <Compile Include="Views\Administrador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Administrador.Designer.cs">
       <DependentUpon>Administrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dispositivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Dispositivo.Designer.cs">
+      <DependentUpon>Dispositivo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Dispositivos.cs">
       <SubType>Form</SubType>
@@ -137,6 +142,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Administrador.resx">
       <DependentUpon>Administrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Dispositivo.resx">
+      <DependentUpon>Dispositivo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Dispositivos.resx">
       <DependentUpon>Dispositivos.cs</DependentUpon>
