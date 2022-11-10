@@ -89,5 +89,90 @@ namespace Datos.DAO
                 return false;
             }
         }
+ 
+        public List<DISPOSITIVOS> ObtenerDispositivosPorMarca(List<string>marcas)
+        {
+            List<DISPOSITIVOS> listaDispositivos = new List<DISPOSITIVOS>();
+            List<DISPOSITIVOS> listaDispositivosPorMarca=null;
+
+            try
+            {
+                foreach (string marca in marcas)
+                {
+                    listaDispositivosPorMarca = contexto.DISPOSITIVOS.Where(p => p.MARCA == marca).ToList();
+                    foreach (DISPOSITIVOS dispositivo in listaDispositivosPorMarca)
+                    {
+                        listaDispositivos.Add(dispositivo);
+                    }
+                }
+            }
+            catch (Exception)
+            {            
+            }
+            return listaDispositivos;
+        }
+        public List<DISPOSITIVOS> ObtenerDispositivosPorModelo(List<string> modelos)
+        {
+            List<DISPOSITIVOS> listaDispositivos = new List<DISPOSITIVOS>();
+            List<DISPOSITIVOS> listaDispositivosPorModelo = null;
+
+            try
+            {
+                foreach (string modelo in modelos)
+                {
+                    listaDispositivosPorModelo = contexto.DISPOSITIVOS.Where(p => p.MODELO == modelo).ToList();
+                    foreach (DISPOSITIVOS dispositivo in listaDispositivosPorModelo)
+                    {
+                        listaDispositivos.Add(dispositivo);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return listaDispositivos;
+        }
+        public List<DISPOSITIVOS> ObtenerDispositivosPorLocalizaciones(List<string> localizaciones)
+        {
+            List<DISPOSITIVOS> listaDispositivos = new List<DISPOSITIVOS>();
+            List<DISPOSITIVOS> listaDispositivosPorLocalizacion = null;
+
+            try
+            {
+                foreach (string localizacion in localizaciones)
+                {
+                    listaDispositivosPorLocalizacion = contexto.DISPOSITIVOS.Where(p => p.LOCALIZACION == localizacion).ToList();
+                    foreach (DISPOSITIVOS dispositivo in listaDispositivosPorLocalizacion)
+                    {
+                        listaDispositivos.Add(dispositivo);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return listaDispositivos;
+        }
+        public List<DISPOSITIVOS> ObtenerDispositivosPorEstados(List<string> estados)
+        {
+            List<DISPOSITIVOS> listaDispositivos = new List<DISPOSITIVOS>();
+            List<DISPOSITIVOS> listaDispositivosPorEstado = null;
+
+            try
+            {
+                foreach (string estado in estados)
+                {
+                    listaDispositivosPorEstado = contexto.DISPOSITIVOS.Where(p => p.ESTADO == estado).ToList();
+                    foreach (DISPOSITIVOS dispositivo in listaDispositivosPorEstado)
+                    {
+                        listaDispositivos.Add(dispositivo);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return listaDispositivos;
+        }
     }
 }

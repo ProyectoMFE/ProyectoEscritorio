@@ -28,7 +28,7 @@ namespace Presentacion.Views
         {
             List<DispositivoDTO> dispositivos = new DispositivoManagement().ObtenerDispositivos();
 
-            int i = 0;
+
             foreach (DispositivoDTO dispositivo in dispositivos)
             {
                 string estado = formatearEstado(dispositivo.estado);
@@ -36,8 +36,8 @@ namespace Presentacion.Views
                 CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
 
 
-                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion,"Reservar");               
-              
+                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion, "Reservar");
+
             }
         }
 
@@ -64,7 +64,7 @@ namespace Presentacion.Views
 
         private void RellenarTablaFiltradaPorMarcas(List<string> marcasSelecionadas)
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().ObtenerDispositivos();
+            List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorMarca(marcasSelecionadas);
 
             tablaDispositivos.Rows.Clear();
             foreach (DispositivoDTO dispositivo in dispositivos)
@@ -72,20 +72,13 @@ namespace Presentacion.Views
                 string estado = formatearEstado(dispositivo.estado);
 
                 CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                foreach (string item in marcasSelecionadas)
-                {
-                    if (item.Equals(dispositivo.marca))
-                    {
-                        tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);
-                    }
-
-                }
+                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);               
             }
         }
 
         private void RellenarTablaFiltradaPorModelo(List<string> modelosSelecionados)
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().ObtenerDispositivos();
+            List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorModelo(modelosSelecionados);
 
             tablaDispositivos.Rows.Clear();
             foreach (DispositivoDTO dispositivo in dispositivos)
@@ -93,20 +86,13 @@ namespace Presentacion.Views
                 string estado = formatearEstado(dispositivo.estado);
 
                 CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                foreach (string item in modelosSelecionados)
-                {
-                    if (item.Equals(dispositivo.modelo))
-                    {
-                        tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);
-                    }
-
-                }
+                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);               
             }
         }
 
         private void RellenarTablaFiltradaPorLocalizacion(List<string> localizacionesSelecionadas)
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().ObtenerDispositivos();
+            List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorLocalizacion(localizacionesSelecionadas);
 
             tablaDispositivos.Rows.Clear();
             foreach (DispositivoDTO dispositivo in dispositivos)
@@ -114,20 +100,14 @@ namespace Presentacion.Views
                 string estado = formatearEstado(dispositivo.estado);
 
                 CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                foreach (string item in localizacionesSelecionadas)
-                {
-                    if (item.Equals(dispositivo.localizacion))
-                    {
-                        tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);
-                    }
-
-                }
+                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);
+               
             }
         }
 
         private void RellenarTablaFiltradaPorEstado(List<string> estadosSelecionados)
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().ObtenerDispositivos();
+            List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorEstado(estadosSelecionados);
 
             tablaDispositivos.Rows.Clear();
             foreach (DispositivoDTO dispositivo in dispositivos)
@@ -135,14 +115,7 @@ namespace Presentacion.Views
                 string estado = formatearEstado(dispositivo.estado);
 
                 CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                foreach (string item in estadosSelecionados)
-                {
-                    if (item.Equals(estado))
-                    {
-                        tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);
-                    }
-
-                }
+                tablaDispositivos.Rows.Add(categoria.nombre, dispositivo.marca, dispositivo.modelo, estado, dispositivo.localizacion);               
             }
         }
 

@@ -65,6 +65,59 @@ namespace Negocio.Management
             return new DispositivoDAO().Borrar(numSerie);
         }
 
+        public List<DispositivoDTO> obtenerDispositivosPorMarca(List<string>marcas)
+        {
+            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
+            List<DISPOSITIVOS> dispositivosBD = new DispositivoDAO().ObtenerDispositivosPorMarca(marcas);
+
+            foreach (DISPOSITIVOS DISPOSITIVO in dispositivosBD)
+            {
+                DispositivoDTO dispositivo = new DispositivoDTO();
+                ParseNew(DISPOSITIVO, dispositivo);
+                dispositivos.Add(dispositivo);
+            }
+            return dispositivos;
+        }
+        public List<DispositivoDTO> obtenerDispositivosPorModelo(List<string> modelos)
+        {
+            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
+            List<DISPOSITIVOS> dispositivosBD = new DispositivoDAO().ObtenerDispositivosPorModelo(modelos);
+
+            foreach (DISPOSITIVOS DISPOSITIVO in dispositivosBD)
+            {
+                DispositivoDTO dispositivo = new DispositivoDTO();
+                ParseNew(DISPOSITIVO, dispositivo);
+                dispositivos.Add(dispositivo);
+            }
+            return dispositivos;
+        }
+        public List<DispositivoDTO> obtenerDispositivosPorLocalizacion(List<string> localizaciones)
+        {
+            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
+            List<DISPOSITIVOS> dispositivosBD = new DispositivoDAO().ObtenerDispositivosPorLocalizaciones(localizaciones);
+
+            foreach (DISPOSITIVOS DISPOSITIVO in dispositivosBD)
+            {
+                DispositivoDTO dispositivo = new DispositivoDTO();
+                ParseNew(DISPOSITIVO, dispositivo);
+                dispositivos.Add(dispositivo);
+            }
+            return dispositivos;
+        }
+        public List<DispositivoDTO> obtenerDispositivosPorEstado(List<string> estados)
+        {
+            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
+            List<DISPOSITIVOS> dispositivosBD = new DispositivoDAO().ObtenerDispositivosPorEstados(estados);
+
+            foreach (DISPOSITIVOS DISPOSITIVO in dispositivosBD)
+            {
+                DispositivoDTO dispositivo = new DispositivoDTO();
+                ParseNew(DISPOSITIVO, dispositivo);
+                dispositivos.Add(dispositivo);
+            }
+            return dispositivos;
+        }
+
         private void ParseNew(DISPOSITIVOS disOld, DispositivoDTO disNew)
         {
             disNew.numSerie = disOld.NUM_SERIE;
