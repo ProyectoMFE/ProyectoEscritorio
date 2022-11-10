@@ -41,7 +41,7 @@ namespace Datos.DAO
             }
             catch (Exception)
             {
-                return null;
+                return new DISPOSITIVOS();
             }
         }
 

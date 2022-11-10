@@ -44,6 +44,7 @@
     <Compile Include="EntitiesDTO\CaracteristicaDTO.cs" />
     <Compile Include="EntitiesDTO\CategoriaDTO.cs" />
     <Compile Include="EntitiesDTO\DispositivoDTO.cs" />
+    <Compile Include="EntitiesDTO\HistoricoSolicitudesDTO.cs" />
     <Compile Include="EntitiesDTO\HWRedDTO.cs" />
     <Compile Include="EntitiesDTO\OrdenadorDTO.cs" />
     <Compile Include="EntitiesDTO\PantallaDTO.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="EntitiesDTO\UsuarioDTO.cs" />
     <Compile Include="Management\CategoriaManagement.cs" />
     <Compile Include="Management\DispositivoManagement.cs" />
+    <Compile Include="Management\HistoricoSolicitudesManagement.cs" />
     <Compile Include="Management\HWManagement.cs" />
     <Compile Include="Management\OrdenadorManagement.cs" />
     <Compile Include="Management\PantallaManagement.cs" />
