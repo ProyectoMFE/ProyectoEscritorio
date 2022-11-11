@@ -1,5 +1,6 @@
 ﻿using Negocio.Management;
 using Presentacion.Views;
+using Presentacion.Views.Admin;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,7 +21,7 @@ namespace Presentacion
         {        
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Programa(new Login()));
+            Application.Run(new ProgramaAdmin(new Login()));
         }
     }
 }

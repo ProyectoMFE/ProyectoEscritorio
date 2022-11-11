@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion.Views
 {
-    partial class Administrador
+    partial class Programa
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,6 @@ namespace Presentacion.Views
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel panelMenu;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administrador));
-            this.panelConfiguracion = new System.Windows.Forms.Panel();
-            this.btnConfiguracionUsuarios = new System.Windows.Forms.Button();
-            this.btnConfiguracion = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelSolicitudes = new System.Windows.Forms.Panel();
             this.btnSolicitudesRechazadas = new System.Windows.Forms.Button();
@@ -54,10 +50,8 @@ namespace Presentacion.Views
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelFormulario = new System.Windows.Forms.Panel();
-            this.btnConfiguracionCategoria = new System.Windows.Forms.Button();
             panelMenu = new System.Windows.Forms.Panel();
             panelMenu.SuspendLayout();
-            this.panelConfiguracion.SuspendLayout();
             this.panelSolicitudes.SuspendLayout();
             this.panelPrestamos.SuspendLayout();
             this.panelDispositivos.SuspendLayout();
@@ -69,8 +63,6 @@ namespace Presentacion.Views
             // 
             panelMenu.AutoScroll = true;
             panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
-            panelMenu.Controls.Add(this.panelConfiguracion);
-            panelMenu.Controls.Add(this.btnConfiguracion);
             panelMenu.Controls.Add(this.btnSalir);
             panelMenu.Controls.Add(this.panelSolicitudes);
             panelMenu.Controls.Add(this.btnSolicitudes);
@@ -83,46 +75,8 @@ namespace Presentacion.Views
             panelMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             panelMenu.Location = new System.Drawing.Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new System.Drawing.Size(250, 850);
-            panelMenu.TabIndex = 1;
-            // 
-            // panelConfiguracion
-            // 
-            this.panelConfiguracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(206)))), ((int)(((byte)(217)))));
-            this.panelConfiguracion.Controls.Add(this.btnConfiguracionCategoria);
-            this.panelConfiguracion.Controls.Add(this.btnConfiguracionUsuarios);
-            this.panelConfiguracion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelConfiguracion.Location = new System.Drawing.Point(0, 828);
-            this.panelConfiguracion.Name = "panelConfiguracion";
-            this.panelConfiguracion.Size = new System.Drawing.Size(233, 100);
-            this.panelConfiguracion.TabIndex = 9;
-            // 
-            // btnConfiguracionUsuarios
-            // 
-            this.btnConfiguracionUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConfiguracionUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracionUsuarios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConfiguracionUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.btnConfiguracionUsuarios.Name = "btnConfiguracionUsuarios";
-            this.btnConfiguracionUsuarios.Size = new System.Drawing.Size(233, 50);
-            this.btnConfiguracionUsuarios.TabIndex = 0;
-            this.btnConfiguracionUsuarios.Text = "Usuarios";
-            this.btnConfiguracionUsuarios.UseVisualStyleBackColor = true;
-            // 
-            // btnConfiguracion
-            // 
-            this.btnConfiguracion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConfiguracion.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracion.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnConfiguracion.Location = new System.Drawing.Point(0, 778);
-            this.btnConfiguracion.Name = "btnConfiguracion";
-            this.btnConfiguracion.Size = new System.Drawing.Size(233, 50);
-            this.btnConfiguracion.TabIndex = 8;
-            this.btnConfiguracion.Text = "Configuración";
-            this.btnConfiguracion.UseVisualStyleBackColor = true;
-            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
+            panelMenu.Size = new System.Drawing.Size(250, 811);
+            panelMenu.TabIndex = 0;
             // 
             // btnSalir
             // 
@@ -131,7 +85,7 @@ namespace Presentacion.Views
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSalir.Location = new System.Drawing.Point(0, 928);
+            this.btnSalir.Location = new System.Drawing.Point(0, 778);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(233, 50);
             this.btnSalir.TabIndex = 7;
@@ -333,6 +287,7 @@ namespace Presentacion.Views
             this.btnDispositivosOrdenador.TabIndex = 0;
             this.btnDispositivosOrdenador.Text = "Ordenador";
             this.btnDispositivosOrdenador.UseVisualStyleBackColor = true;
+            this.btnDispositivosOrdenador.Click += new System.EventHandler(this.btnDispositivosOrdenador_Click);
             // 
             // btnDispositivos
             // 
@@ -373,23 +328,10 @@ namespace Presentacion.Views
             this.panelFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormulario.Location = new System.Drawing.Point(250, 0);
             this.panelFormulario.Name = "panelFormulario";
-            this.panelFormulario.Size = new System.Drawing.Size(950, 850);
-            this.panelFormulario.TabIndex = 2;
+            this.panelFormulario.Size = new System.Drawing.Size(934, 811);
+            this.panelFormulario.TabIndex = 1;
             // 
-            // btnConfiguracionCategoria
-            // 
-            this.btnConfiguracionCategoria.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConfiguracionCategoria.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracionCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracionCategoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConfiguracionCategoria.Location = new System.Drawing.Point(0, 50);
-            this.btnConfiguracionCategoria.Name = "btnConfiguracionCategoria";
-            this.btnConfiguracionCategoria.Size = new System.Drawing.Size(233, 50);
-            this.btnConfiguracionCategoria.TabIndex = 1;
-            this.btnConfiguracionCategoria.Text = "Categorias";
-            this.btnConfiguracionCategoria.UseVisualStyleBackColor = true;
-            // 
-            // Administrador
+            // Programa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -397,14 +339,12 @@ namespace Presentacion.Views
             this.ControlBox = false;
             this.Controls.Add(this.panelFormulario);
             this.Controls.Add(panelMenu);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1200, 850);
             this.MinimumSize = new System.Drawing.Size(1200, 850);
-            this.Name = "Administrador";
-            this.Text = "Administrador";
+            this.Name = "Programa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Programa";
             panelMenu.ResumeLayout(false);
-            this.panelConfiguracion.ResumeLayout(false);
             this.panelSolicitudes.ResumeLayout(false);
             this.panelPrestamos.ResumeLayout(false);
             this.panelDispositivos.ResumeLayout(false);
@@ -416,7 +356,6 @@ namespace Presentacion.Views
 
         #endregion
 
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panelSolicitudes;
         private System.Windows.Forms.Button btnSolicitudesRechazadas;
         private System.Windows.Forms.Button btnSolicitudesAprobadas;
@@ -435,10 +374,7 @@ namespace Presentacion.Views
         private System.Windows.Forms.Button btnDispositivos;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panelConfiguracion;
-        private System.Windows.Forms.Button btnConfiguracionUsuarios;
-        private System.Windows.Forms.Button btnConfiguracion;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panelFormulario;
-        private System.Windows.Forms.Button btnConfiguracionCategoria;
     }
 }

@@ -27,7 +27,8 @@ namespace Datos.DAO
                 contexto.SaveChanges();
 
                 return true;
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 return false;
             }
@@ -89,17 +90,17 @@ namespace Datos.DAO
                 return false;
             }
         }
- 
+
         public List<DISPOSITIVOS> ObtenerDispositivosPorCategoria(List<string> categorias)
         {
             List<DISPOSITIVOS> listaDispositivos = new List<DISPOSITIVOS>();
-            List<DISPOSITIVOS> listaDispositivosPorCategoria = null;           
+            List<DISPOSITIVOS> listaDispositivosPorCategoria = null;
 
             try
             {
                 foreach (string categoria in categorias)
                 {
-                    listaDispositivosPorCategoria =  contexto.DISPOSITIVOS.ToList();
+                    listaDispositivosPorCategoria = contexto.DISPOSITIVOS.ToList();
 
                     foreach (DISPOSITIVOS dispositivo in listaDispositivosPorCategoria)
                     {
@@ -107,7 +108,7 @@ namespace Datos.DAO
                         {
                             listaDispositivos.Add(dispositivo);
                         }
-                  
+
                     }
                 }
             }
@@ -118,10 +119,10 @@ namespace Datos.DAO
 
         }
 
-        public List<DISPOSITIVOS> ObtenerDispositivosPorMarca(List<string>marcas)
+        public List<DISPOSITIVOS> ObtenerDispositivosPorMarca(List<string> marcas)
         {
             List<DISPOSITIVOS> listaDispositivos = new List<DISPOSITIVOS>();
-            List<DISPOSITIVOS> listaDispositivosPorMarca=null;
+            List<DISPOSITIVOS> listaDispositivosPorMarca = null;
 
             try
             {
@@ -135,7 +136,7 @@ namespace Datos.DAO
                 }
             }
             catch (Exception)
-            {            
+            {
             }
             return listaDispositivos;
         }
@@ -190,7 +191,22 @@ namespace Datos.DAO
             {
                 foreach (string estado in estados)
                 {
-                    listaDispositivosPorEstado = contexto.DISPOSITIVOS.Where(p => p.ESTADO == estado).ToList();
+                    string estadoOriginal="";
+
+                    switch (estado)
+                    {
+                        case "Disponible":
+                            estadoOriginal = "D";
+                            break;
+                        case "Ocupado":
+                            estadoOriginal = "O";
+                            break;
+                        case "Instalado":
+                            estadoOriginal = "I";
+                            break;
+                    }
+                
+                    listaDispositivosPorEstado = contexto.DISPOSITIVOS.Where(p => p.ESTADO == estadoOriginal).ToList();
                     foreach (DISPOSITIVOS dispositivo in listaDispositivosPorEstado)
                     {
                         listaDispositivos.Add(dispositivo);

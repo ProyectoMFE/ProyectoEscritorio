@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Negocio.EntitiesDTO;
+using Negocio.Management;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +26,7 @@ namespace Presentacion.Views
             panelDispositivos.Visible = false;
             panelPrestamos.Visible = false;
             panelSolicitudes.Visible = false;
+          
         }
         private void hideSubMenu()
         {
@@ -39,6 +42,8 @@ namespace Presentacion.Views
             {
                 panelSolicitudes.Visible = false;
             }
+          
+            
         }
 
         private void showSubMenu(Panel subMenu)
@@ -56,6 +61,43 @@ namespace Presentacion.Views
         {
             openChildForm(new Dispositivos());
             showSubMenu(panelDispositivos);
+            MostrarSubCategorias();
+
+        }
+
+        private void MostrarSubCategorias()
+        {
+            List<CategoriaDTO> categorias = new CategoriaManagement().ObtenerCategorias();
+
+            int cantidadCategorias = categorias.Count();
+            if (cantidadCategorias >= 4)
+            {
+                btnDispositivosOrdenador.Text = categorias[0].nombre;
+                btnDispositivoChromeCast.Text = categorias[1].nombre;
+                bntDispositivoSwitch.Text = categorias[2].nombre;
+                btnDispositivoTeclado.Text = categorias[3].nombre;
+            }
+            else if (cantidadCategorias == 3)
+            {
+                btnDispositivosOrdenador.Text = categorias[0].nombre;
+                btnDispositivoChromeCast.Text = categorias[1].nombre;
+                bntDispositivoSwitch.Text = categorias[2].nombre;
+                btnDispositivoTeclado.Hide();
+            }
+            else if (cantidadCategorias == 2)
+            {
+                btnDispositivosOrdenador.Text = categorias[0].nombre;
+                btnDispositivoChromeCast.Text = categorias[1].nombre;
+                bntDispositivoSwitch.Hide();
+                btnDispositivoTeclado.Hide();
+            }
+            else if (cantidadCategorias == 1)
+            {
+                btnDispositivosOrdenador.Text = categorias[0].nombre;
+                btnDispositivoChromeCast.Hide();
+                bntDispositivoSwitch.Hide();
+                btnDispositivoTeclado.Hide();
+            }
         }
 
         private void btnPrestamos_Click(object sender, EventArgs e)
@@ -91,6 +133,16 @@ namespace Presentacion.Views
             panelFormulario.Tag = formulario;
             formulario.BringToFront();
             formulario.Show();
+        }
+
+        private void btnDispositivosOrdenador_Click(object sender, EventArgs e)
+        {
+            List<string> lista = new List<string>();
+            lista.Add("Ordenador");
+            Dispositivos dispositivos = new Dispositivos();
+            dispositivos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(dispositivos);
+     
         }
     }
 }
