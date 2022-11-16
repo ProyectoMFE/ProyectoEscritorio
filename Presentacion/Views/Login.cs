@@ -1,5 +1,6 @@
 ﻿using Negocio.EntitiesDTO;
 using Negocio.Management;
+using Presentacion.Views.Admin;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -68,7 +69,7 @@ namespace Presentacion.Views
 
             if (usuarioDTO.tipo.Equals("A"))
             {
-                Administrador principal = new Administrador(this);
+                ProgramaAdmin principal = new ProgramaAdmin(this);
                 principal.Show();
                 this.Hide();
                 return;

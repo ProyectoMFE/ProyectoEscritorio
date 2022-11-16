@@ -36,16 +36,16 @@ namespace Presentacion.Views
             this.btnSolicitudesAprobadas = new System.Windows.Forms.Button();
             this.btnSolicitudes = new System.Windows.Forms.Button();
             this.panelPrestamos = new System.Windows.Forms.Panel();
-            this.btnPrestamosTeclado = new System.Windows.Forms.Button();
-            this.btnPrestamosSwitch = new System.Windows.Forms.Button();
-            this.btnPrestamosChromeCast = new System.Windows.Forms.Button();
-            this.btnPrestamosOrdenador = new System.Windows.Forms.Button();
+            this.btnPrestamos4 = new System.Windows.Forms.Button();
+            this.btnPrestamos3 = new System.Windows.Forms.Button();
+            this.btnPrestamos2 = new System.Windows.Forms.Button();
+            this.btnPrestamos1 = new System.Windows.Forms.Button();
             this.btnPrestamos = new System.Windows.Forms.Button();
             this.panelDispositivos = new System.Windows.Forms.Panel();
-            this.btnDispositivoTeclado = new System.Windows.Forms.Button();
-            this.bntDispositivoSwitch = new System.Windows.Forms.Button();
-            this.btnDispositivoChromeCast = new System.Windows.Forms.Button();
-            this.btnDispositivosOrdenador = new System.Windows.Forms.Button();
+            this.btnDispositivos4 = new System.Windows.Forms.Button();
+            this.btnDispositivos3 = new System.Windows.Forms.Button();
+            this.btnDispositivos2 = new System.Windows.Forms.Button();
+            this.btnDispositivos1 = new System.Windows.Forms.Button();
             this.btnDispositivos = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -116,6 +116,7 @@ namespace Presentacion.Views
             this.btnSolicitudesRechazadas.TabIndex = 1;
             this.btnSolicitudesRechazadas.Text = "Rechazadas";
             this.btnSolicitudesRechazadas.UseVisualStyleBackColor = true;
+            this.btnSolicitudesRechazadas.Click += new System.EventHandler(this.btnSolicitudesRechazadas_Click);
             // 
             // btnSolicitudesAprobadas
             // 
@@ -129,6 +130,7 @@ namespace Presentacion.Views
             this.btnSolicitudesAprobadas.TabIndex = 0;
             this.btnSolicitudesAprobadas.Text = "Aprobadas";
             this.btnSolicitudesAprobadas.UseVisualStyleBackColor = true;
+            this.btnSolicitudesAprobadas.Click += new System.EventHandler(this.btnSolicitudesAprobadas_Click);
             // 
             // btnSolicitudes
             // 
@@ -147,67 +149,71 @@ namespace Presentacion.Views
             // panelPrestamos
             // 
             this.panelPrestamos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(206)))), ((int)(((byte)(217)))));
-            this.panelPrestamos.Controls.Add(this.btnPrestamosTeclado);
-            this.panelPrestamos.Controls.Add(this.btnPrestamosSwitch);
-            this.panelPrestamos.Controls.Add(this.btnPrestamosChromeCast);
-            this.panelPrestamos.Controls.Add(this.btnPrestamosOrdenador);
+            this.panelPrestamos.Controls.Add(this.btnPrestamos4);
+            this.panelPrestamos.Controls.Add(this.btnPrestamos3);
+            this.panelPrestamos.Controls.Add(this.btnPrestamos2);
+            this.panelPrestamos.Controls.Add(this.btnPrestamos1);
             this.panelPrestamos.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPrestamos.Location = new System.Drawing.Point(0, 428);
             this.panelPrestamos.Name = "panelPrestamos";
             this.panelPrestamos.Size = new System.Drawing.Size(233, 200);
             this.panelPrestamos.TabIndex = 1;
             // 
-            // btnPrestamosTeclado
+            // btnPrestamos4
             // 
-            this.btnPrestamosTeclado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPrestamosTeclado.FlatAppearance.BorderSize = 0;
-            this.btnPrestamosTeclado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrestamosTeclado.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrestamosTeclado.Location = new System.Drawing.Point(0, 150);
-            this.btnPrestamosTeclado.Name = "btnPrestamosTeclado";
-            this.btnPrestamosTeclado.Size = new System.Drawing.Size(233, 50);
-            this.btnPrestamosTeclado.TabIndex = 3;
-            this.btnPrestamosTeclado.Text = "Teclado";
-            this.btnPrestamosTeclado.UseVisualStyleBackColor = true;
+            this.btnPrestamos4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPrestamos4.FlatAppearance.BorderSize = 0;
+            this.btnPrestamos4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrestamos4.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPrestamos4.Location = new System.Drawing.Point(0, 150);
+            this.btnPrestamos4.Name = "btnPrestamos4";
+            this.btnPrestamos4.Size = new System.Drawing.Size(233, 50);
+            this.btnPrestamos4.TabIndex = 3;
+            this.btnPrestamos4.Text = "Teclado";
+            this.btnPrestamos4.UseVisualStyleBackColor = true;
+            this.btnPrestamos4.Click += new System.EventHandler(this.btnPrestamos4_Click);
             // 
-            // btnPrestamosSwitch
+            // btnPrestamos3
             // 
-            this.btnPrestamosSwitch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPrestamosSwitch.FlatAppearance.BorderSize = 0;
-            this.btnPrestamosSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrestamosSwitch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrestamosSwitch.Location = new System.Drawing.Point(0, 100);
-            this.btnPrestamosSwitch.Name = "btnPrestamosSwitch";
-            this.btnPrestamosSwitch.Size = new System.Drawing.Size(233, 50);
-            this.btnPrestamosSwitch.TabIndex = 2;
-            this.btnPrestamosSwitch.Text = "Switch";
-            this.btnPrestamosSwitch.UseVisualStyleBackColor = true;
+            this.btnPrestamos3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPrestamos3.FlatAppearance.BorderSize = 0;
+            this.btnPrestamos3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrestamos3.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPrestamos3.Location = new System.Drawing.Point(0, 100);
+            this.btnPrestamos3.Name = "btnPrestamos3";
+            this.btnPrestamos3.Size = new System.Drawing.Size(233, 50);
+            this.btnPrestamos3.TabIndex = 2;
+            this.btnPrestamos3.Text = "Switch";
+            this.btnPrestamos3.UseVisualStyleBackColor = true;
+            this.btnPrestamos3.Click += new System.EventHandler(this.btnPrestamos3_Click);
             // 
-            // btnPrestamosChromeCast
+            // btnPrestamos2
             // 
-            this.btnPrestamosChromeCast.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPrestamosChromeCast.FlatAppearance.BorderSize = 0;
-            this.btnPrestamosChromeCast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrestamosChromeCast.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrestamosChromeCast.Location = new System.Drawing.Point(0, 50);
-            this.btnPrestamosChromeCast.Name = "btnPrestamosChromeCast";
-            this.btnPrestamosChromeCast.Size = new System.Drawing.Size(233, 50);
-            this.btnPrestamosChromeCast.TabIndex = 1;
-            this.btnPrestamosChromeCast.Text = "ChromeCast";
-            this.btnPrestamosChromeCast.UseVisualStyleBackColor = true;
+            this.btnPrestamos2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPrestamos2.FlatAppearance.BorderSize = 0;
+            this.btnPrestamos2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrestamos2.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPrestamos2.Location = new System.Drawing.Point(0, 50);
+            this.btnPrestamos2.Name = "btnPrestamos2";
+            this.btnPrestamos2.Size = new System.Drawing.Size(233, 50);
+            this.btnPrestamos2.TabIndex = 1;
+            this.btnPrestamos2.Text = "ChromeCast";
+            this.btnPrestamos2.UseVisualStyleBackColor = true;
+            this.btnPrestamos2.Click += new System.EventHandler(this.btnPrestamos2_Click);
             // 
-            // btnPrestamosOrdenador
+            // btnPrestamos1
             // 
-            this.btnPrestamosOrdenador.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPrestamosOrdenador.FlatAppearance.BorderSize = 0;
-            this.btnPrestamosOrdenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrestamosOrdenador.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrestamosOrdenador.Location = new System.Drawing.Point(0, 0);
-            this.btnPrestamosOrdenador.Name = "btnPrestamosOrdenador";
-            this.btnPrestamosOrdenador.Size = new System.Drawing.Size(233, 50);
-            this.btnPrestamosOrdenador.TabIndex = 0;
-            this.btnPrestamosOrdenador.Text = "Ordenador";
-            this.btnPrestamosOrdenador.UseVisualStyleBackColor = true;
+            this.btnPrestamos1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPrestamos1.FlatAppearance.BorderSize = 0;
+            this.btnPrestamos1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrestamos1.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPrestamos1.Location = new System.Drawing.Point(0, 0);
+            this.btnPrestamos1.Name = "btnPrestamos1";
+            this.btnPrestamos1.Size = new System.Drawing.Size(233, 50);
+            this.btnPrestamos1.TabIndex = 0;
+            this.btnPrestamos1.Text = "Ordenador";
+            this.btnPrestamos1.UseVisualStyleBackColor = true;
+            this.btnPrestamos1.Click += new System.EventHandler(this.btnPrestamos1_Click);
             // 
             // btnPrestamos
             // 
@@ -226,68 +232,71 @@ namespace Presentacion.Views
             // panelDispositivos
             // 
             this.panelDispositivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(206)))), ((int)(((byte)(217)))));
-            this.panelDispositivos.Controls.Add(this.btnDispositivoTeclado);
-            this.panelDispositivos.Controls.Add(this.bntDispositivoSwitch);
-            this.panelDispositivos.Controls.Add(this.btnDispositivoChromeCast);
-            this.panelDispositivos.Controls.Add(this.btnDispositivosOrdenador);
+            this.panelDispositivos.Controls.Add(this.btnDispositivos4);
+            this.panelDispositivos.Controls.Add(this.btnDispositivos3);
+            this.panelDispositivos.Controls.Add(this.btnDispositivos2);
+            this.panelDispositivos.Controls.Add(this.btnDispositivos1);
             this.panelDispositivos.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDispositivos.Location = new System.Drawing.Point(0, 178);
             this.panelDispositivos.Name = "panelDispositivos";
             this.panelDispositivos.Size = new System.Drawing.Size(233, 200);
             this.panelDispositivos.TabIndex = 3;
             // 
-            // btnDispositivoTeclado
+            // btnDispositivos4
             // 
-            this.btnDispositivoTeclado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDispositivoTeclado.FlatAppearance.BorderSize = 0;
-            this.btnDispositivoTeclado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDispositivoTeclado.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDispositivoTeclado.Location = new System.Drawing.Point(0, 150);
-            this.btnDispositivoTeclado.Name = "btnDispositivoTeclado";
-            this.btnDispositivoTeclado.Size = new System.Drawing.Size(233, 50);
-            this.btnDispositivoTeclado.TabIndex = 3;
-            this.btnDispositivoTeclado.Text = "Teclado";
-            this.btnDispositivoTeclado.UseVisualStyleBackColor = true;
+            this.btnDispositivos4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDispositivos4.FlatAppearance.BorderSize = 0;
+            this.btnDispositivos4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDispositivos4.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDispositivos4.Location = new System.Drawing.Point(0, 150);
+            this.btnDispositivos4.Name = "btnDispositivos4";
+            this.btnDispositivos4.Size = new System.Drawing.Size(233, 50);
+            this.btnDispositivos4.TabIndex = 3;
+            this.btnDispositivos4.Text = "Teclado";
+            this.btnDispositivos4.UseVisualStyleBackColor = true;
+            this.btnDispositivos4.Click += new System.EventHandler(this.btnDispositivos4_Click);
             // 
-            // bntDispositivoSwitch
+            // btnDispositivos3
             // 
-            this.bntDispositivoSwitch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bntDispositivoSwitch.FlatAppearance.BorderSize = 0;
-            this.bntDispositivoSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntDispositivoSwitch.ForeColor = System.Drawing.SystemColors.Control;
-            this.bntDispositivoSwitch.Location = new System.Drawing.Point(0, 100);
-            this.bntDispositivoSwitch.Name = "bntDispositivoSwitch";
-            this.bntDispositivoSwitch.Size = new System.Drawing.Size(233, 50);
-            this.bntDispositivoSwitch.TabIndex = 2;
-            this.bntDispositivoSwitch.Text = "Switch";
-            this.bntDispositivoSwitch.UseVisualStyleBackColor = true;
+            this.btnDispositivos3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDispositivos3.FlatAppearance.BorderSize = 0;
+            this.btnDispositivos3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDispositivos3.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDispositivos3.Location = new System.Drawing.Point(0, 100);
+            this.btnDispositivos3.Name = "btnDispositivos3";
+            this.btnDispositivos3.Size = new System.Drawing.Size(233, 50);
+            this.btnDispositivos3.TabIndex = 2;
+            this.btnDispositivos3.Text = "Switch";
+            this.btnDispositivos3.UseVisualStyleBackColor = true;
+            this.btnDispositivos3.Click += new System.EventHandler(this.btnDispositivos3_Click);
             // 
-            // btnDispositivoChromeCast
+            // btnDispositivos2
             // 
-            this.btnDispositivoChromeCast.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDispositivoChromeCast.FlatAppearance.BorderSize = 0;
-            this.btnDispositivoChromeCast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDispositivoChromeCast.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDispositivoChromeCast.Location = new System.Drawing.Point(0, 50);
-            this.btnDispositivoChromeCast.Name = "btnDispositivoChromeCast";
-            this.btnDispositivoChromeCast.Size = new System.Drawing.Size(233, 50);
-            this.btnDispositivoChromeCast.TabIndex = 1;
-            this.btnDispositivoChromeCast.Text = "ChromeCast";
-            this.btnDispositivoChromeCast.UseVisualStyleBackColor = true;
+            this.btnDispositivos2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDispositivos2.FlatAppearance.BorderSize = 0;
+            this.btnDispositivos2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDispositivos2.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDispositivos2.Location = new System.Drawing.Point(0, 50);
+            this.btnDispositivos2.Name = "btnDispositivos2";
+            this.btnDispositivos2.Size = new System.Drawing.Size(233, 50);
+            this.btnDispositivos2.TabIndex = 1;
+            this.btnDispositivos2.Text = "ChromeCast";
+            this.btnDispositivos2.UseVisualStyleBackColor = true;
+            this.btnDispositivos2.Click += new System.EventHandler(this.btnDispositivos2_Click);
             // 
-            // btnDispositivosOrdenador
+            // btnDispositivos1
             // 
-            this.btnDispositivosOrdenador.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDispositivosOrdenador.FlatAppearance.BorderSize = 0;
-            this.btnDispositivosOrdenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDispositivosOrdenador.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDispositivosOrdenador.Location = new System.Drawing.Point(0, 0);
-            this.btnDispositivosOrdenador.Name = "btnDispositivosOrdenador";
-            this.btnDispositivosOrdenador.Size = new System.Drawing.Size(233, 50);
-            this.btnDispositivosOrdenador.TabIndex = 0;
-            this.btnDispositivosOrdenador.Text = "Ordenador";
-            this.btnDispositivosOrdenador.UseVisualStyleBackColor = true;
-            this.btnDispositivosOrdenador.Click += new System.EventHandler(this.btnDispositivosOrdenador_Click);
+            this.btnDispositivos1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDispositivos1.FlatAppearance.BorderSize = 0;
+            this.btnDispositivos1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDispositivos1.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDispositivos1.Location = new System.Drawing.Point(0, 0);
+            this.btnDispositivos1.Name = "btnDispositivos1";
+            this.btnDispositivos1.Size = new System.Drawing.Size(233, 50);
+            this.btnDispositivos1.TabIndex = 0;
+            this.btnDispositivos1.Text = "Ordenador";
+            this.btnDispositivos1.UseVisualStyleBackColor = true;
+            this.btnDispositivos1.Click += new System.EventHandler(this.btnDispositivos1_Click);
             // 
             // btnDispositivos
             // 
@@ -361,16 +370,16 @@ namespace Presentacion.Views
         private System.Windows.Forms.Button btnSolicitudesAprobadas;
         private System.Windows.Forms.Button btnSolicitudes;
         private System.Windows.Forms.Panel panelPrestamos;
-        private System.Windows.Forms.Button btnPrestamosTeclado;
-        private System.Windows.Forms.Button btnPrestamosSwitch;
-        private System.Windows.Forms.Button btnPrestamosChromeCast;
-        private System.Windows.Forms.Button btnPrestamosOrdenador;
+        private System.Windows.Forms.Button btnPrestamos4;
+        private System.Windows.Forms.Button btnPrestamos3;
+        private System.Windows.Forms.Button btnPrestamos2;
+        private System.Windows.Forms.Button btnPrestamos1;
         private System.Windows.Forms.Button btnPrestamos;
         private System.Windows.Forms.Panel panelDispositivos;
-        private System.Windows.Forms.Button btnDispositivoTeclado;
-        private System.Windows.Forms.Button bntDispositivoSwitch;
-        private System.Windows.Forms.Button btnDispositivoChromeCast;
-        private System.Windows.Forms.Button btnDispositivosOrdenador;
+        private System.Windows.Forms.Button btnDispositivos4;
+        private System.Windows.Forms.Button btnDispositivos3;
+        private System.Windows.Forms.Button btnDispositivos2;
+        private System.Windows.Forms.Button btnDispositivos1;
         private System.Windows.Forms.Button btnDispositivos;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;

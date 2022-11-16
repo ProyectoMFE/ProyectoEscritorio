@@ -17,6 +17,7 @@ namespace Presentacion.Views
         public DispositivosAdmin()
         {
             InitializeComponent();
+            RellenarTabla();
         }
 
 
@@ -37,7 +38,7 @@ namespace Presentacion.Views
             }
         }
 
-        private void RellenarTablaFiltradaPorDispositivos(List<string> categoriasSelecionadas)
+        public void RellenarTablaFiltradaPorDispositivos(List<string> categoriasSelecionadas)
         {
             List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorCategoria(categoriasSelecionadas);
 
@@ -213,21 +214,25 @@ namespace Presentacion.Views
 
         private void tablaDispositivos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow fila = tablaDispositivos.Rows[e.RowIndex];
-            string estado = fila.Cells[5].Value.ToString();
+            try
+            {
+                DataGridViewRow fila = tablaDispositivos.Rows[e.RowIndex];
+                string estado = fila.Cells[5].Value.ToString();
 
-            if (!estado.Equals("Disponible"))
-            {
-                MessageBox.Show(this, "Este dispositivo no se puede modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!estado.Equals("Disponible"))
+                {
+                    MessageBox.Show(this, "Este dispositivo no se puede modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string numSerie = fila.Cells[0].Value.ToString();
+                    Modificar(numSerie);
+                }
             }
-            else
-            {
-                string numSerie = fila.Cells[0].Value.ToString();
-                Reservar(numSerie);
-            }
+            catch { }
         }
 
-        private void Reservar(string numSerie)
+        private void Modificar(string numSerie)
         {
             Dispositivo dispositivo = new Dispositivo(numSerie);
 
@@ -236,21 +241,24 @@ namespace Presentacion.Views
 
         private void tablaDispositivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (e.ColumnIndex == 6)
+            try
             {
-                DataGridViewRow fila = tablaDispositivos.Rows[e.RowIndex];
-                string estado = fila.Cells[5].Value.ToString();
-                if (!estado.Equals("Disponible"))
+                if (e.ColumnIndex == 6)
                 {
-                    MessageBox.Show(this, "Este dispositivo no se puede modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    string numSerie = fila.Cells[0].Value.ToString();
-                    Reservar(numSerie);
+                    DataGridViewRow fila = tablaDispositivos.Rows[e.RowIndex];
+                    string estado = fila.Cells[5].Value.ToString();
+                    if (!estado.Equals("Disponible"))
+                    {
+                        MessageBox.Show(this, "Este dispositivo no se puede modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        string numSerie = fila.Cells[0].Value.ToString();
+                        Modificar(numSerie);
+                    }
                 }
             }
+            catch { }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

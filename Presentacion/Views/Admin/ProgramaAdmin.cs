@@ -2,25 +2,138 @@
 using Negocio.Management;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentacion.Views.Admin
 {
     public partial class ProgramaAdmin : Form
     {
+        private Form formularioActivo;
         private Login padre;
         public ProgramaAdmin(Login padre)
         {
             InitializeComponent();
             customizeDesing();
             this.padre = padre;
+            this.formularioActivo = null;
         }
+
+        // MENU BOTON DISPOSITIVOS Y SU SUBMENU
+        private void btnDispositivos_Click(object sender, EventArgs e)
+        {
+            openChildForm(new DispositivosAdmin());
+            if (!panelDispositivos.Visible)
+            {
+                showSubMenu(panelDispositivos);
+                MostrarSubCategorias();
+            }
+        }
+        private void btnDispositivos1_Click(object sender, EventArgs e)
+        {
+            List<string> lista = new List<string>();
+            lista.Add(btnDispositivos1.Text);
+            DispositivosAdmin dispositivos = new DispositivosAdmin();
+            dispositivos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(dispositivos);
+
+        }
+        private void btnDispositivos2_Click(object sender, EventArgs e)
+        {
+            List<string> lista = new List<string>();
+            lista.Add(btnDispositivos2.Text);
+            DispositivosAdmin dispositivos = new DispositivosAdmin();
+            dispositivos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(dispositivos);
+        }
+        private void btnDispositivos3_Click(object sender, EventArgs e)
+        {
+            List<string> lista = new List<string>();
+            lista.Add(btnDispositivos3.Text);
+            DispositivosAdmin dispositivos = new DispositivosAdmin();
+            dispositivos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(dispositivos);
+        }
+        private void btnDispositivos4_Click(object sender, EventArgs e)
+        {
+            List<string> lista = new List<string>();
+            lista.Add(btnDispositivos4.Text);
+            DispositivosAdmin dispositivos = new DispositivosAdmin();
+            dispositivos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(dispositivos);
+        }
+
+        // MENU BOTON PRESTAMOS Y SU SUBMENU
+        private void btnPrestamos_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Prestamos());
+            if (panelPrestamos.Visible)
+            {
+                showSubMenu(panelPrestamos);
+                MostrarSubCategorias();
+            }
+        }
+        private void btnPrestamos1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnPrestamos2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnPrestamos3_Click(object sender, EventArgs e) 
+        {
+
+        }
+        private void btnPrestamos4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // MENU BOTON SOLICITUDES Y SU SUBMENU
+        private void btnSolicitudes_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Solicitudes());
+            if (panelSolicitudes.Visible)
+            {
+                showSubMenu(panelSolicitudes);
+            }
+        }
+        private void btnSolicitudesAprobadas_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnSolicitudesRechazadas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // MENU BOTON CONFIGURACION Y SU SUBMENU
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            if (panelConfiguracion.Visible)
+            {
+                showSubMenu(panelConfiguracion);
+            }
+  
+        }
+        private void btnConfiguracionUsuarios_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnConfiguracionCategorias_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // BOTON SALIR DE LA APLICACION
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            padre.Show();
+        }
+
+        // FUNCIONES VARIAS PARA HACER DINAMICO EL MENU
         private void customizeDesing()
         {
             panelDispositivos.Visible = false;
@@ -43,14 +156,13 @@ namespace Presentacion.Views.Admin
             {
                 panelSolicitudes.Visible = false;
             }
-            if (panelConfiguracion.Visible==true)
+            if (panelConfiguracion.Visible == true)
             {
                 panelConfiguracion.Visible = false;
             }
 
 
         }
-
         private void showSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
@@ -61,36 +173,6 @@ namespace Presentacion.Views.Admin
             else
                 subMenu.Visible = false;
         }
-
-        private void btnDispositivos_Click(object sender, EventArgs e)
-        {
-            openChildForm(new DispositivosAdmin());
-            showSubMenu(panelDispositivos);
-            MostrarSubCategorias();
-
-        }
-
-     
-
-        private void btnPrestamos_Click(object sender, EventArgs e)
-        {
-            openChildForm(new Prestamos());
-            showSubMenu(panelPrestamos);
-        }
-
-        private void btnSolicitudes_Click(object sender, EventArgs e)
-        {
-            openChildForm(new Solicitudes());
-            showSubMenu(panelSolicitudes);
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            padre.Show();
-        }
-
-        private Form formularioActivo = null;
         private void openChildForm(Form formulario)
         {
             if (formularioActivo != null)
@@ -106,17 +188,6 @@ namespace Presentacion.Views.Admin
             formulario.BringToFront();
             formulario.Show();
         }
-
-        private void btnDispositivosOrdenador_Click(object sender, EventArgs e)
-        {
-            List<string> lista = new List<string>();
-            lista.Add("Ordenador");
-            Dispositivos dispositivos = new Dispositivos();
-            dispositivos.RellenarTablaFiltradaPorDispositivos(lista);
-            openChildForm(dispositivos);
-
-        }
-
         private void MostrarSubCategorias()
         {
             List<CategoriaDTO> categorias = new CategoriaManagement().ObtenerCategorias();
@@ -124,37 +195,32 @@ namespace Presentacion.Views.Admin
             int cantidadCategorias = categorias.Count();
             if (cantidadCategorias >= 4)
             {
-                btnDispositivosOrdenador.Text = categorias[0].nombre;
-                btnDispositivoChromeCast.Text = categorias[1].nombre;
-                bntDispositivoSwitch.Text = categorias[2].nombre;
-                btnDispositivoTeclado.Text = categorias[3].nombre;
+                btnDispositivos1.Text = categorias[0].nombre;
+                btnDispositivos2.Text = categorias[1].nombre;
+                btnDispositivos3.Text = categorias[2].nombre;
+                btnDispositivos4.Text = categorias[3].nombre;
             }
             else if (cantidadCategorias == 3)
             {
-                btnDispositivosOrdenador.Text = categorias[0].nombre;
-                btnDispositivoChromeCast.Text = categorias[1].nombre;
-                bntDispositivoSwitch.Text = categorias[2].nombre;
-                btnDispositivoTeclado.Hide();
+                btnDispositivos1.Text = categorias[0].nombre;
+                btnDispositivos2.Text = categorias[1].nombre;
+                btnDispositivos3.Text = categorias[2].nombre;
+                btnDispositivos4.Hide();
             }
             else if (cantidadCategorias == 2)
             {
-                btnDispositivosOrdenador.Text = categorias[0].nombre;
-                btnDispositivoChromeCast.Text = categorias[1].nombre;
-                bntDispositivoSwitch.Hide();
-                btnDispositivoTeclado.Hide();
+                btnDispositivos1.Text = categorias[0].nombre;
+                btnDispositivos2.Text = categorias[1].nombre;
+                btnDispositivos3.Hide();
+                btnDispositivos4.Hide();
             }
             else if (cantidadCategorias == 1)
             {
-                btnDispositivosOrdenador.Text = categorias[0].nombre;
-                btnDispositivoChromeCast.Hide();
-                bntDispositivoSwitch.Hide();
-                btnDispositivoTeclado.Hide();
+                btnDispositivos1.Text = categorias[0].nombre;
+                btnDispositivos2.Hide();
+                btnDispositivos3.Hide();
+                btnDispositivos4.Hide();
             }
-        }
-
-        private void btnConfiguracion_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelConfiguracion);
-        }
+        }      
     }
 }
