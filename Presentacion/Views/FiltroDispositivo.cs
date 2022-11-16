@@ -26,9 +26,9 @@ namespace Presentacion.Views
 
         public void cargarListBox()
         {
-            List<CategoriaDTO> listaCategorias = new CategoriaManagement().ObtenerCategorias();
+            List<Categoria> listaCategorias = new CategoriaManagement().ObtenerCategorias();
 
-            foreach (CategoriaDTO categoria in listaCategorias)
+            foreach (Categoria categoria in listaCategorias)
             {
                 tablaFiltroDispositivos.Rows.Add(categoria.nombre);
             }
