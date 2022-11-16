@@ -24,10 +24,10 @@ namespace Presentacion.Views
 
         public void cargarListBox()
         {
-            List<DispositivoDTO> listaDispositivos = new DispositivoManagement().ObtenerDispositivos();
+            List<Negocio.EntitiesDTO.Dispositivo> listaDispositivos = new DispositivoManagement().ObtenerDispositivos();
 
             List<string> listaEstados = new List<string>();
-            foreach (DispositivoDTO dispositivo in listaDispositivos)
+            foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in listaDispositivos)
             {
                 string estado = formatearEstado(dispositivo.estado);
                 if (!listaEstados.Contains(estado))

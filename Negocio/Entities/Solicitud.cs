@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datos.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace Negocio.EntitiesDTO
 {
-    public class SolicitudDTO
+    [Serializable]
+    public class Solicitud
     {
         public string numSerie { get; set; }
         public int idUsuario { get; set; }
         public string estado { get; set; }
+        public virtual Usuario idUsuarioNavigation { get; set; }
+        public virtual Dispositivo numSerieNavigation { get; set; }
     }
 }

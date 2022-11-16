@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,15 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntitiesDTO\CaracteristicaDTO.cs" />
-    <Compile Include="EntitiesDTO\CategoriaDTO.cs" />
-    <Compile Include="EntitiesDTO\DispositivoDTO.cs" />
-    <Compile Include="EntitiesDTO\HistoricoSolicitudesDTO.cs" />
-    <Compile Include="EntitiesDTO\HWRedDTO.cs" />
-    <Compile Include="EntitiesDTO\OrdenadorDTO.cs" />
-    <Compile Include="EntitiesDTO\PantallaDTO.cs" />
-    <Compile Include="EntitiesDTO\SolicitudDTO.cs" />
-    <Compile Include="EntitiesDTO\UsuarioDTO.cs" />
+    <Compile Include="Entities\CaracteristicaDTO.cs" />
+    <Compile Include="Entities\Categoria.cs" />
+    <Compile Include="Entities\Dispositivo.cs" />
+    <Compile Include="Entities\HistoricoSolicitud.cs" />
+    <Compile Include="Entities\HWRed.cs" />
+    <Compile Include="Entities\Ordenador.cs" />
+    <Compile Include="Entities\Pantalla.cs" />
+    <Compile Include="Entities\Solicitud.cs" />
+    <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Management\CategoriaManagement.cs" />
     <Compile Include="Management\DispositivoManagement.cs" />
     <Compile Include="Management\HistoricoSolicitudesManagement.cs" />
@@ -66,6 +69,8 @@
       <Name>Datos</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

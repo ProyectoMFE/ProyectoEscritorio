@@ -11,29 +11,9 @@ namespace Negocio.Management
 {
     public class HistoricoSolicitudesManagement
     {
-        public List<HistoricoSolicitudesDTO> listarSolicitudes()
+        public List<HistoricoSolicitud> listarSolicitudes()
         {
-            List<HistoricoSolicitudesDTO> solicitudes = new List<HistoricoSolicitudesDTO>();
-            HistoricoSolicitudesDTO solicitud;
-
-            foreach (HISTORICO_SOLICITUDES solOld in new HistoricoSolicitudesDAO().Consultar())
-            {
-                solicitud = new HistoricoSolicitudesDTO();
-
-                ParseNew(solOld, solicitud);
-
-                solicitudes.Add(solicitud);
-            }
-
-            return solicitudes;
-        }
-
-        private void ParseNew(HISTORICO_SOLICITUDES solOld, HistoricoSolicitudesDTO solNew)
-        {
-            solNew.numSerie = solOld.NUM_SERIE;
-            solNew.idUsuario = solOld.ID_USUARIO;
-            solNew.ultimatum = solOld.ULTIMATUM;
-            solNew.fecha = solOld.FECHA;
+            return null;
         }
     }
 }

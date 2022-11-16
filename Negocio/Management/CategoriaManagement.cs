@@ -7,66 +7,29 @@ namespace Negocio.Management
 {
     public class CategoriaManagement
     {
-        public CategoriaDTO ObtenerCategoria(int id)
+        public Categoria ObtenerCategoria(int id)
         {
-            CATEGORIAS catOld = new CategoriaDAO().Buscar(id);
-            CategoriaDTO categoria = new CategoriaDTO();
-
-            ParseNew(catOld, categoria);
-
-            return categoria;
+            return null;
         }
 
-        public List<CategoriaDTO> ObtenerCategorias()
+        public List<Categoria> ObtenerCategorias()
         {
-            List<CategoriaDTO> categorias = new List<CategoriaDTO>();
-            CategoriaDTO categoria;
-
-            foreach (CATEGORIAS catOld in new CategoriaDAO().Consultar())
-            {
-                categoria = new CategoriaDTO();
-
-                ParseNew(catOld, categoria);
-
-                categorias.Add(categoria);
-            }
-
-            return categorias;
+            return null;
         }
 
-        public bool ModificarCategoria(CategoriaDTO categoria)
+        public bool ModificarCategoria(Categoria categoria)
         {
-            CATEGORIAS catOld = new CATEGORIAS();
-
-            ParseOld(categoria, catOld);
-
-            return new CategoriaDAO().Modificar(catOld.ID_CATEGORIA, catOld);
+            return false;
         }
 
-        public bool InsertarCategoria(CategoriaDTO categoria)
+        public bool InsertarCategoria(Categoria categoria)
         {
-            CATEGORIAS catOld = new CATEGORIAS();
-
-            ParseOld(categoria, catOld);
-
-            return new CategoriaDAO().Insertar(catOld);
+            return false;
         }
 
         public bool BorrarCategoria(int idCategoria)
         {
-            return new CategoriaDAO().Borrar(idCategoria);
-        }
-
-        private void ParseNew(CATEGORIAS catOld, CategoriaDTO catNew)
-        {
-            catNew.idCategoria = catOld.ID_CATEGORIA;
-            catNew.nombre = catOld.NOMBRE;
-        }
-
-        private void ParseOld(CategoriaDTO catNew, CATEGORIAS catOld)
-        {
-            catOld.ID_CATEGORIA = catNew.idCategoria;
-            catOld.NOMBRE = catNew.nombre;
+            return true;
         }
     }
 }

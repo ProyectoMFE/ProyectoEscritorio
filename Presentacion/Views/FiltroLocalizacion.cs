@@ -23,10 +23,10 @@ namespace Presentacion.Views
         }
         public void cargarListBox()
         {
-            List<DispositivoDTO> listaDispositivos = new DispositivoManagement().ObtenerDispositivos();
+            List<Negocio.EntitiesDTO.Dispositivo> listaDispositivos = new DispositivoManagement().ObtenerDispositivos();
 
             List<string> listaLocalizaciones = new List<string>();
-            foreach (DispositivoDTO dispositivo in listaDispositivos)
+            foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in listaDispositivos)
             {
                 if (!listaLocalizaciones.Contains(dispositivo.localizacion))
                 {

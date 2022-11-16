@@ -11,72 +11,29 @@ namespace Negocio.Management
 {
     public class OrdenadorManagement
     {
-        public OrdenadorDTO ObtenerOrdenador(string numSerie)
+        public Ordenador ObtenerOrdenador(string numSerie)
         {
-            ORDENADORES disOld = new OrdenadorDAO().Buscar(numSerie);
-            OrdenadorDTO dispositivo = new OrdenadorDTO();
-
-            ParseNew(disOld, dispositivo);
-
-            return dispositivo;
+            return null;
         }
 
-        public List<OrdenadorDTO> ObtenerOrdenadores()
+        public List<Ordenador> ObtenerOrdenadores()
         {
-            List<OrdenadorDTO> dispositivos = new List<OrdenadorDTO>();
-            OrdenadorDTO dispositivo;
-
-            foreach (ORDENADORES disOld in new OrdenadorDAO().Consultar())
-            {
-                dispositivo = new OrdenadorDTO();
-
-                ParseNew(disOld, dispositivo);
-
-                dispositivos.Add(dispositivo);
-            }
-
-            return dispositivos;
+            return null;
         }
 
-        public bool ModificarOrdenador(OrdenadorDTO dispositivo)
+        public bool ModificarOrdenador(Ordenador dispositivo)
         {
-            ORDENADORES disOld = new ORDENADORES();
-
-            ParseOld(dispositivo, disOld);
-
-            return new OrdenadorDAO().Modificar(disOld.NUM_SERIE, disOld);
+            return false;
         }
 
-        public bool InsertarOrdenador(OrdenadorDTO dispositivo)
+        public bool InsertarOrdenador(Ordenador dispositivo)
         {
-            ORDENADORES disOld = new ORDENADORES();
-
-            ParseOld(dispositivo, disOld);
-
-            return new OrdenadorDAO().Insertar(disOld);
+            return false;
         }
 
         public bool BorrarOrdenador(string numSerie)
         {
-            return new OrdenadorDAO().Borrar(numSerie);
-        }
-
-        private void ParseNew(ORDENADORES disOld, OrdenadorDTO disNew)
-        {
-            disNew.numSerie = disOld.NUM_SERIE;
-            disNew.ram = disOld.RAM;
-            disNew.procesador = disOld.PROCESADOR;
-            disNew.discoPrincipal = disOld.DISCO_PRINCIPAL;
-            disNew.discoSecundario = disOld.DISCO_SECUNDARIO;
-        }
-
-        private void ParseOld(OrdenadorDTO disNew, ORDENADORES disOld)
-        {
-            disOld.NUM_SERIE = disNew.numSerie;
-            disOld.RAM = disNew.ram;
-            disOld.PROCESADOR = disNew.procesador;
-            disOld.DISCO_PRINCIPAL = disNew.discoPrincipal;
-            disOld.DISCO_SECUNDARIO = disNew.discoSecundario;
+            return false;
         }
     }
 }

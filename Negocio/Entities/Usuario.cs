@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datos.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Negocio.EntitiesDTO
 {
-    public class UsuarioDTO
+    [Serializable]
+    public class Usuario
     {
         public int idUsuario { get; set; }
         public string correo { get; set; }
@@ -15,5 +17,6 @@ namespace Negocio.EntitiesDTO
         public string segundoApellido { get; set; }
         public string tipo { get; set; }
         public string contrasenia { get; set; }
+        public virtual List<Solicitud> solicitudes { get; set; }
     }
 }

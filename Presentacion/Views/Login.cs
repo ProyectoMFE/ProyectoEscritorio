@@ -57,7 +57,7 @@ namespace Presentacion.Views
                 return;
             }*/
 
-            UsuarioDTO usuarioDTO = new UsuarioManagement().ObtenerUsuario(correo);
+            Usuario usuarioDTO = new UsuarioManagement().ObtenerUsuario(correo);
             contraseña = cifrarContraseña(contraseña);
 
 
