@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion.Views.Admin
 {
-    partial class NuevoDispositivo
+    partial class DispositivoNuevo
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@ namespace Presentacion.Views.Admin
             this.txtNumSerie = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblNumeroSerie = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.comboBoxCategoria = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtLocalizacion = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtModelo = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMarca = new Guna.UI2.WinForms.Guna2TextBox();
@@ -51,7 +52,6 @@ namespace Presentacion.Views.Admin
             this.lblCaracteristicas = new System.Windows.Forms.Label();
             this.btnAgregar = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
-            this.comboBoxCategoria = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.panelCaracteristicas.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +100,22 @@ namespace Presentacion.Views.Admin
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(352, 326);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // comboBoxCategoria
+            // 
+            this.comboBoxCategoria.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxCategoria.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategoria.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxCategoria.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxCategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboBoxCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.comboBoxCategoria.ItemHeight = 30;
+            this.comboBoxCategoria.Location = new System.Drawing.Point(120, 60);
+            this.comboBoxCategoria.Name = "comboBoxCategoria";
+            this.comboBoxCategoria.Size = new System.Drawing.Size(200, 36);
+            this.comboBoxCategoria.TabIndex = 15;
+            this.comboBoxCategoria.SelectedValueChanged += new System.EventHandler(this.comboBoxCategoria_SelectedValueChanged);
             // 
             // txtLocalizacion
             // 
@@ -368,33 +384,19 @@ namespace Presentacion.Views.Admin
             this.btnCancelar.Size = new System.Drawing.Size(180, 45);
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // comboBoxCategoria
-            // 
-            this.comboBoxCategoria.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxCategoria.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCategoria.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBoxCategoria.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBoxCategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.comboBoxCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.comboBoxCategoria.ItemHeight = 30;
-            this.comboBoxCategoria.Location = new System.Drawing.Point(120, 60);
-            this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(200, 36);
-            this.comboBoxCategoria.TabIndex = 15;
-            this.comboBoxCategoria.SelectedValueChanged += new System.EventHandler(this.comboBoxCategoria_SelectedValueChanged);
-            // 
-            // NuevoDispositivo
+            // DispositivoNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 570);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.panelCaracteristicas);
             this.Controls.Add(this.guna2Panel1);
-            this.Name = "NuevoDispositivo";
+            this.Name = "DispositivoNuevo";
             this.Text = "Dispositivo";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();

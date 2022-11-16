@@ -66,8 +66,8 @@ namespace Presentacion.Views.Admin
         // MENU BOTON PRESTAMOS Y SU SUBMENU
         private void btnPrestamos_Click(object sender, EventArgs e)
         {
-            openChildForm(new Prestamos());
-            if (panelPrestamos.Visible)
+            openChildForm(new PrestamosAdmin());
+            if (!panelPrestamos.Visible)
             {
                 showSubMenu(panelPrestamos);
                 MostrarSubCategorias();
@@ -81,7 +81,7 @@ namespace Presentacion.Views.Admin
         {
 
         }
-        private void btnPrestamos3_Click(object sender, EventArgs e) 
+        private void btnPrestamos3_Click(object sender, EventArgs e)
         {
 
         }
@@ -94,7 +94,7 @@ namespace Presentacion.Views.Admin
         private void btnSolicitudes_Click(object sender, EventArgs e)
         {
             openChildForm(new Solicitudes());
-            if (panelSolicitudes.Visible)
+            if (!panelSolicitudes.Visible)
             {
                 showSubMenu(panelSolicitudes);
             }
@@ -111,11 +111,10 @@ namespace Presentacion.Views.Admin
         // MENU BOTON CONFIGURACION Y SU SUBMENU
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
-            if (panelConfiguracion.Visible)
+            if (!panelConfiguracion.Visible)
             {
                 showSubMenu(panelConfiguracion);
-            }
-  
+            }          
         }
         private void btnConfiguracionUsuarios_Click(object sender, EventArgs e)
         {
@@ -221,6 +220,6 @@ namespace Presentacion.Views.Admin
                 btnDispositivos3.Hide();
                 btnDispositivos4.Hide();
             }
-        }      
+        }
     }
 }

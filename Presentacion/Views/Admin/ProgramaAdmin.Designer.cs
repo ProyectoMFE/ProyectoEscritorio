@@ -284,7 +284,7 @@ namespace Presentacion.Views.Admin
             this.btnPrestamos.Name = "btnPrestamos";
             this.btnPrestamos.Size = new System.Drawing.Size(233, 50);
             this.btnPrestamos.TabIndex = 4;
-            this.btnPrestamos.Text = "Mis Prestamos";
+            this.btnPrestamos.Text = "Prestamos";
             this.btnPrestamos.UseVisualStyleBackColor = true;
             this.btnPrestamos.Click += new System.EventHandler(this.btnPrestamos_Click);
             // 

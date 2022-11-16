@@ -1,13 +1,9 @@
 ﻿using Negocio.EntitiesDTO;
 using Negocio.Management;
+using Presentacion.Views.Admin;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentacion.Views
@@ -20,7 +16,7 @@ namespace Presentacion.Views
             RellenarTabla();
         }
 
-
+        // RELLENAR LA TABLA DE DISPOSITIVOS SIN FILTROS
         private void RellenarTabla()
         {
             List<DispositivoDTO> dispositivos = new DispositivoManagement().ObtenerDispositivos();
@@ -38,6 +34,13 @@ namespace Presentacion.Views
             }
         }
 
+        // LIMPIAR LA TABLA DE DISPOSITIVOS
+        private void LimpiarTabla()
+        {
+            tablaDispositivos.Rows.Clear();
+        }
+
+        // RELLENAR LA TABLA DE DISPOSITIVOS SEGUN LOS FILTROS
         public void RellenarTablaFiltradaPorDispositivos(List<string> categoriasSelecionadas)
         {
             List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorCategoria(categoriasSelecionadas);
@@ -53,7 +56,6 @@ namespace Presentacion.Views
 
             }
         }
-
         private void RellenarTablaFiltradaPorMarcas(List<string> marcasSelecionadas)
         {
             List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorMarca(marcasSelecionadas);
@@ -67,7 +69,6 @@ namespace Presentacion.Views
                 tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
             }
         }
-
         private void RellenarTablaFiltradaPorModelo(List<string> modelosSelecionados)
         {
             List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorModelo(modelosSelecionados);
@@ -81,7 +82,6 @@ namespace Presentacion.Views
                 tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
             }
         }
-
         private void RellenarTablaFiltradaPorLocalizacion(List<string> localizacionesSelecionadas)
         {
             List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorLocalizacion(localizacionesSelecionadas);
@@ -96,7 +96,6 @@ namespace Presentacion.Views
 
             }
         }
-
         private void RellenarTablaFiltradaPorEstado(List<string> estadosSelecionados)
         {
             List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorEstado(estadosSelecionados);
@@ -111,32 +110,7 @@ namespace Presentacion.Views
             }
         }
 
-        private void LimpiarTabla()
-        {
-            tablaDispositivos.Rows.Clear();
-        }
-        private string formatearEstado(string estadoBD)
-        {
-            string estado = "";
-
-            switch (estadoBD)
-            {
-                case "O":
-                    estado = "Ocupado";
-                    break;
-                case "D":
-                    estado = "Disponible";
-                    break;
-                case "I":
-                    estado = "Instalado";
-                    break;
-                default:
-                    break;
-            }
-
-            return estado;
-        }
-
+        // ACCIONES DE LOS BOTONES QUE FILTRAN
         private void btnFiltroMarca_Click(object sender, EventArgs e)
         {
             Filtrar filtro = new Filtrar();
@@ -149,7 +123,6 @@ namespace Presentacion.Views
                 RellenarTablaFiltradaPorMarcas(marcasSelecionadas);
             }
         }
-
         private void btnFiltroDispositivo_Click(object sender, EventArgs e)
         {
             Filtrar filtro = new Filtrar();
@@ -163,7 +136,6 @@ namespace Presentacion.Views
             }
 
         }
-
         private void btnFiltroModelo_Click(object sender, EventArgs e)
         {
             Filtrar filtro = new Filtrar();
@@ -176,7 +148,6 @@ namespace Presentacion.Views
                 RellenarTablaFiltradaPorModelo(categoriasSelecionadas);
             }
         }
-
         private void btnFiltroLocalizacion_Click(object sender, EventArgs e)
         {
             Filtrar filtro = new Filtrar();
@@ -190,7 +161,6 @@ namespace Presentacion.Views
             }
 
         }
-
         private void btnFiltroEstado_Click(object sender, EventArgs e)
         {
             Filtrar filtro = new Filtrar();
@@ -204,14 +174,13 @@ namespace Presentacion.Views
             }
 
         }
-
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
             LimpiarTabla();
             RellenarTabla();
         }
-
-
+      
+        // ACCIONES AL HACER CLICK EN LA TABLA O EN EL BOTON DE MODIFICAR
         private void tablaDispositivos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -230,15 +199,7 @@ namespace Presentacion.Views
                 }
             }
             catch { }
-        }
-
-        private void Modificar(string numSerie)
-        {
-            Dispositivo dispositivo = new Dispositivo(numSerie);
-
-            dispositivo.ShowDialog();
-        }
-
+        }   
         private void tablaDispositivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -261,8 +222,42 @@ namespace Presentacion.Views
             catch { }
         }
 
+        // FORMATEAR EL ESTADO RECIBIDO
+        private string formatearEstado(string estadoBD)
+        {
+            string estado = "";
+
+            switch (estadoBD)
+            {
+                case "O":
+                    estado = "Ocupado";
+                    break;
+                case "D":
+                    estado = "Disponible";
+                    break;
+                case "I":
+                    estado = "Instalado";
+                    break;
+                default:
+                    break;
+            }
+
+            return estado;
+        }
+
+        // MOSTRAR DISPOSITIVO A MODIFICAR
+        private void Modificar(string numSerie)
+        {
+            Dispositivo dispositivo = new Dispositivo(numSerie);
+
+            dispositivo.ShowDialog();
+        }
+
+        // ACCION AGRAGAR DISPOSITIVO NUEVO
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            DispositivoNuevo popup = new DispositivoNuevo();
+            popup.ShowDialog();
 
         }
     }

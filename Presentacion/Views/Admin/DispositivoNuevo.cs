@@ -10,14 +10,15 @@ using System.Windows.Forms;
 
 namespace Presentacion.Views.Admin
 {
-    public partial class NuevoDispositivo : Form
+    public partial class DispositivoNuevo : Form
     {
-        public NuevoDispositivo()
+        public DispositivoNuevo()
         {
             InitializeComponent();
             cargarListaCategorias();
         }
 
+        // CARGAR LAS CATEGORIAS EXISTENTES EN EL COMOBOX
         private void cargarListaCategorias()
         {
             comboBoxCategoria.Items.Add("Switch");
@@ -26,6 +27,7 @@ namespace Presentacion.Views.Admin
             comboBoxCategoria.Items.Add("Otro");
         }
 
+        // MOSTRAR LAS CARACTERISTICAS ESPECIFICAS SEGUN LA CATEGORIA SELECCIONADA
         private void comboBoxCategoria_SelectedValueChanged(object sender, EventArgs e)
         {
             
@@ -45,7 +47,6 @@ namespace Presentacion.Views.Admin
             }
            
         }
-
         private void MostrarCaracteristicasPantalla()
         {
             panelCaracteristicas.Visible = true;
@@ -64,7 +65,6 @@ namespace Presentacion.Views.Admin
             lblCaracteristica4.Visible = false;
             txtCaracteristica4.Visible = false;
         }
-
         private void MostrarCaracteristicasOrdenador()
         {
             panelCaracteristicas.Visible = true;
@@ -89,7 +89,6 @@ namespace Presentacion.Views.Admin
             txtCaracteristica4.Visible = true;
             txtCaracteristica4.Text = "";
         }
-
         private void MostrarCaracteristicasHardwareRed()
         {
             panelCaracteristicas.Visible = true;
@@ -109,6 +108,12 @@ namespace Presentacion.Views.Admin
 
             lblCaracteristica4.Visible = false;
             txtCaracteristica4.Visible = false;
+        }
+
+        // SALIR DEL FORMULARIO
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
