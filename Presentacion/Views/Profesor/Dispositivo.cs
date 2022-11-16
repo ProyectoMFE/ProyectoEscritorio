@@ -15,20 +15,20 @@ namespace Presentacion.Views
         }
 
         private void mostrarCaracteristicas(string numeroSerie)
-        {
-            DispositivoDTO dispositivo = new DispositivoManagement().ObtenerDispositivo(numeroSerie);
-            if (dispositivo.caracteristica.GetType() == typeof(HWRedDTO))
+        {/*
+            Negocio.EntitiesDTO.Dispositivo dispositivo = new DispositivoManagement().ObtenerDispositivo(numeroSerie);
+            if (dispositivo.caracteristica.GetType() == typeof(HWRed))
             {
-                HWRedDTO aux = new HWManagement().ObtenerHWRed(numeroSerie);
+                HWRed aux = new HWManagement().ObtenerHWRed(numeroSerie);
                 lblCategoria1.Text = "Nº Puertos";
                 txtCategoria.Text = aux.numPuertos + "";
                 label2.Text = "Velocidad";
                 txtCategoria2.Text = aux.velocidad + "";
 
             }
-            else if (dispositivo.caracteristica.GetType() == typeof(OrdenadorDTO))
+            else if (dispositivo.caracteristica.GetType() == typeof(Ordenador))
             {
-                OrdenadorDTO ordenador = new OrdenadorManagement().ObtenerOrdenador(numeroSerie);
+                Ordenador ordenador = new OrdenadorManagement().ObtenerOrdenador(numeroSerie);
                 lblCategoria1.Text = "Procesador";
                 txtCategoria1.Text = ordenador.procesador;
                 lblCategoria2.Text = "RAM";
@@ -36,18 +36,18 @@ namespace Presentacion.Views
                 lblCategoria3.Text = "Disco Principal";
                 txtCategoria3.Text = ordenador.discoSecundario;
             }
-            else if (dispositivo.caracteristica.GetType() == typeof(PantallaDTO))
+            else if (dispositivo.caracteristica.GetType() == typeof(Pantalla))
             {
-                PantallaDTO pantalla = new PantallaManagement().ObtenerPantalla(numeroSerie);
+                Pantalla pantalla = new PantallaManagement().ObtenerPantalla(numeroSerie);
                 lblCategoria1.Text = "Pulgadas";
                 txtCategoria1.Text = pantalla.pulgadas + "";
-            }
+            }*/
         }
 
         private void mostrarDispositivo(string numeroSerie)
         {
-            DispositivoDTO dispositivo = new DispositivoManagement().ObtenerDispositivo(numeroSerie);
-            CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+            Negocio.EntitiesDTO.Dispositivo dispositivo = new DispositivoManagement().ObtenerDispositivo(numeroSerie);
+            Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
 
             string estado = formatearEstado(dispositivo.estado);
 

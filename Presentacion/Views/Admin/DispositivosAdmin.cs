@@ -23,14 +23,14 @@ namespace Presentacion.Views
 
         private void RellenarTabla()
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().ObtenerDispositivos();
+            List<Negocio.EntitiesDTO.Dispositivo> dispositivos = new DispositivoManagement().ObtenerDispositivos();
 
 
-            foreach (DispositivoDTO dispositivo in dispositivos)
+            foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
                 string estado = formatearEstado(dispositivo.estado);
 
-                CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+                Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
 
 
                 tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
@@ -40,15 +40,15 @@ namespace Presentacion.Views
 
         public void RellenarTablaFiltradaPorDispositivos(List<string> categoriasSelecionadas)
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorCategoria(categoriasSelecionadas);
+            List<Negocio.EntitiesDTO.Dispositivo> dispositivos = new DispositivoManagement().obtenerDispositivosPorCategoria(categoriasSelecionadas);
 
             LimpiarTabla();
-            foreach (DispositivoDTO dispositivo in dispositivos)
+            foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
                 string estado = formatearEstado(dispositivo.estado);
 
 
-                CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+                Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
                 tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
 
             }
@@ -56,42 +56,42 @@ namespace Presentacion.Views
 
         private void RellenarTablaFiltradaPorMarcas(List<string> marcasSelecionadas)
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorMarca(marcasSelecionadas);
+            List<Negocio.EntitiesDTO.Dispositivo> dispositivos = new DispositivoManagement().obtenerDispositivosPorMarca(marcasSelecionadas);
 
             LimpiarTabla();
-            foreach (DispositivoDTO dispositivo in dispositivos)
+            foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
                 string estado = formatearEstado(dispositivo.estado);
 
-                CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+                Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
                 tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
             }
         }
 
         private void RellenarTablaFiltradaPorModelo(List<string> modelosSelecionados)
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorModelo(modelosSelecionados);
+            List<Negocio.EntitiesDTO.Dispositivo> dispositivos = new DispositivoManagement().obtenerDispositivosPorModelo(modelosSelecionados);
 
             LimpiarTabla();
-            foreach (DispositivoDTO dispositivo in dispositivos)
+            foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
                 string estado = formatearEstado(dispositivo.estado);
 
-                CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+                Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
                 tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
             }
         }
 
         private void RellenarTablaFiltradaPorLocalizacion(List<string> localizacionesSelecionadas)
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorLocalizacion(localizacionesSelecionadas);
+            List<Negocio.EntitiesDTO.Dispositivo> dispositivos = new DispositivoManagement().obtenerDispositivosPorLocalizacion(localizacionesSelecionadas);
 
             LimpiarTabla();
-            foreach (DispositivoDTO dispositivo in dispositivos)
+            foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
                 string estado = formatearEstado(dispositivo.estado);
 
-                CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+                Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
                 tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
 
             }
@@ -99,14 +99,14 @@ namespace Presentacion.Views
 
         private void RellenarTablaFiltradaPorEstado(List<string> estadosSelecionados)
         {
-            List<DispositivoDTO> dispositivos = new DispositivoManagement().obtenerDispositivosPorEstado(estadosSelecionados);
+            List<Negocio.EntitiesDTO.Dispositivo> dispositivos = new DispositivoManagement().obtenerDispositivosPorEstado(estadosSelecionados);
 
             LimpiarTabla();
-            foreach (DispositivoDTO dispositivo in dispositivos)
+            foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
                 string estado = formatearEstado(dispositivo.estado);
 
-                CategoriaDTO categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+                Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
                 tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
             }
         }
