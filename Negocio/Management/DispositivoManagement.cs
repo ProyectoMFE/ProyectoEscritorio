@@ -4,7 +4,9 @@ using Negocio.EntitiesDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Negocio.Management
@@ -13,12 +15,20 @@ namespace Negocio.Management
     {
         public Dispositivo ObtenerDispositivo(string numSerie)
         {
-            return null;
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos/" + numSerie);
+            string json = HttpConnection.ResponseToJson(res);
+            Dispositivo dispositivo = JsonSerializer.Deserialize<Dispositivo>(json);
+
+            return dispositivo;
         }
 
         public List<Dispositivo> ObtenerDispositivos()
         {
-            return null;
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            string json = HttpConnection.ResponseToJson(res);
+            List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
+
+            return lista;
         }
 
         public bool ModificarDispositivo(Dispositivo dispositivo)
@@ -38,77 +48,189 @@ namespace Negocio.Management
 
         public List<Dispositivo> obtenerDispositivosPorCategoria(List<string> categorias)
         {
-            return null;
+            List<Dispositivo> listaDispositivos = new List<Dispositivo>();
+
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            string json = HttpConnection.ResponseToJson(res);
+            List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
+
+            Categoria categoria;
+            foreach (Dispositivo dispositivo in lista)
+            {
+                categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+
+                foreach (string nombreCategoria in categorias)
+                {
+                    if (categoria.nombre.Equals(nombreCategoria))
+                    {
+                        listaDispositivos.Add(dispositivo);
+                    }
+                }
+            }
+
+            return listaDispositivos;
         }
 
         public List<Dispositivo> obtenerDispositivosPorMarca(List<string>marcas)
         {
-            return null;
+            List<Dispositivo> listaDispositivos = new List<Dispositivo>();
+
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            string json = HttpConnection.ResponseToJson(res);
+            List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
+
+            foreach (Dispositivo dispositivo in lista)
+            {
+                foreach (string marca in marcas)
+                {
+                    if (dispositivo.marca.Equals(marca))
+                    {
+                        listaDispositivos.Add(dispositivo);
+                    }
+                }
+            }
+            return listaDispositivos;
         }
         public List<Dispositivo> obtenerDispositivosPorModelo(List<string> modelos)
         {
-            return null;
+            List<Dispositivo> listaDispositivos = new List<Dispositivo>();
+
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            string json = HttpConnection.ResponseToJson(res);
+            List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
+
+            foreach (Dispositivo dispositivo in lista)
+            {
+                foreach (string modelo in modelos)
+                {
+                    if (dispositivo.modelo.Equals(modelo))
+                    {
+                        listaDispositivos.Add(dispositivo);
+                    }
+                }
+            }
+            return listaDispositivos;
         }
         public List<Dispositivo> obtenerDispositivosPorLocalizacion(List<string> localizaciones)
         {
-            return null;
+            List<Dispositivo> listaDispositivos = new List<Dispositivo>();
+
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            string json = HttpConnection.ResponseToJson(res);
+            List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
+
+            foreach (Dispositivo dispositivo in lista)
+            {
+                foreach (string localizacion in localizaciones)
+                {
+                    if (dispositivo.localizacion.Equals(localizacion))
+                    {
+                        listaDispositivos.Add(dispositivo);
+                    }
+                }
+            }
+            return listaDispositivos;
         }
         public List<Dispositivo> obtenerDispositivosPorEstado(List<string> estados)
         {
-            return null;
-        }
-/*
-        private void ObtenerCaracteristicas(Dispositivo dispositivo)
-        {
-            string numSerie = dispositivo.numSerie;
+            List<Dispositivo> listaDispositivos = new List<Dispositivo>();
+            String estadoFormateado;
 
-            if (new HWRedDAO().Buscar(numSerie) != null)
-            {
-                dispositivo.caracteristica = new HWManagement().ObtenerHWRed(numSerie);
-            }else if (new OrdenadorDAO().Buscar(numSerie) != null)
-            {
-                dispositivo.caracteristica = new OrdenadorManagement().ObtenerOrdenador(numSerie);
-            }
-            else if (new PantallaDAO().Buscar(numSerie) != null)
-            {
-                dispositivo.caracteristica = new PantallaManagement().ObtenerPantalla(numSerie);
-            }
-        }
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            string json = HttpConnection.ResponseToJson(res);
+            List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
 
-        private void InsertarCaracteristicas(Dispositivo dispositivo)
-        {
-            string numSerie = dispositivo.numSerie;
-
-            if (new HWRedDAO().Buscar(numSerie) != null)
+            foreach (Dispositivo dispositivo in lista)
             {
-                new HWManagement().InsertarHWRed((HWRed) dispositivo.caracteristica);
+                foreach (string estado in estados)
+                {
+                    estadoFormateado = formatearEstado(dispositivo.estado);
+                    if (estadoFormateado.Equals(estado))
+                    {
+                        listaDispositivos.Add(dispositivo);
+                    }
+                }
             }
-            else if (new OrdenadorDAO().Buscar(numSerie) != null)
-            {
-                new OrdenadorManagement().InsertarOrdenador((Ordenador) dispositivo.caracteristica);
-            }
-            else if (new PantallaDAO().Buscar(numSerie) != null)
-            {
-                new PantallaManagement().InsertarPantalla((Pantalla) dispositivo.caracteristica);
-            }
+            return listaDispositivos;
         }
 
-        private void ModificarCaracteristicas(Dispositivo dispositivo)
+        private string formatearEstado(string estadoBD)
         {
-            string numSerie = dispositivo.numSerie;
+            string estado = "";
 
-            if (new HWRedDAO().Buscar(numSerie) != null)
+            switch (estadoBD)
             {
-                new HWManagement().ModificarHWRed((HWRed)dispositivo.caracteristica);
+                case "O":
+                    estado = "Ocupado";
+                    break;
+                case "D":
+                    estado = "Disponible";
+                    break;
+                case "I":
+                    estado = "Instalado";
+                    break;
+                default:
+                    break;
             }
-            else if (new OrdenadorDAO().Buscar(numSerie) != null)
-            {
-                new OrdenadorManagement().ModificarOrdenador((Ordenador)dispositivo.caracteristica);
-            }
-            else if (new PantallaDAO().Buscar(numSerie) != null)
-            {
-                new PantallaManagement().ModificarPantalla((Pantalla)dispositivo.caracteristica);
-            }
-        }*/
+
+            return estado;
+        }
+
+
+
+
+        /*
+                private void ObtenerCaracteristicas(Dispositivo dispositivo)
+                {
+                    string numSerie = dispositivo.numSerie;
+
+                    if (new HWRedDAO().Buscar(numSerie) != null)
+                    {
+                        dispositivo.caracteristica = new HWManagement().ObtenerHWRed(numSerie);
+                    }else if (new OrdenadorDAO().Buscar(numSerie) != null)
+                    {
+                        dispositivo.caracteristica = new OrdenadorManagement().ObtenerOrdenador(numSerie);
+                    }
+                    else if (new PantallaDAO().Buscar(numSerie) != null)
+                    {
+                        dispositivo.caracteristica = new PantallaManagement().ObtenerPantalla(numSerie);
+                    }
+                }
+
+                private void InsertarCaracteristicas(Dispositivo dispositivo)
+                {
+                    string numSerie = dispositivo.numSerie;
+
+                    if (new HWRedDAO().Buscar(numSerie) != null)
+                    {
+                        new HWManagement().InsertarHWRed((HWRed) dispositivo.caracteristica);
+                    }
+                    else if (new OrdenadorDAO().Buscar(numSerie) != null)
+                    {
+                        new OrdenadorManagement().InsertarOrdenador((Ordenador) dispositivo.caracteristica);
+                    }
+                    else if (new PantallaDAO().Buscar(numSerie) != null)
+                    {
+                        new PantallaManagement().InsertarPantalla((Pantalla) dispositivo.caracteristica);
+                    }
+                }
+
+                private void ModificarCaracteristicas(Dispositivo dispositivo)
+                {
+                    string numSerie = dispositivo.numSerie;
+
+                    if (new HWRedDAO().Buscar(numSerie) != null)
+                    {
+                        new HWManagement().ModificarHWRed((HWRed)dispositivo.caracteristica);
+                    }
+                    else if (new OrdenadorDAO().Buscar(numSerie) != null)
+                    {
+                        new OrdenadorManagement().ModificarOrdenador((Ordenador)dispositivo.caracteristica);
+                    }
+                    else if (new PantallaDAO().Buscar(numSerie) != null)
+                    {
+                        new PantallaManagement().ModificarPantalla((Pantalla)dispositivo.caracteristica);
+                    }
+                }*/
     }
 }
