@@ -11,66 +11,29 @@ namespace Negocio.Management
 {
     public class PantallaManagement
     {
-        public PantallaDTO ObtenerPantalla(string numSerie)
+        public Pantalla ObtenerPantalla(string numSerie)
         {
-            PANTALLAS disOld = new PantallaDAO().Buscar(numSerie);
-            PantallaDTO dispositivo = new PantallaDTO();
-
-            ParseNew(disOld, dispositivo);
-
-            return dispositivo;
+            return null;
         }
 
-        public List<PantallaDTO> ObtenerPantallas()
+        public List<Pantalla> ObtenerPantallas()
         {
-            List<PantallaDTO> dispositivos = new List<PantallaDTO>();
-            PantallaDTO dispositivo;
-
-            foreach (PANTALLAS disOld in new PantallaDAO().Consultar())
-            {
-                dispositivo = new PantallaDTO();
-
-                ParseNew(disOld, dispositivo);
-
-                dispositivos.Add(dispositivo);
-            }
-
-            return dispositivos;
+            return null;
         }
 
-        public bool ModificarPantalla(PantallaDTO dispositivo)
+        public bool ModificarPantalla(Pantalla dispositivo)
         {
-            PANTALLAS disOld = new PANTALLAS();
-
-            ParseOld(dispositivo, disOld);
-
-            return new PantallaDAO().Modificar(disOld.NUM_SERIE, disOld);
+            return false;
         }
 
-        public bool InsertarPantalla(PantallaDTO dispositivo)
+        public bool InsertarPantalla(Pantalla dispositivo)
         {
-            PANTALLAS disOld = new PANTALLAS();
-
-            ParseOld(dispositivo, disOld);
-
-            return new PantallaDAO().Insertar(disOld);
+            return false;
         }
 
         public bool BorrarPantalla(string numSerie)
         {
-            return new PantallaDAO().Borrar(numSerie);
-        }
-
-        private void ParseNew(PANTALLAS disOld, PantallaDTO disNew)
-        {
-            disNew.numSerie = disOld.NUM_SERIE;
-            disNew.pulgadas = disOld.PULGADAS;
-        }
-
-        private void ParseOld(PantallaDTO disNew, PANTALLAS disOld)
-        {
-            disOld.NUM_SERIE = disNew.numSerie;
-            disOld.PULGADAS = disNew.pulgadas;
+            return false;
         }
     }
 }

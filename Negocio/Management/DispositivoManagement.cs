@@ -11,53 +11,24 @@ namespace Negocio.Management
 {
     public class DispositivoManagement
     {
-        public DispositivoDTO ObtenerDispositivo(string numSerie)
+        public Dispositivo ObtenerDispositivo(string numSerie)
         {
-            DISPOSITIVOS disOld = new DispositivoDAO().Buscar(numSerie);
-            DispositivoDTO dispositivo = new DispositivoDTO();
-
-            ParseNew(disOld, dispositivo);
-            ObtenerCaracteristicas(dispositivo);
-
-            return dispositivo;
+            return null;
         }
 
-        public List<DispositivoDTO> ObtenerDispositivos()
+        public List<Dispositivo> ObtenerDispositivos()
         {
-            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
-            DispositivoDTO dispositivo;
-
-            foreach (DISPOSITIVOS disOld in new DispositivoDAO().Consultar())
-            {
-                dispositivo = new DispositivoDTO();
-
-                ParseNew(disOld, dispositivo);
-                ObtenerCaracteristicas(dispositivo);
-
-                dispositivos.Add(dispositivo);
-            }
-
-            return dispositivos;
+            return null;
         }
 
-        public bool ModificarDispositivo(DispositivoDTO dispositivo)
+        public bool ModificarDispositivo(Dispositivo dispositivo)
         {
-            DISPOSITIVOS disOld = new DISPOSITIVOS();
-
-            ParseOld(dispositivo, disOld);
-            ModificarCaracteristicas(dispositivo);
-
-            return new DispositivoDAO().Modificar(disOld.NUM_SERIE, disOld);
+            return true;
         }
 
-        public bool InsertarDispositivo(DispositivoDTO dispositivo)
+        public bool InsertarDispositivo(Dispositivo dispositivo)
         {
-            DISPOSITIVOS disOld = new DISPOSITIVOS();
-
-            ParseOld(dispositivo, disOld);
-            InsertarCaracteristicas(dispositivo);
-
-            return new DispositivoDAO().Insertar(disOld);
+            return true;
         }
 
         public bool BorrarDispositivo(string numSerie)
@@ -65,94 +36,29 @@ namespace Negocio.Management
             return new DispositivoDAO().Borrar(numSerie);
         }
 
-        public List<DispositivoDTO> obtenerDispositivosPorCategoria(List<string> categorias)
+        public List<Dispositivo> obtenerDispositivosPorCategoria(List<string> categorias)
         {
-            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
-            List<DISPOSITIVOS> dispositivosBD = new DispositivoDAO().ObtenerDispositivosPorCategoria(categorias);
-
-            foreach (DISPOSITIVOS DISPOSITIVO in dispositivosBD)
-            {
-                DispositivoDTO dispositivo = new DispositivoDTO();
-                ParseNew(DISPOSITIVO, dispositivo);
-                dispositivos.Add(dispositivo);
-            }
-            return dispositivos;
+            return null;
         }
 
-        public List<DispositivoDTO> obtenerDispositivosPorMarca(List<string>marcas)
+        public List<Dispositivo> obtenerDispositivosPorMarca(List<string>marcas)
         {
-            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
-            List<DISPOSITIVOS> dispositivosBD = new DispositivoDAO().ObtenerDispositivosPorMarca(marcas);
-
-            foreach (DISPOSITIVOS DISPOSITIVO in dispositivosBD)
-            {
-                DispositivoDTO dispositivo = new DispositivoDTO();
-                ParseNew(DISPOSITIVO, dispositivo);
-                dispositivos.Add(dispositivo);
-            }
-            return dispositivos;
+            return null;
         }
-        public List<DispositivoDTO> obtenerDispositivosPorModelo(List<string> modelos)
+        public List<Dispositivo> obtenerDispositivosPorModelo(List<string> modelos)
         {
-            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
-            List<DISPOSITIVOS> dispositivosBD = new DispositivoDAO().ObtenerDispositivosPorModelo(modelos);
-
-            foreach (DISPOSITIVOS DISPOSITIVO in dispositivosBD)
-            {
-                DispositivoDTO dispositivo = new DispositivoDTO();
-                ParseNew(DISPOSITIVO, dispositivo);
-                dispositivos.Add(dispositivo);
-            }
-            return dispositivos;
+            return null;
         }
-        public List<DispositivoDTO> obtenerDispositivosPorLocalizacion(List<string> localizaciones)
+        public List<Dispositivo> obtenerDispositivosPorLocalizacion(List<string> localizaciones)
         {
-            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
-            List<DISPOSITIVOS> dispositivosBD = new DispositivoDAO().ObtenerDispositivosPorLocalizaciones(localizaciones);
-
-            foreach (DISPOSITIVOS DISPOSITIVO in dispositivosBD)
-            {
-                DispositivoDTO dispositivo = new DispositivoDTO();
-                ParseNew(DISPOSITIVO, dispositivo);
-                dispositivos.Add(dispositivo);
-            }
-            return dispositivos;
+            return null;
         }
-        public List<DispositivoDTO> obtenerDispositivosPorEstado(List<string> estados)
+        public List<Dispositivo> obtenerDispositivosPorEstado(List<string> estados)
         {
-            List<DispositivoDTO> dispositivos = new List<DispositivoDTO>();
-            List<DISPOSITIVOS> dispositivosBD = new DispositivoDAO().ObtenerDispositivosPorEstados(estados);
-
-            foreach (DISPOSITIVOS DISPOSITIVO in dispositivosBD)
-            {
-                DispositivoDTO dispositivo = new DispositivoDTO();
-                ParseNew(DISPOSITIVO, dispositivo);
-                dispositivos.Add(dispositivo);
-            }
-            return dispositivos;
+            return null;
         }
-
-        private void ParseNew(DISPOSITIVOS disOld, DispositivoDTO disNew)
-        {
-            disNew.numSerie = disOld.NUM_SERIE;
-            disNew.idCategoria = disOld.ID_CATEGORIA;
-            disNew.estado = disOld.ESTADO;
-            disNew.marca = disOld.MARCA;
-            disNew.modelo = disOld.MODELO;
-            disNew.localizacion = disOld.LOCALIZACION;
-        }
-
-        private void ParseOld(DispositivoDTO disNew, DISPOSITIVOS disOld)
-        {
-            disOld.NUM_SERIE = disNew.numSerie;
-            disOld.ID_CATEGORIA = disNew.idCategoria;
-            disOld.ESTADO = disNew.estado;
-            disOld.MARCA = disNew.marca;
-            disOld.MODELO = disNew.modelo;
-            disOld.LOCALIZACION = disNew.localizacion;
-        }
-
-        private void ObtenerCaracteristicas(DispositivoDTO dispositivo)
+/*
+        private void ObtenerCaracteristicas(Dispositivo dispositivo)
         {
             string numSerie = dispositivo.numSerie;
 
@@ -169,40 +75,40 @@ namespace Negocio.Management
             }
         }
 
-        private void InsertarCaracteristicas(DispositivoDTO dispositivo)
+        private void InsertarCaracteristicas(Dispositivo dispositivo)
         {
             string numSerie = dispositivo.numSerie;
 
             if (new HWRedDAO().Buscar(numSerie) != null)
             {
-                new HWManagement().InsertarHWRed((HWRedDTO) dispositivo.caracteristica);
+                new HWManagement().InsertarHWRed((HWRed) dispositivo.caracteristica);
             }
             else if (new OrdenadorDAO().Buscar(numSerie) != null)
             {
-                new OrdenadorManagement().InsertarOrdenador((OrdenadorDTO) dispositivo.caracteristica);
+                new OrdenadorManagement().InsertarOrdenador((Ordenador) dispositivo.caracteristica);
             }
             else if (new PantallaDAO().Buscar(numSerie) != null)
             {
-                new PantallaManagement().InsertarPantalla((PantallaDTO) dispositivo.caracteristica);
+                new PantallaManagement().InsertarPantalla((Pantalla) dispositivo.caracteristica);
             }
         }
 
-        private void ModificarCaracteristicas(DispositivoDTO dispositivo)
+        private void ModificarCaracteristicas(Dispositivo dispositivo)
         {
             string numSerie = dispositivo.numSerie;
 
             if (new HWRedDAO().Buscar(numSerie) != null)
             {
-                new HWManagement().ModificarHWRed((HWRedDTO)dispositivo.caracteristica);
+                new HWManagement().ModificarHWRed((HWRed)dispositivo.caracteristica);
             }
             else if (new OrdenadorDAO().Buscar(numSerie) != null)
             {
-                new OrdenadorManagement().ModificarOrdenador((OrdenadorDTO)dispositivo.caracteristica);
+                new OrdenadorManagement().ModificarOrdenador((Ordenador)dispositivo.caracteristica);
             }
             else if (new PantallaDAO().Buscar(numSerie) != null)
             {
-                new PantallaManagement().ModificarPantalla((PantallaDTO)dispositivo.caracteristica);
+                new PantallaManagement().ModificarPantalla((Pantalla)dispositivo.caracteristica);
             }
-        }
+        }*/
     }
 }

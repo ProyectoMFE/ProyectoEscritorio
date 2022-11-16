@@ -162,7 +162,7 @@ namespace Presentacion.Views
         }
         private void MostrarSubCategorias()
         {
-            List<CategoriaDTO> categorias = new CategoriaManagement().ObtenerCategorias();
+            List<Categoria> categorias = new CategoriaManagement().ObtenerCategorias();
 
             int cantidadCategorias = categorias.Count();
             if (cantidadCategorias >= 4)
