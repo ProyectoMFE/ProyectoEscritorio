@@ -80,17 +80,17 @@
     <Compile Include="Views\Admin\ProgramaAdmin.Designer.cs">
       <DependentUpon>ProgramaAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Profesor\Dispositivo.cs">
+    <Compile Include="Views\Profesor\DispositivoProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Profesor\Dispositivo.Designer.cs">
-      <DependentUpon>Dispositivo.cs</DependentUpon>
+    <Compile Include="Views\Profesor\DispositivoProfesor.Designer.cs">
+      <DependentUpon>DispositivoProfesor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Profesor\Dispositivos.cs">
+    <Compile Include="Views\Profesor\DispositivosProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Profesor\Dispositivos.Designer.cs">
-      <DependentUpon>Dispositivos.cs</DependentUpon>
+    <Compile Include="Views\Profesor\DispositivosProfesor.Designer.cs">
+      <DependentUpon>DispositivosProfesor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,6 +164,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Admin\DispositivoAdmin.resx">
+      <DependentUpon>DispositivoAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\DispositivosAdmin.resx">
       <DependentUpon>DispositivosAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,11 +179,11 @@
     <EmbeddedResource Include="Views\Admin\ProgramaAdmin.resx">
       <DependentUpon>ProgramaAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Profesor\Dispositivo.resx">
-      <DependentUpon>Dispositivo.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Profesor\DispositivoProfesor.resx">
+      <DependentUpon>DispositivoProfesor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Profesor\Dispositivos.resx">
-      <DependentUpon>Dispositivos.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Profesor\DispositivosProfesor.resx">
+      <DependentUpon>DispositivosProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FiltroDispositivo.resx">
       <DependentUpon>FiltroDispositivo.cs</DependentUpon>

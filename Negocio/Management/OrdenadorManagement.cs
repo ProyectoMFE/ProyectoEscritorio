@@ -4,7 +4,9 @@ using Negocio.EntitiesDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Negocio.Management
@@ -13,7 +15,11 @@ namespace Negocio.Management
     {
         public Ordenador ObtenerOrdenador(string numSerie)
         {
-            return null;
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Ordenadores/" + numSerie);
+            string json = HttpConnection.ResponseToJson(res);
+            Ordenador ordenador = JsonSerializer.Deserialize<Ordenador>(json);
+
+            return ordenador;
         }
 
         public List<Ordenador> ObtenerOrdenadores()

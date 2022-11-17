@@ -248,8 +248,7 @@ namespace Presentacion.Views
         // MOSTRAR DISPOSITIVO A MODIFICAR
         private void Modificar(string numSerie)
         {
-            Dispositivo dispositivo = new Dispositivo(numSerie);
-
+            DispositivoAdmin dispositivo = new DispositivoAdmin(numSerie);
             dispositivo.ShowDialog();
         }
 

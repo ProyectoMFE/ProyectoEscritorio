@@ -66,6 +66,7 @@ namespace Presentacion.Views.Admin
             this.txtNumSerie.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtNumSerie.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNumSerie.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtNumSerie.ForeColor = System.Drawing.Color.Black;
             this.txtNumSerie.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNumSerie.Location = new System.Drawing.Point(120, 10);
             this.txtNumSerie.Name = "txtNumSerie";
@@ -127,6 +128,7 @@ namespace Presentacion.Views.Admin
             this.txtLocalizacion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtLocalizacion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLocalizacion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtLocalizacion.ForeColor = System.Drawing.Color.Black;
             this.txtLocalizacion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLocalizacion.Location = new System.Drawing.Point(120, 210);
             this.txtLocalizacion.Name = "txtLocalizacion";
@@ -146,6 +148,7 @@ namespace Presentacion.Views.Admin
             this.txtModelo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtModelo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtModelo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtModelo.ForeColor = System.Drawing.Color.Black;
             this.txtModelo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtModelo.Location = new System.Drawing.Point(120, 160);
             this.txtModelo.Name = "txtModelo";
@@ -165,6 +168,7 @@ namespace Presentacion.Views.Admin
             this.txtMarca.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMarca.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMarca.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtMarca.ForeColor = System.Drawing.Color.Black;
             this.txtMarca.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMarca.Location = new System.Drawing.Point(120, 110);
             this.txtMarca.Name = "txtMarca";
@@ -241,6 +245,7 @@ namespace Presentacion.Views.Admin
             this.txtCaracteristica4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCaracteristica4.ForeColor = System.Drawing.Color.Black;
             this.txtCaracteristica4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica4.Location = new System.Drawing.Point(130, 210);
             this.txtCaracteristica4.Name = "txtCaracteristica4";
@@ -260,6 +265,7 @@ namespace Presentacion.Views.Admin
             this.txtCaracteristica3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCaracteristica3.ForeColor = System.Drawing.Color.Black;
             this.txtCaracteristica3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica3.Location = new System.Drawing.Point(130, 160);
             this.txtCaracteristica3.Name = "txtCaracteristica3";
@@ -279,6 +285,7 @@ namespace Presentacion.Views.Admin
             this.txtCaracteristica2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCaracteristica2.ForeColor = System.Drawing.Color.Black;
             this.txtCaracteristica2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica2.Location = new System.Drawing.Point(130, 110);
             this.txtCaracteristica2.Name = "txtCaracteristica2";
@@ -298,6 +305,7 @@ namespace Presentacion.Views.Admin
             this.txtCaracteristica1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCaracteristica1.ForeColor = System.Drawing.Color.Black;
             this.txtCaracteristica1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica1.Location = new System.Drawing.Point(130, 60);
             this.txtCaracteristica1.Name = "txtCaracteristica1";
@@ -369,6 +377,7 @@ namespace Presentacion.Views.Admin
             this.btnAgregar.Size = new System.Drawing.Size(180, 45);
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnCancelar
             // 

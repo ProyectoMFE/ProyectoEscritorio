@@ -38,7 +38,7 @@ namespace Negocio.Management
 
         public bool InsertarDispositivo(Dispositivo dispositivo)
         {
-            return true;
+          return false;
         }
 
         public bool BorrarDispositivo(string numSerie)

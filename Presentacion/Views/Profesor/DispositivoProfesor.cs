@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Presentacion.Views
 {
-    public partial class Dispositivo : Form
+    public partial class DispositivoProfesor : Form
     {
-        public Dispositivo(string numeroSerie)
+        public DispositivoProfesor(string numeroSerie)
         {
             InitializeComponent();
             mostrarDispositivo(numeroSerie);

@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion.Views
 {
-    partial class Dispositivo
+    partial class DispositivoProfesor
     {
         /// <summary>
         /// Required designer variable.

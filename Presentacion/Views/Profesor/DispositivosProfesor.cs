@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace Presentacion.Views
 {
-    public partial class Dispositivos : Form
+    public partial class DispositivosProfesor : Form
     {
 
 
-        public Dispositivos()
+        public DispositivosProfesor()
         {
             InitializeComponent();
             RellenarTabla();
@@ -240,7 +240,7 @@ namespace Presentacion.Views
 
         private void Reservar(string numSerie)
         {
-            Dispositivo dispositivo = new Dispositivo(numSerie);
+            DispositivoProfesor dispositivo = new DispositivoProfesor(numSerie);
 
             dispositivo.ShowDialog();
         }

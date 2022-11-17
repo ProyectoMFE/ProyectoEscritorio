@@ -22,7 +22,7 @@ namespace Presentacion.Views
         // MENU BOTON DISPOSITIVOS Y SU SUBMENU
         private void btnDispositivos_Click(object sender, EventArgs e)
         {
-            openChildForm(new Dispositivos());
+            openChildForm(new DispositivosProfesor());
             showSubMenu(panelDispositivos);
             MostrarSubCategorias();
         }
@@ -30,7 +30,7 @@ namespace Presentacion.Views
         {
             List<string> lista = new List<string>();
             lista.Add(btnDispositivos1.Text);
-            Dispositivos dispositivos = new Dispositivos();
+            DispositivosProfesor dispositivos = new DispositivosProfesor();
             dispositivos.RellenarTablaFiltradaPorDispositivos(lista);
             openChildForm(dispositivos);
 
@@ -39,7 +39,7 @@ namespace Presentacion.Views
         {
             List<string> lista = new List<string>();
             lista.Add(btnDispositivos2.Text);
-            Dispositivos dispositivos = new Dispositivos();
+            DispositivosProfesor dispositivos = new DispositivosProfesor();
             dispositivos.RellenarTablaFiltradaPorDispositivos(lista);
             openChildForm(dispositivos);
         }
@@ -47,7 +47,7 @@ namespace Presentacion.Views
         {
             List<string> lista = new List<string>();
             lista.Add(btnDispositivos3.Text);
-            Dispositivos dispositivos = new Dispositivos();
+            DispositivosProfesor dispositivos = new DispositivosProfesor();
             dispositivos.RellenarTablaFiltradaPorDispositivos(lista);
             openChildForm(dispositivos);
 
@@ -56,7 +56,7 @@ namespace Presentacion.Views
         {
             List<string> lista = new List<string>();
             lista.Add(btnDispositivos4.Text);
-            Dispositivos dispositivos = new Dispositivos();
+            DispositivosProfesor dispositivos = new DispositivosProfesor();
             dispositivos.RellenarTablaFiltradaPorDispositivos(lista);
             openChildForm(dispositivos);
         }
