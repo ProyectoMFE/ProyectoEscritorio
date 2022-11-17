@@ -37,11 +37,14 @@ namespace Negocio
                     }
                 }
 
+           
                 return request.GetResponse();
+                
             }
             catch (WebException ex)
             {
-                // Handle error
+                HttpStatusCode statusCode = ((HttpWebResponse)ex.Response).StatusCode;
+              
             }
             return null;//Modificar
 

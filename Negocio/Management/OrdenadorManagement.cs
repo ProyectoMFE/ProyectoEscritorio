@@ -15,10 +15,17 @@ namespace Negocio.Management
     {
         public Ordenador ObtenerOrdenador(string numSerie)
         {
-            WebResponse res = HttpConnection.Send(null, "GET", "api/Ordenadores/" + numSerie);
-            string json = HttpConnection.ResponseToJson(res);
-            Ordenador ordenador = JsonSerializer.Deserialize<Ordenador>(json);
-
+            Ordenador ordenador;
+            try
+            {
+                WebResponse res = HttpConnection.Send(null, "GET", "api/Ordenadores/" + numSerie);
+                string json = HttpConnection.ResponseToJson(res);
+                ordenador = JsonSerializer.Deserialize<Ordenador>(json);
+            }
+            catch (Exception)
+            {
+                ordenador = null;
+            }          
             return ordenador;
         }
 
@@ -34,12 +41,31 @@ namespace Negocio.Management
 
         public bool InsertarOrdenador(Ordenador dispositivo)
         {
-            return false;
+            try
+            {
+                Ordenador aux = ObtenerOrdenador(dispositivo.numSerie);
+
+                if (aux != null)
+                {
+                    return false;
+                }
+
+                string json = JsonSerializer.Serialize(dispositivo);
+                WebResponse res = HttpConnection.Send(json, "POST", "api/Ordenadores/");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool BorrarOrdenador(string numSerie)
         {
-            return false;
+            WebResponse res = HttpConnection.Send(null, "DELETE", "api/Ordenadores/" + numSerie);
+            string json = HttpConnection.ResponseToJson(res);
+
+            return true;
         }
     }
 }

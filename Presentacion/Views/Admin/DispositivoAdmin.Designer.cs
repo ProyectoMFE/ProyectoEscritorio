@@ -51,6 +51,7 @@
             this.lblCaracteristica1 = new System.Windows.Forms.Label();
             this.lblCaracteristica2 = new System.Windows.Forms.Label();
             this.lblCaracteristicas = new System.Windows.Forms.Label();
+            this.btnBorrar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.panelCaracteristicas.SuspendLayout();
             this.SuspendLayout();
@@ -227,9 +228,10 @@
             this.btnModificar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnModificar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnModificar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnModificar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(475, 474);
+            this.btnModificar.Location = new System.Drawing.Point(584, 474);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(180, 45);
             this.btnModificar.TabIndex = 13;
@@ -241,10 +243,9 @@
             this.btnCancelar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCancelar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCancelar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCancelar.FillColor = System.Drawing.Color.Brown;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(251, 474);
+            this.btnCancelar.Location = new System.Drawing.Point(199, 474);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(180, 45);
             this.btnCancelar.TabIndex = 14;
@@ -392,11 +393,28 @@
             this.lblCaracteristicas.TabIndex = 1;
             this.lblCaracteristicas.Text = "Caracteristicas";
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBorrar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBorrar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBorrar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBorrar.FillColor = System.Drawing.Color.Brown;
+            this.btnBorrar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnBorrar.ForeColor = System.Drawing.Color.White;
+            this.btnBorrar.Location = new System.Drawing.Point(389, 474);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(180, 45);
+            this.btnBorrar.TabIndex = 16;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
             // DispositivoAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 570);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.panelCaracteristicas);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
@@ -436,5 +454,6 @@
         private System.Windows.Forms.Label lblCaracteristica1;
         private System.Windows.Forms.Label lblCaracteristica2;
         private System.Windows.Forms.Label lblCaracteristicas;
+        private Guna.UI2.WinForms.Guna2Button btnBorrar;
     }
 }

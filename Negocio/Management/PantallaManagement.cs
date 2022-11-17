@@ -4,7 +4,9 @@ using Negocio.EntitiesDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Negocio.Management
@@ -13,12 +15,27 @@ namespace Negocio.Management
     {
         public Pantalla ObtenerPantalla(string numSerie)
         {
-            return null;
+            Pantalla pantalla;
+            try
+            {
+                WebResponse res = HttpConnection.Send(null, "GET", "api/Pantallas/" + numSerie);
+                string json = HttpConnection.ResponseToJson(res);
+                pantalla = JsonSerializer.Deserialize<Pantalla>(json);
+            }
+            catch (Exception)
+            {
+                pantalla = null;
+            }
+            return pantalla;
         }
 
         public List<Pantalla> ObtenerPantallas()
         {
-            return null;
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Pantallas/");
+            string json = HttpConnection.ResponseToJson(res);
+            List<Pantalla> lista = JsonSerializer.Deserialize<List<Pantalla>>(json);
+
+            return lista;
         }
 
         public bool ModificarPantalla(Pantalla dispositivo)
@@ -28,12 +45,31 @@ namespace Negocio.Management
 
         public bool InsertarPantalla(Pantalla dispositivo)
         {
-            return false;
+            try
+            {
+                Pantalla aux = ObtenerPantalla(dispositivo.numSerie);
+
+                if (aux != null)
+                {
+                    return false;
+                }
+
+                string json = JsonSerializer.Serialize(dispositivo);
+                WebResponse res = HttpConnection.Send(json, "POST", "api/Pantallas");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool BorrarPantalla(string numSerie)
         {
-            return false;
+            WebResponse res = HttpConnection.Send(null, "DELETE", "api/Pantallas/" + numSerie);
+            string json = HttpConnection.ResponseToJson(res);
+
+            return true;
         }
     }
 }

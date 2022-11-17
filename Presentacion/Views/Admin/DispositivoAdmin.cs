@@ -19,13 +19,9 @@ namespace Presentacion.Views.Admin
         {
             InitializeComponent();
             mostrarDispositivo(numSerie);
-         ;
         }
 
-        private void mostrarCaracteristicas(string numSerie)
-        {
-           
-        }
+     
 
         private void mostrarDispositivo(string numSerie)
         {
@@ -45,25 +41,33 @@ namespace Presentacion.Views.Admin
                 case "Ordenador":
                     MostrarCaracteristicasOrdenador(numSerie);
                     break;
+                case "Switch":
+                    MostrarCaracteristicasHardwareRed(numSerie);
+                    break;
+                case "Pantalla":
+                    MostrarCaracteristicasPantalla(numSerie);
+                    break;                   
                 default:
+                    MostrarCaracteristicasComponente();
                     break;
             }
 
         }
 
-        private void MostrarCaracteristicasHardwareRed(Dispositivo dispositivo)
+        private void MostrarCaracteristicasHardwareRed(string numserie)
         {
+            HWRed dispositivo = new HWManagement().ObtenerHWRed(numserie);
             panelCaracteristicas.Visible = true;
 
             lblCaracteristica1.Visible = true;
             lblCaracteristica1.Text = "Nº Puertos";
             txtCaracteristica1.Visible = true;
-            txtCaracteristica1.Text = "";
+            txtCaracteristica1.Text = dispositivo.numPuertos+"";
 
             lblCaracteristica2.Visible = true;
             lblCaracteristica2.Text = "Velocidad";
             txtCaracteristica2.Visible = true;
-            txtCaracteristica2.Text = "";
+            txtCaracteristica2.Text = dispositivo.velocidad+"";
 
             lblCaracteristica3.Visible = false;
             txtCaracteristica3.Visible = false;
@@ -96,14 +100,15 @@ namespace Presentacion.Views.Admin
             txtCaracteristica4.Visible = true;
             txtCaracteristica4.Text = ordenador.discoSecundario;
         }
-        private void MostrarCaracteristicasPantalla(Dispositivo dispositivo)
+        private void MostrarCaracteristicasPantalla(string numserie)
         {
+            Pantalla pantalla = new PantallaManagement().ObtenerPantalla(numserie);
             panelCaracteristicas.Visible = true;
 
             lblCaracteristica1.Visible = true;
             lblCaracteristica1.Text = "Pulgadas";
             txtCaracteristica1.Visible = true;
-            txtCaracteristica1.Text = "";
+            txtCaracteristica1.Text =pantalla.pulgadas+"";
 
             lblCaracteristica2.Visible = false;
             txtCaracteristica2.Visible = false;
@@ -114,9 +119,26 @@ namespace Presentacion.Views.Admin
             lblCaracteristica4.Visible = false;
             txtCaracteristica4.Visible = false;
         }
-        private void MostrarCaracteristicasComponente(Dispositivo dispositivo)
+        private void MostrarCaracteristicasComponente()
         {
             panelCaracteristicas.Visible = false;
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            bool exito = new DispositivoManagement().BorrarDispositivo(txtNumSerie.Text);
+
+            if (exito)
+            {
+                MessageBox.Show("DISPOSITIVO BORRADO CORRECTAMENTE", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("ERROR AL BORRAR EL DISPOSITIVO", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+           
         }
     }
 }

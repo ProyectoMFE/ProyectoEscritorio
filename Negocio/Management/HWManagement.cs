@@ -4,7 +4,9 @@ using Negocio.EntitiesDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Negocio.Management
@@ -13,12 +15,27 @@ namespace Negocio.Management
     {
         public HWRed ObtenerHWRed(string numSerie)
         {
-            return null;
+            HWRed ordenador;
+            try
+            {
+                WebResponse res = HttpConnection.Send(null, "GET", "api/HwReds/" + numSerie);
+                string json = HttpConnection.ResponseToJson(res);
+                ordenador = JsonSerializer.Deserialize<HWRed>(json);
+            }
+            catch (Exception)
+            {
+                ordenador = null;
+            }
+            return ordenador;
         }
 
         public List<HWRed> ObtenerHWReds()
         {
-            return null;
+            WebResponse res = HttpConnection.Send(null, "GET", "api/HwReds/");
+            string json = HttpConnection.ResponseToJson(res);
+            List<HWRed> lista = JsonSerializer.Deserialize<List<HWRed>>(json);
+
+            return lista;
         }
 
         public bool ModificarHWRed(HWRed dispositivo)
@@ -28,12 +45,31 @@ namespace Negocio.Management
 
         public bool InsertarHWRed(HWRed dispositivo)
         {
-            return false;
+            try
+            {
+                HWRed aux = ObtenerHWRed(dispositivo.numSerie);
+
+                if (aux != null)
+                {
+                    return false;
+                }
+
+                string json = JsonSerializer.Serialize(dispositivo);
+                WebResponse res = HttpConnection.Send(json, "POST", "api/HwReds");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool BorrarHWRed(string numSerie)
         {
-            return false;
+            WebResponse res = HttpConnection.Send(null, "DELETE", "api/HwReds/" + numSerie);
+            string json = HttpConnection.ResponseToJson(res);
+
+            return true;
         }
     }
 }

@@ -250,6 +250,8 @@ namespace Presentacion.Views
         {
             DispositivoAdmin dispositivo = new DispositivoAdmin(numSerie);
             dispositivo.ShowDialog();
+            LimpiarTabla();
+            RellenarTabla();
         }
 
         // ACCION AGRAGAR DISPOSITIVO NUEVO
@@ -257,7 +259,8 @@ namespace Presentacion.Views
         {
             DispositivoNuevo popup = new DispositivoNuevo();
             popup.ShowDialog();
-
+            LimpiarTabla();
+            RellenarTabla();
         }
     }
 }

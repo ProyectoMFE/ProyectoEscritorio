@@ -15,16 +15,24 @@ namespace Negocio.Management
     {
         public Dispositivo ObtenerDispositivo(string numSerie)
         {
-            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos/" + numSerie);
-            string json = HttpConnection.ResponseToJson(res);
-            Dispositivo dispositivo = JsonSerializer.Deserialize<Dispositivo>(json);
+            Dispositivo dispositivo;
+            try
+            {
+                WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos/" + numSerie);
+                string json = HttpConnection.ResponseToJson(res);
+                dispositivo = JsonSerializer.Deserialize<Dispositivo>(json);
+            }
+            catch
+            {
+                dispositivo= null;
+            }          
 
             return dispositivo;
         }
 
         public List<Dispositivo> ObtenerDispositivos()
         {
-            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos/");
             string json = HttpConnection.ResponseToJson(res);
             List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
 
@@ -38,19 +46,38 @@ namespace Negocio.Management
 
         public bool InsertarDispositivo(Dispositivo dispositivo)
         {
-          return false;
+            try
+            {
+                Dispositivo aux = ObtenerDispositivo(dispositivo.numSerie);
+
+                if (aux!=null)
+                {
+                    return false;
+                }
+
+                string json = JsonSerializer.Serialize(dispositivo);
+                WebResponse res = HttpConnection.Send(json, "POST", "api/Dispositivos");            
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool BorrarDispositivo(string numSerie)
         {
-            return new DispositivoDAO().Borrar(numSerie);
+            WebResponse res = HttpConnection.Send(null, "DELETE", "api/Dispositivos/"+numSerie);
+            string json = HttpConnection.ResponseToJson(res);
+
+            return true;
         }
 
         public List<Dispositivo> obtenerDispositivosPorCategoria(List<string> categorias)
         {
             List<Dispositivo> listaDispositivos = new List<Dispositivo>();
 
-            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos/");
             string json = HttpConnection.ResponseToJson(res);
             List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
 
@@ -70,8 +97,7 @@ namespace Negocio.Management
 
             return listaDispositivos;
         }
-
-        public List<Dispositivo> obtenerDispositivosPorMarca(List<string>marcas)
+        public List<Dispositivo> obtenerDispositivosPorMarca(List<string> marcas)
         {
             List<Dispositivo> listaDispositivos = new List<Dispositivo>();
 
@@ -95,7 +121,7 @@ namespace Negocio.Management
         {
             List<Dispositivo> listaDispositivos = new List<Dispositivo>();
 
-            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos/");
             string json = HttpConnection.ResponseToJson(res);
             List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
 
@@ -115,7 +141,7 @@ namespace Negocio.Management
         {
             List<Dispositivo> listaDispositivos = new List<Dispositivo>();
 
-            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos/");
             string json = HttpConnection.ResponseToJson(res);
             List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
 
@@ -136,7 +162,7 @@ namespace Negocio.Management
             List<Dispositivo> listaDispositivos = new List<Dispositivo>();
             String estadoFormateado;
 
-            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos/");
             string json = HttpConnection.ResponseToJson(res);
             List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
 
@@ -175,62 +201,5 @@ namespace Negocio.Management
 
             return estado;
         }
-
-
-
-
-        /*
-                private void ObtenerCaracteristicas(Dispositivo dispositivo)
-                {
-                    string numSerie = dispositivo.numSerie;
-
-                    if (new HWRedDAO().Buscar(numSerie) != null)
-                    {
-                        dispositivo.caracteristica = new HWManagement().ObtenerHWRed(numSerie);
-                    }else if (new OrdenadorDAO().Buscar(numSerie) != null)
-                    {
-                        dispositivo.caracteristica = new OrdenadorManagement().ObtenerOrdenador(numSerie);
-                    }
-                    else if (new PantallaDAO().Buscar(numSerie) != null)
-                    {
-                        dispositivo.caracteristica = new PantallaManagement().ObtenerPantalla(numSerie);
-                    }
-                }
-
-                private void InsertarCaracteristicas(Dispositivo dispositivo)
-                {
-                    string numSerie = dispositivo.numSerie;
-
-                    if (new HWRedDAO().Buscar(numSerie) != null)
-                    {
-                        new HWManagement().InsertarHWRed((HWRed) dispositivo.caracteristica);
-                    }
-                    else if (new OrdenadorDAO().Buscar(numSerie) != null)
-                    {
-                        new OrdenadorManagement().InsertarOrdenador((Ordenador) dispositivo.caracteristica);
-                    }
-                    else if (new PantallaDAO().Buscar(numSerie) != null)
-                    {
-                        new PantallaManagement().InsertarPantalla((Pantalla) dispositivo.caracteristica);
-                    }
-                }
-
-                private void ModificarCaracteristicas(Dispositivo dispositivo)
-                {
-                    string numSerie = dispositivo.numSerie;
-
-                    if (new HWRedDAO().Buscar(numSerie) != null)
-                    {
-                        new HWManagement().ModificarHWRed((HWRed)dispositivo.caracteristica);
-                    }
-                    else if (new OrdenadorDAO().Buscar(numSerie) != null)
-                    {
-                        new OrdenadorManagement().ModificarOrdenador((Ordenador)dispositivo.caracteristica);
-                    }
-                    else if (new PantallaDAO().Buscar(numSerie) != null)
-                    {
-                        new PantallaManagement().ModificarPantalla((Pantalla)dispositivo.caracteristica);
-                    }
-                }*/
     }
 }

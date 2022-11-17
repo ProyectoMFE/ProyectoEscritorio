@@ -52,6 +52,8 @@ namespace Presentacion.Views.Admin
             this.lblCaracteristicas = new System.Windows.Forms.Label();
             this.btnAgregar = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.comboBoxEstado = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.panelCaracteristicas.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +89,8 @@ namespace Presentacion.Views.Admin
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.comboBoxEstado);
+            this.guna2Panel1.Controls.Add(this.lblEstado);
             this.guna2Panel1.Controls.Add(this.comboBoxCategoria);
             this.guna2Panel1.Controls.Add(this.txtLocalizacion);
             this.guna2Panel1.Controls.Add(this.txtModelo);
@@ -395,6 +399,34 @@ namespace Presentacion.Views.Admin
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(10, 270);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(61, 21);
+            this.lblEstado.TabIndex = 16;
+            this.lblEstado.Text = "Estado";
+            // 
+            // comboBoxEstado
+            // 
+            this.comboBoxEstado.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxEstado.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEstado.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxEstado.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboBoxEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.comboBoxEstado.ItemHeight = 30;
+            this.comboBoxEstado.Items.AddRange(new object[] {
+            "Disponible",
+            "Instalado"});
+            this.comboBoxEstado.Location = new System.Drawing.Point(121, 261);
+            this.comboBoxEstado.Name = "comboBoxEstado";
+            this.comboBoxEstado.Size = new System.Drawing.Size(200, 36);
+            this.comboBoxEstado.TabIndex = 17;
+            // 
             // DispositivoNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,5 +472,7 @@ namespace Presentacion.Views.Admin
         private Guna.UI2.WinForms.Guna2Button btnAgregar;
         private Guna.UI2.WinForms.Guna2Button btnCancelar;
         private Guna.UI2.WinForms.Guna2ComboBox comboBoxCategoria;
+        private Guna.UI2.WinForms.Guna2ComboBox comboBoxEstado;
+        private System.Windows.Forms.Label lblEstado;
     }
 }
