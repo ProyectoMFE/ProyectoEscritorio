@@ -236,6 +236,7 @@
             this.btnModificar.Size = new System.Drawing.Size(180, 45);
             this.btnModificar.TabIndex = 13;
             this.btnModificar.Text = "Modificar";
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnCancelar
             // 
@@ -250,6 +251,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(180, 45);
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panelCaracteristicas
             // 
@@ -278,6 +280,7 @@
             this.txtCaracteristica4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCaracteristica4.ForeColor = System.Drawing.Color.Black;
             this.txtCaracteristica4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica4.Location = new System.Drawing.Point(130, 210);
             this.txtCaracteristica4.Name = "txtCaracteristica4";
@@ -297,6 +300,7 @@
             this.txtCaracteristica3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCaracteristica3.ForeColor = System.Drawing.Color.Black;
             this.txtCaracteristica3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica3.Location = new System.Drawing.Point(130, 160);
             this.txtCaracteristica3.Name = "txtCaracteristica3";
@@ -316,6 +320,7 @@
             this.txtCaracteristica2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCaracteristica2.ForeColor = System.Drawing.Color.Black;
             this.txtCaracteristica2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica2.Location = new System.Drawing.Point(130, 110);
             this.txtCaracteristica2.Name = "txtCaracteristica2";
@@ -335,6 +340,7 @@
             this.txtCaracteristica1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCaracteristica1.ForeColor = System.Drawing.Color.Black;
             this.txtCaracteristica1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica1.Location = new System.Drawing.Point(130, 60);
             this.txtCaracteristica1.Name = "txtCaracteristica1";
@@ -414,6 +420,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 570);
+            this.ControlBox = false;
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.panelCaracteristicas);
             this.Controls.Add(this.btnCancelar);

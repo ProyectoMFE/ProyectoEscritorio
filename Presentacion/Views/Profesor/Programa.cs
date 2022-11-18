@@ -23,8 +23,11 @@ namespace Presentacion.Views
         private void btnDispositivos_Click(object sender, EventArgs e)
         {
             openChildForm(new DispositivosProfesor());
-            showSubMenu(panelDispositivos);
-            MostrarSubCategorias();
+            if (!panelDispositivos.Visible)
+            {
+                showSubMenu(panelDispositivos);
+                MostrarSubCategorias();
+            }            
         }
         private void btnDispositivos1_Click(object sender, EventArgs e)
         {
@@ -65,7 +68,7 @@ namespace Presentacion.Views
         private void btnPrestamos_Click(object sender, EventArgs e)
         {
             openChildForm(new Prestamos());
-            if (panelPrestamos.Visible)
+            if (!panelPrestamos.Visible)
             {
                 showSubMenu(panelPrestamos);
                 MostrarSubCategorias();
@@ -92,7 +95,7 @@ namespace Presentacion.Views
         private void btnSolicitudes_Click(object sender, EventArgs e)
         {
             openChildForm(new Solicitudes());
-            if (panelSolicitudes.Visible)
+            if (!panelSolicitudes.Visible)
             {
                 showSubMenu(panelSolicitudes);
             }

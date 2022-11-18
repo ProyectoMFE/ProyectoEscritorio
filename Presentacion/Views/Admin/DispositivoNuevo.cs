@@ -182,7 +182,7 @@ namespace Presentacion.Views.Admin
             KeyValuePair<string, int> seleccionado = (KeyValuePair<string, int>)comboBoxCategoria.SelectedItem;
             string estadoFormateado = EstadoFormateado(comboBoxEstado.SelectedItem.ToString());
 
-         
+
             Dispositivo dispositivo = new Dispositivo()
             {
                 numSerie = txtNumSerie.Text,
@@ -194,7 +194,7 @@ namespace Presentacion.Views.Admin
                 idCategoriaNavigation = null,
                 hwRed = null,
                 ordenadores = null,
-                pantallas =null,
+                pantallas = null,
                 solicitudes = null
             };
 
@@ -202,10 +202,10 @@ namespace Presentacion.Views.Admin
             exito = new DispositivoManagement().InsertarDispositivo(dispositivo);
             if (!exito)
             {
-                MessageBox.Show("NO SE HA PODIDO INSERTAR EL DISPOSITIVO", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MostrarErrorInsertartDispositivo();
                 return;
             }
-            MessageBox.Show("EL DISPOSITIVO SE HA AÑADIDO CORRECTAMENTE", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);           
+            MostrarExitoInsertarDispositivo();
         }
 
         private void InsertarPantalla()
@@ -241,10 +241,10 @@ namespace Presentacion.Views.Admin
                 exito = new DispositivoManagement().InsertarDispositivo(dispositivo);
                 if (!exito)
                 {
-                    MessageBox.Show("NO SE HA PODIDO INSERTAR LA PANTALLA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MostrarErrorInsertartDispositivo();
                     return;
                 }
-                MessageBox.Show("LA PANTALLA SE HA AÑADIDO CORRECTAMENTE", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MostrarExitoInsertarDispositivo();
             }
             else
             {
@@ -255,14 +255,19 @@ namespace Presentacion.Views.Admin
         }
         private bool ComprobarCaracteristicasPantalla()
         {
-            string pattern = "\\d*";
-            Regex rx = new Regex(pattern);
+
+            Regex rx = new Regex("^\\d+$");
 
             bool campoVacio, campoConTexto;
 
             campoVacio = IsEmpty(txtCaracteristica1.Text);
             campoConTexto = !rx.IsMatch(txtCaracteristica1.Text);
-            if (campoVacio || campoConTexto)
+            if (campoVacio)
+            {
+                return false;
+            }
+
+            if (campoConTexto)
             {
                 return false;
             }
@@ -384,11 +389,11 @@ namespace Presentacion.Views.Admin
                     return;
                 }
 
-                MessageBox.Show("EL SWITCH SE HA AÑADIDO CORRECTAMENTE", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MostrarExitoInsertarDispositivo();
             }
             else
             {
-                MessageBox.Show("ERROR EN LAS CARACTERISTICAS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MostarErrorCaracteristicas();
             }
         }
         private bool ComprobarCaracteristicasHWRed()
@@ -485,6 +490,19 @@ namespace Presentacion.Views.Admin
             }
 
             return estadoFormateado;
+        }
+
+        private void MostarErrorCaracteristicas()
+        {
+            MessageBox.Show("ERROR EN LAS CARACTERISTICAS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void MostrarExitoInsertarDispositivo()
+        {
+            MessageBox.Show("EL DISPOSITIVO SE HA AÑADIDO CORRECTAMENTE", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void MostrarErrorInsertartDispositivo() {
+            MessageBox.Show("NO SE HA PODIDO INSERTAR EL DISPOSITIVO", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 

@@ -36,7 +36,18 @@ namespace Negocio.Management
 
         public bool ModificarOrdenador(Ordenador dispositivo)
         {
-            return false;
+            try
+            {
+                string json = JsonSerializer.Serialize(dispositivo);
+                WebResponse res = HttpConnection.Send(json, "PUT", "api/Ordenadores/" + dispositivo.numSerie);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+          
+            
         }
 
         public bool InsertarOrdenador(Ordenador dispositivo)

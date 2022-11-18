@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Presentacion.Views.Admin
 {
@@ -130,15 +131,122 @@ namespace Presentacion.Views.Admin
 
             if (exito)
             {
-                MessageBox.Show("DISPOSITIVO BORRADO CORRECTAMENTE", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               MostarMensajeExitoBorrar();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("ERROR AL BORRAR EL DISPOSITIVO", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MostarMensajeExitoBorrar();
             }
 
            
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+            string categoria = txtCategoria.Text;
+
+            switch(categoria){
+                case "Ordenador":
+                    ModificarOrdenador();
+                    break;
+                case "Pantalla":
+                    
+                    break;
+            }
+           
+          
+            
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void ModificarOrdenador()
+        {
+            Ordenador ordenador = new Ordenador()
+            {
+                numSerie = txtNumSerie.Text,
+                procesador = txtCaracteristica1.Text,
+                ram = txtCaracteristica2.Text,
+                discoPrincipal = txtCaracteristica3.Text,
+                discoSecundario = txtCaracteristica4.Text,
+            };
+            bool extito = new OrdenadorManagement().ModificarOrdenador(ordenador);
+
+            if (!extito)
+            {
+                MostrarMensajeFalloModificar();
+                return;
+            }
+            MostrarMensajeExitoModificar();
+        }
+
+        private void ModificarPantalla()
+        {
+
+            if (!ComprobarCaracteristicasPantalla())
+            {
+                return;
+                
+            }
+
+            Pantalla pantalla = new Pantalla()
+            {
+                numSerie = txtNumSerie.Text,
+                pulgadas = Convert.ToInt32(txtCaracteristica1.Text),
+            };
+            bool exito = new PantallaManagement().ModificarPantalla(pantalla);
+
+            if (!exito)
+            {
+                MostrarMensajeFalloModificar();
+                return;
+            }
+            MostrarMensajeExitoModificar();
+        }
+
+        private bool ComprobarCaracteristicasPantalla()
+        {
+            string pattern = "\\d*";
+            Regex rx = new Regex(pattern);
+
+            bool campoVacio, campoConTexto;
+
+            campoVacio = IsEmpty(txtCaracteristica1.Text);
+            campoConTexto = !rx.IsMatch(txtCaracteristica1.Text);
+            if (campoVacio || campoConTexto)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public bool IsEmpty(string campo)
+        {
+            return campo == "";
+        }
+
+        private void MostarMensajeExitoBorrar()
+        {
+            MessageBox.Show("DISPOSITIVO BORRADO CORRECTAMENTE", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void MostrarMensajeFalloBorrar()
+        {
+            MessageBox.Show("ERROR AL BORRAR EL DISPOSITIVO", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+        public void MostrarMensajeExitoModificar()
+        {
+            MessageBox.Show("DISPOSITIVO MODIFICADO CORRECTAMENTE", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public void MostrarMensajeFalloModificar()
+        {
+            MessageBox.Show("ERROR AL MODIFICAR EL DISPOSITIVO", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
