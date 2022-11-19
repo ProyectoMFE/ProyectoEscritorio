@@ -32,7 +32,7 @@ namespace Negocio.Management
 
         public List<Dispositivo> ObtenerDispositivos()
         {
-            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos/");
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos");
             string json = HttpConnection.ResponseToJson(res);
             List<Dispositivo> lista = JsonSerializer.Deserialize<List<Dispositivo>>(json);
 
@@ -56,7 +56,13 @@ namespace Negocio.Management
                 }
 
                 string json = JsonSerializer.Serialize(dispositivo);
-                WebResponse res = HttpConnection.Send(json, "POST", "api/Dispositivos");            
+                WebResponse res = HttpConnection.Send(json, "POST", "api/Dispositivos");
+
+             
+
+                //IF (STATUS CODE == 409){
+                // RETURN FALSE
+                //}
                 return true;
             }
             catch (Exception)
@@ -160,7 +166,6 @@ namespace Negocio.Management
         public List<Dispositivo> obtenerDispositivosPorEstado(List<string> estados)
         {
             List<Dispositivo> listaDispositivos = new List<Dispositivo>();
-            String estadoFormateado;
 
             WebResponse res = HttpConnection.Send(null, "GET", "api/Dispositivos/");
             string json = HttpConnection.ResponseToJson(res);
@@ -169,37 +174,14 @@ namespace Negocio.Management
             foreach (Dispositivo dispositivo in lista)
             {
                 foreach (string estado in estados)
-                {
-                    estadoFormateado = formatearEstado(dispositivo.estado);
-                    if (estadoFormateado.Equals(estado))
+                {                   
+                    if (dispositivo.estado.Equals(estado))
                     {
                         listaDispositivos.Add(dispositivo);
                     }
                 }
             }
             return listaDispositivos;
-        }
-
-        private string formatearEstado(string estadoBD)
-        {
-            string estado = "";
-
-            switch (estadoBD)
-            {
-                case "O":
-                    estado = "Ocupado";
-                    break;
-                case "D":
-                    estado = "Disponible";
-                    break;
-                case "I":
-                    estado = "Instalado";
-                    break;
-                default:
-                    break;
-            }
-
-            return estado;
-        }
+        }      
     }
 }

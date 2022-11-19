@@ -24,15 +24,15 @@ namespace Presentacion.Views
 
         public void cargarListBox()
         {
-            List<Negocio.EntitiesDTO.Dispositivo> listaDispositivos = new DispositivoManagement().ObtenerDispositivos();
+            List<Dispositivo> listaDispositivos = new DispositivoManagement().ObtenerDispositivos();
 
             List<string> listaEstados = new List<string>();
-            foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in listaDispositivos)
+            foreach (Dispositivo dispositivo in listaDispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-                if (!listaEstados.Contains(estado))
+        
+                if (!listaEstados.Contains(dispositivo.estado))
                 {
-                    listaEstados.Add(estado);
+                    listaEstados.Add(dispositivo.estado);
                 }
 
             }
@@ -45,27 +45,7 @@ namespace Presentacion.Views
 
         }
 
-        private string formatearEstado(string estadoBD)
-        {
-            string estado = "";
-
-            switch (estadoBD)
-            {
-                case "O":
-                    estado = "Ocupado";
-                    break;
-                case "D":
-                    estado = "Disponible";
-                    break;
-                case "I":
-                    estado = "Instalado";
-                    break;
-                default:
-                    break;
-            }
-
-            return estado;
-        }
+      
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {

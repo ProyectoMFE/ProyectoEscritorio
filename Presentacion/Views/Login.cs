@@ -13,9 +13,12 @@ namespace Presentacion.Views
 {
     public partial class Login : Form
     {
+        public static Login instanciaLogin { get; set; }
+        public string correo { get; set; }
         public Login()
         {
             InitializeComponent();
+            instanciaLogin= this;
         }
       
         public void pintarFondo(object sender, PaintEventArgs e)
@@ -69,7 +72,7 @@ namespace Presentacion.Views
 
             if (usuarioDTO.tipo.Equals("A"))
             {
-                ProgramaAdmin principal = new ProgramaAdmin(this);
+                ProgramaAdmin principal = new ProgramaAdmin(this);           
                 principal.Show();
                 this.Hide();
                 return;
@@ -77,6 +80,7 @@ namespace Presentacion.Views
 
             if (usuarioDTO.tipo.Equals("P"))
             {
+                this.correo = correo;   
                 Programa principal = new Programa(this);
                 principal.Show();
                 this.Hide();

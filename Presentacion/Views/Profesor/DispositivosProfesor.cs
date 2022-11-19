@@ -31,13 +31,8 @@ namespace Presentacion.Views
 
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-
                 Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-
-
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Reservar");
-
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Reservar");
             }
         }
 
@@ -48,12 +43,8 @@ namespace Presentacion.Views
             LimpiarTabla();
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-
-
                 Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado,  "Reservar");
-
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Reservar");
             }
         }
 
@@ -64,10 +55,8 @@ namespace Presentacion.Views
             LimpiarTabla();
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-
                 Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado,  "Reservar");
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Reservar");
             }
         }
 
@@ -78,10 +67,8 @@ namespace Presentacion.Views
             LimpiarTabla();
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-
                 Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Reservar");
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Reservar");
             }
         }
 
@@ -92,10 +79,8 @@ namespace Presentacion.Views
             LimpiarTabla();
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-
-                Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado,  "Reservar");
+                              Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Reservar");
 
             }
         }
@@ -107,10 +92,8 @@ namespace Presentacion.Views
             LimpiarTabla();
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-
                 Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado,  "Reservar");
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Reservar");
             }
         }
 
@@ -118,28 +101,7 @@ namespace Presentacion.Views
         {
             tablaDispositivos.Rows.Clear();
         }
-        private string formatearEstado(string estadoBD)
-        {
-            string estado = "";
-
-            switch (estadoBD)
-            {
-                case "O":
-                    estado = "Ocupado";
-                    break;
-                case "D":
-                    estado = "Disponible";
-                    break;
-                case "I":
-                    estado = "Instalado";
-                    break;
-                default:
-                    break;
-            }
-
-            return estado;
-        }
-
+       
         private void btnFiltroMarca_Click(object sender, EventArgs e)
         {
             Filtrar filtro = new Filtrar();
@@ -235,7 +197,7 @@ namespace Presentacion.Views
             catch (Exception)
             {
             }
-          
+
         }
 
         private void Reservar(string numSerie)
@@ -268,7 +230,7 @@ namespace Presentacion.Views
             {
             }
 
-           
+
         }
     }
 }

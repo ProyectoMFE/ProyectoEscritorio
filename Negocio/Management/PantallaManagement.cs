@@ -40,7 +40,16 @@ namespace Negocio.Management
 
         public bool ModificarPantalla(Pantalla dispositivo)
         {
-            return false;
+            try
+            {
+                string json = JsonSerializer.Serialize(dispositivo);
+                WebResponse res = HttpConnection.Send(json, "PUT", "api/Pantallas/" + dispositivo.numSerie);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool InsertarPantalla(Pantalla dispositivo)

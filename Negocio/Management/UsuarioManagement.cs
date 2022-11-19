@@ -12,18 +12,36 @@ namespace Negocio.Management
 {
     public class UsuarioManagement
     {
-        public Usuario ObtenerUsuario(string correo)
+        public Usuario ObtenerUsuario(int id)
         {
-            WebResponse res = HttpConnection.Send(null, "GET", "api/Usuarios/" + correo);
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Usuarios/" + id);
             string json = HttpConnection.ResponseToJson(res);
             Usuario lista = JsonSerializer.Deserialize<Usuario>(json);
 
             return lista;
         }
+        public Usuario ObtenerUsuario(string correo)
+        {
+            List<Usuario> usuarios = ObtenerUsuarios();
+
+            foreach (Usuario usuario in usuarios)
+            {
+                if (usuario.correo.Equals(correo))
+                {
+                    return usuario;
+                }
+            }
+
+            return null;
+        }
 
         public List<Usuario> ObtenerUsuarios()
         {
-            return null;
+            WebResponse res = HttpConnection.Send(null, "GET", "api/Usuarios");
+            string json = HttpConnection.ResponseToJson(res);
+            List<Usuario> lista = JsonSerializer.Deserialize<List<Usuario>>(json);
+
+            return lista;
         }
 
         public bool ModificarUsuario(Usuario usuario)

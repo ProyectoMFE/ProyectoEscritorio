@@ -179,8 +179,7 @@ namespace Presentacion.Views.Admin
         private void InsertarDispositivo()
         {
 
-            KeyValuePair<string, int> seleccionado = (KeyValuePair<string, int>)comboBoxCategoria.SelectedItem;
-            string estadoFormateado = EstadoFormateado(comboBoxEstado.SelectedItem.ToString());
+            KeyValuePair<string, int> seleccionado = (KeyValuePair<string, int>)comboBoxCategoria.SelectedItem;   
 
 
             Dispositivo dispositivo = new Dispositivo()
@@ -190,7 +189,7 @@ namespace Presentacion.Views.Admin
                 marca = txtMarca.Text,
                 modelo = txtModelo.Text,
                 localizacion = txtLocalizacion.Text,
-                estado = estadoFormateado,
+                estado = comboBoxEstado.SelectedItem.ToString(),
                 idCategoriaNavigation = null,
                 hwRed = null,
                 ordenadores = null,
@@ -214,7 +213,7 @@ namespace Presentacion.Views.Admin
             if (ComprobarCaracteristicasPantalla())
             {
                 KeyValuePair<string, int> seleccionado = (KeyValuePair<string, int>)comboBoxCategoria.SelectedItem;
-                string estadoFormateado = EstadoFormateado(comboBoxEstado.SelectedItem.ToString());
+            
 
                 Pantalla pantalla = new Pantalla()
                 {
@@ -229,7 +228,7 @@ namespace Presentacion.Views.Admin
                     marca = txtMarca.Text,
                     modelo = txtModelo.Text,
                     localizacion = txtLocalizacion.Text,
-                    estado = estadoFormateado,
+                    estado = comboBoxEstado.SelectedItem.ToString(),
                     idCategoriaNavigation = null,
                     hwRed = null,
                     ordenadores = null,
@@ -280,7 +279,6 @@ namespace Presentacion.Views.Admin
             if (ComprobarCaracteristicasOrdenador())
             {
                 KeyValuePair<string, int> seleccionado = (KeyValuePair<string, int>)comboBoxCategoria.SelectedItem;
-                string estadoFormateado = EstadoFormateado(comboBoxEstado.SelectedItem.ToString());
 
                 Ordenador ordenador = new Ordenador()
                 {
@@ -298,7 +296,7 @@ namespace Presentacion.Views.Admin
                     marca = txtMarca.Text,
                     modelo = txtModelo.Text,
                     localizacion = txtLocalizacion.Text,
-                    estado = estadoFormateado,
+                    estado = comboBoxEstado.SelectedItem.ToString(),
                     idCategoriaNavigation = null,
                     hwRed = null,
                     ordenadores = ordenador,
@@ -310,10 +308,10 @@ namespace Presentacion.Views.Admin
                 exito = new DispositivoManagement().InsertarDispositivo(dispositivo);
                 if (!exito)
                 {
-                    MessageBox.Show("NO SE HA PODIDO INSERTAR EL ORDENAOR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MostrarErrorInsertartDispositivo();
                     return;
                 }
-                MessageBox.Show("EL ORDENADOR SE HA AÑADIDO CORRECTAMENTE", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MostrarExitoInsertarDispositivo();
             }
             else
             {
@@ -356,8 +354,7 @@ namespace Presentacion.Views.Admin
             if (ComprobarCaracteristicasHWRed())
             {
                 KeyValuePair<string, int> seleccionado = (KeyValuePair<string, int>)comboBoxCategoria.SelectedItem;
-                string estadoFormateado = EstadoFormateado(comboBoxEstado.SelectedItem.ToString());
-
+         
                 HWRed hwRed = new HWRed()
                 {
                     numSerie = txtNumSerie.Text,
@@ -373,7 +370,7 @@ namespace Presentacion.Views.Admin
                     marca = txtMarca.Text,
                     modelo = txtModelo.Text,
                     localizacion = txtLocalizacion.Text,
-                    estado = estadoFormateado,
+                    estado = comboBoxEstado.SelectedItem.ToString(),
                     idCategoriaNavigation = null,
                     hwRed = hwRed,
                     ordenadores = null,
@@ -385,7 +382,7 @@ namespace Presentacion.Views.Admin
                 exito = new DispositivoManagement().InsertarDispositivo(dispositivo);
                 if (!exito)
                 {
-                    MessageBox.Show("NO SE HA PODIDO INSERTAR EL SWITCH", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MostrarErrorInsertartDispositivo();
                     return;
                 }
 
@@ -398,29 +395,30 @@ namespace Presentacion.Views.Admin
         }
         private bool ComprobarCaracteristicasHWRed()
         {
-            string pattern = "\\d*";
-            Regex rx = new Regex(pattern);
+            Regex rx = new Regex("^\\d+$");
 
             bool campoVacio, campoConTexto;
 
             campoVacio = IsEmpty(txtCaracteristica1.Text);
-            campoConTexto = rx.IsMatch(txtCaracteristica1.Text);
+            campoConTexto = !rx.IsMatch(txtCaracteristica1.Text);
             if (campoVacio)
             {
                 return false;
             }
-            if (!campoConTexto)
+
+            if (campoConTexto)
             {
                 return false;
             }
 
             campoVacio = IsEmpty(txtCaracteristica2.Text);
-            campoConTexto = rx.IsMatch(txtCaracteristica2.Text);
+            campoConTexto = !rx.IsMatch(txtCaracteristica2.Text);
             if (campoVacio)
             {
                 return false;
             }
-            if (!campoConTexto)
+
+            if (campoConTexto)
             {
                 return false;
             }
@@ -476,22 +474,7 @@ namespace Presentacion.Views.Admin
             return campo == "";
         }
 
-        public string EstadoFormateado(string estado)
-        {
-            string estadoFormateado;
-
-            if (estado.Equals("Disponible"))
-            {
-                estadoFormateado = "D";
-            }
-            else
-            {
-                estadoFormateado = "I";
-            }
-
-            return estadoFormateado;
-        }
-
+      
         private void MostarErrorCaracteristicas()
         {
             MessageBox.Show("ERROR EN LAS CARACTERISTICAS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);

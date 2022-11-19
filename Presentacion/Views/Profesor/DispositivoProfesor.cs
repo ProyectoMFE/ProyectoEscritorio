@@ -13,76 +13,100 @@ namespace Presentacion.Views
             mostrarDispositivo(numeroSerie);
             mostrarCaracteristicas(numeroSerie);
         }
-
-        private void mostrarCaracteristicas(string numeroSerie)
-        {/*
-            Negocio.EntitiesDTO.Dispositivo dispositivo = new DispositivoManagement().ObtenerDispositivo(numeroSerie);
-            if (dispositivo.caracteristica.GetType() == typeof(HWRed))
-            {
-                HWRed aux = new HWManagement().ObtenerHWRed(numeroSerie);
-                lblCategoria1.Text = "Nº Puertos";
-                txtCategoria.Text = aux.numPuertos + "";
-                label2.Text = "Velocidad";
-                txtCategoria2.Text = aux.velocidad + "";
-
-            }
-            else if (dispositivo.caracteristica.GetType() == typeof(Ordenador))
-            {
-                Ordenador ordenador = new OrdenadorManagement().ObtenerOrdenador(numeroSerie);
-                lblCategoria1.Text = "Procesador";
-                txtCategoria1.Text = ordenador.procesador;
-                lblCategoria2.Text = "RAM";
-                txtCategoria2.Text = ordenador.ram;
-                lblCategoria3.Text = "Disco Principal";
-                txtCategoria3.Text = ordenador.discoSecundario;
-            }
-            else if (dispositivo.caracteristica.GetType() == typeof(Pantalla))
-            {
-                Pantalla pantalla = new PantallaManagement().ObtenerPantalla(numeroSerie);
-                lblCategoria1.Text = "Pulgadas";
-                txtCategoria1.Text = pantalla.pulgadas + "";
-            }*/
-        }
-
         private void mostrarDispositivo(string numeroSerie)
         {
-            Negocio.EntitiesDTO.Dispositivo dispositivo = new DispositivoManagement().ObtenerDispositivo(numeroSerie);
+            Dispositivo dispositivo = new DispositivoManagement().ObtenerDispositivo(numeroSerie);
             Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-
-            string estado = formatearEstado(dispositivo.estado);
 
             txtNumSerie.Text = dispositivo.numSerie;
             txtCategoria.Text = categoria.nombre;
             txtMarca.Text = dispositivo.marca;
             txtModelo.Text = dispositivo.modelo;
-            txtEstado.Text = estado;
+            txtEstado.Text = dispositivo.estado;
             txtLocalizacion.Text = dispositivo.localizacion;
-
-         
-            
         }
-
-
-        private string formatearEstado(string estadoBD)
+        private void mostrarCaracteristicas(string numeroSerie)
         {
-            string estado = "";
-
-            switch (estadoBD)
+            Dispositivo dispositivo = new DispositivoManagement().ObtenerDispositivo(numeroSerie);
+            Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+            switch (categoria.nombre)
             {
-                case "O":
-                    estado = "Ocupado";
+                case "Switch":
+                    MostarCaracteristicasSwitch(dispositivo.numSerie);
                     break;
-                case "D":
-                    estado = "Disponible";
+                case "Ordenador":
+                    MostrarCaracteristicasOrdenador(dispositivo.numSerie);
                     break;
-                case "I":
-                    estado = "Instalado";
+                case "Pantalla":
+                    MostarCaracteristicasPantalla(dispositivo.numSerie);
                     break;
                 default:
+                    guna2Panel2.Visible = false;
                     break;
-            }
+            }           
+        }
+        private void MostarCaracteristicasSwitch(string numSerie)
+        {
+            HWRed aux = new HWManagement().ObtenerHWRed(numSerie);
 
-            return estado;
+            lblCategoria1.Text = "Nº Puertos";
+            txtCategoria.Text = aux.numPuertos + "";
+
+            lblCategoria2.Text = "Velocidad";
+            txtCategoria2.Text = aux.velocidad + "";
+
+            lblCategoria3.Visible = false;
+            txtCategoria3.Visible = false;
+            lblCategoria4.Visible = false;
+            txtCategoria4.Visible = false;
+
+
+        }
+        private void MostrarCaracteristicasOrdenador(string numSerie)
+        {
+            Ordenador ordenador = new OrdenadorManagement().ObtenerOrdenador(numSerie);
+
+            lblCategoria1.Visible= true;
+            lblCategoria1.Text = "Procesador";
+
+            txtCategoria1.Visible = true;
+            txtCategoria1.Text = ordenador.procesador;
+
+            lblCategoria2.Visible = true;
+            lblCategoria2.Text = "RAM";
+
+            txtCategoria2.Visible = true;
+            txtCategoria2.Text = ordenador.ram;
+
+            lblCategoria3.Visible = true;
+            lblCategoria3.Text = "Disco Principal";
+
+            txtCategoria3.Visible = true;
+            txtCategoria3.Text = ordenador.discoPrincipal;
+
+            lblCategoria4.Visible = true;
+            lblCategoria4.Text = "Disco Secundario";
+
+            txtCategoria4.Visible = true;
+            txtCategoria4.Text = ordenador.discoSecundario;
+        }
+        private void MostarCaracteristicasPantalla(string numSerie)
+        {
+            Pantalla pantalla = new PantallaManagement().ObtenerPantalla(numSerie);
+            lblCategoria1.Visible = true;
+            lblCategoria1.Text = "Pulgadas";
+
+            txtCategoria1.Visible = true;
+            txtCategoria1.Text = pantalla.pulgadas + "";
+
+            lblCategoria2.Visible = false;
+            txtCategoria2.Visible = false;
+
+            lblCategoria3.Visible = false;
+            txtCategoria3.Visible = false;
+
+            lblCategoria4.Visible = false;
+            txtCategoria4.Visible = false;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -92,7 +116,15 @@ namespace Presentacion.Views
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
-
+            bool exito = new SolicitudManagement().insertarSolicitud(Login.instanciaLogin.correo, txtNumSerie.Text);
+            if (exito)
+            {
+                MessageBox.Show("Prueba con exito");
+            }
+            else
+            {
+                MessageBox.Show("Prueba fallida");
+            }
         }
     }
 }

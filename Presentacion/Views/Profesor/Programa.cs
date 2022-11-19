@@ -9,6 +9,7 @@ namespace Presentacion.Views
 {
     public partial class Programa : Form
     {
+
         private Form formularioActivo;
         private Login padre;
         public Programa(Login padre)
@@ -17,6 +18,7 @@ namespace Presentacion.Views
             customizeDesing();
             this.padre = padre;
             this.formularioActivo = null;
+            
         }
 
         // MENU BOTON DISPOSITIVOS Y SU SUBMENU

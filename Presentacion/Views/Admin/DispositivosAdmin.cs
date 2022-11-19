@@ -24,12 +24,11 @@ namespace Presentacion.Views
 
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-
+   
                 Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
 
 
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Modificar");
 
             }
         }
@@ -48,11 +47,9 @@ namespace Presentacion.Views
             LimpiarTabla();
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-
-
+      
                 Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Modificar");
 
             }
         }
@@ -63,10 +60,9 @@ namespace Presentacion.Views
             LimpiarTabla();
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
 
                 Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Modificar");
             }
         }
         private void RellenarTablaFiltradaPorModelo(List<string> modelosSelecionados)
@@ -76,10 +72,9 @@ namespace Presentacion.Views
             LimpiarTabla();
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-
+      
                 Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Modificar");
             }
         }
         private void RellenarTablaFiltradaPorLocalizacion(List<string> localizacionesSelecionadas)
@@ -88,11 +83,8 @@ namespace Presentacion.Views
 
             LimpiarTabla();
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
-            {
-                string estado = formatearEstado(dispositivo.estado);
-
-                Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
+            {             Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, dispositivo.estado, "Modificar");
 
             }
         }
@@ -103,10 +95,9 @@ namespace Presentacion.Views
             LimpiarTabla();
             foreach (Negocio.EntitiesDTO.Dispositivo dispositivo in dispositivos)
             {
-                string estado = formatearEstado(dispositivo.estado);
-
+    
                 Categoria categoria = new CategoriaManagement().ObtenerCategoria(dispositivo.idCategoria);
-                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion, estado, "Modificar");
+                tablaDispositivos.Rows.Add(dispositivo.numSerie, categoria.nombre, dispositivo.marca, dispositivo.modelo, dispositivo.localizacion,dispositivo.estado, "Modificar");
             }
         }
 
@@ -222,29 +213,7 @@ namespace Presentacion.Views
             catch { }
         }
 
-        // FORMATEAR EL ESTADO RECIBIDO
-        private string formatearEstado(string estadoBD)
-        {
-            string estado = "";
-
-            switch (estadoBD)
-            {
-                case "O":
-                    estado = "Ocupado";
-                    break;
-                case "D":
-                    estado = "Disponible";
-                    break;
-                case "I":
-                    estado = "Instalado";
-                    break;
-                default:
-                    break;
-            }
-
-            return estado;
-        }
-
+    
         // MOSTRAR DISPOSITIVO A MODIFICAR
         private void Modificar(string numSerie)
         {

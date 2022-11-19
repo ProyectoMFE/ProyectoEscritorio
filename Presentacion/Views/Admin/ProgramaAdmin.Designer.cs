@@ -407,6 +407,8 @@ namespace Presentacion.Views.Admin
             this.ControlBox = false;
             this.Controls.Add(this.panelFormulario);
             this.Controls.Add(this.panelMenu);
+            this.MaximumSize = new System.Drawing.Size(1200, 968);
+            this.MinimumSize = new System.Drawing.Size(1200, 968);
             this.Name = "ProgramaAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Programa";

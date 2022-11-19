@@ -43,12 +43,10 @@ namespace Presentacion.Views
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtCategoria5 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtCategoria4 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtCategoria3 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtCategoria2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtCategoria1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblCategoria5 = new System.Windows.Forms.Label();
             this.lblCategoria4 = new System.Windows.Forms.Label();
             this.lblCategoria3 = new System.Windows.Forms.Label();
             this.lblCategoria1 = new System.Windows.Forms.Label();
@@ -260,12 +258,10 @@ namespace Presentacion.Views
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Controls.Add(this.txtCategoria5);
             this.guna2Panel2.Controls.Add(this.txtCategoria4);
             this.guna2Panel2.Controls.Add(this.txtCategoria3);
             this.guna2Panel2.Controls.Add(this.txtCategoria2);
             this.guna2Panel2.Controls.Add(this.txtCategoria1);
-            this.guna2Panel2.Controls.Add(this.lblCategoria5);
             this.guna2Panel2.Controls.Add(this.lblCategoria4);
             this.guna2Panel2.Controls.Add(this.lblCategoria3);
             this.guna2Panel2.Controls.Add(this.lblCategoria1);
@@ -275,26 +271,6 @@ namespace Presentacion.Views
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(352, 326);
             this.guna2Panel2.TabIndex = 12;
-            // 
-            // txtCategoria5
-            // 
-            this.txtCategoria5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCategoria5.DefaultText = "";
-            this.txtCategoria5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCategoria5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCategoria5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategoria5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategoria5.Enabled = false;
-            this.txtCategoria5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategoria5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCategoria5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategoria5.Location = new System.Drawing.Point(120, 260);
-            this.txtCategoria5.Name = "txtCategoria5";
-            this.txtCategoria5.PasswordChar = '\0';
-            this.txtCategoria5.PlaceholderText = "";
-            this.txtCategoria5.SelectedText = "";
-            this.txtCategoria5.Size = new System.Drawing.Size(200, 40);
-            this.txtCategoria5.TabIndex = 11;
             // 
             // txtCategoria4
             // 
@@ -376,16 +352,6 @@ namespace Presentacion.Views
             this.txtCategoria1.Size = new System.Drawing.Size(200, 40);
             this.txtCategoria1.TabIndex = 7;
             // 
-            // lblCategoria5
-            // 
-            this.lblCategoria5.AutoSize = true;
-            this.lblCategoria5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria5.Location = new System.Drawing.Point(10, 270);
-            this.lblCategoria5.Name = "lblCategoria5";
-            this.lblCategoria5.Size = new System.Drawing.Size(105, 21);
-            this.lblCategoria5.TabIndex = 6;
-            this.lblCategoria5.Text = "Localización";
-            // 
             // lblCategoria4
             // 
             this.lblCategoria4.AutoSize = true;
@@ -466,7 +432,7 @@ namespace Presentacion.Views
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // Dispositivo
+            // DispositivoProfesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -475,7 +441,7 @@ namespace Presentacion.Views
             this.Controls.Add(this.btnReservar);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
-            this.Name = "Dispositivo";
+            this.Name = "DispositivoProfesor";
             this.Text = "Dispositivo";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
@@ -501,12 +467,10 @@ namespace Presentacion.Views
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2TextBox txtCategoria5;
         private Guna.UI2.WinForms.Guna2TextBox txtCategoria4;
         private Guna.UI2.WinForms.Guna2TextBox txtCategoria3;
         private Guna.UI2.WinForms.Guna2TextBox txtCategoria2;
         private Guna.UI2.WinForms.Guna2TextBox txtCategoria1;
-        private System.Windows.Forms.Label lblCategoria5;
         private System.Windows.Forms.Label lblCategoria4;
         private System.Windows.Forms.Label lblCategoria3;
         private System.Windows.Forms.Label lblCategoria1;

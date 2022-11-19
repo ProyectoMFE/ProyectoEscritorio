@@ -38,11 +38,12 @@
             this.btnFiltroLocalizacion = new Guna.UI2.WinForms.Guna2Button();
             this.btnReiniciar = new Guna.UI2.WinForms.Guna2Button();
             this.tablaDispositivos = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Localizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Localizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDispositivos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,11 +165,12 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tablaDispositivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tablaDispositivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.NumSerie,
             this.Marca,
-            this.Modelo,
+            this.Profesor,
             this.Localizacion,
-            this.Profesor});
+            this.Estado});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -207,6 +209,13 @@
             this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
             // NumSerie
             // 
             this.NumSerie.HeaderText = "Dispositivo";
@@ -219,11 +228,11 @@
             this.Marca.Name = "Marca";
             this.Marca.ReadOnly = true;
             // 
-            // Modelo
+            // Profesor
             // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
+            this.Profesor.HeaderText = "Profesor";
+            this.Profesor.Name = "Profesor";
+            this.Profesor.ReadOnly = true;
             // 
             // Localizacion
             // 
@@ -231,11 +240,11 @@
             this.Localizacion.Name = "Localizacion";
             this.Localizacion.ReadOnly = true;
             // 
-            // Profesor
+            // Estado
             // 
-            this.Profesor.HeaderText = "Profesor";
-            this.Profesor.Name = "Profesor";
-            this.Profesor.ReadOnly = true;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // PrestamosAdmin
             // 
@@ -265,10 +274,11 @@
         private Guna.UI2.WinForms.Guna2Button btnFiltroLocalizacion;
         private Guna.UI2.WinForms.Guna2Button btnReiniciar;
         private Guna.UI2.WinForms.Guna2DataGridView tablaDispositivos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumSerie;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Localizacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Profesor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Localizacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }
