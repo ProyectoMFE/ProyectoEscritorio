@@ -93,7 +93,7 @@ namespace Presentacion.Views.Admin
         // MENU BOTON SOLICITUDES Y SU SUBMENU
         private void btnSolicitudes_Click(object sender, EventArgs e)
         {
-            openChildForm(new Solicitudes());
+            openChildForm(new SolicitudesAdmin());
             if (!panelSolicitudes.Visible)
             {
                 showSubMenu(panelSolicitudes);

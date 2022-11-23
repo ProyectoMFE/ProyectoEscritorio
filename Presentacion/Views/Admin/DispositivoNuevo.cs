@@ -207,6 +207,7 @@ namespace Presentacion.Views.Admin
             MostrarExitoInsertarDispositivo();
         }
 
+        // AGREGAR PANTALLA
         private void InsertarPantalla()
         {
 
@@ -274,6 +275,7 @@ namespace Presentacion.Views.Admin
             return true;
         }
 
+        // AGREGAR ORDENADOR
         private void InsertarOrdenador()
         {
             if (ComprobarCaracteristicasOrdenador())
@@ -348,7 +350,7 @@ namespace Presentacion.Views.Admin
 
         }
 
-
+        // AGREGAR HARDWARE DE RED
         private void InsertarHWRed()
         {
             if (ComprobarCaracteristicasHWRed())
@@ -426,6 +428,8 @@ namespace Presentacion.Views.Admin
             return true;
         }
 
+
+        // COMPROBACIONES
         public bool ComprobarCampos()
         {
             bool campoVacio;
@@ -468,18 +472,16 @@ namespace Presentacion.Views.Admin
 
             return true;
         }
-
         public bool IsEmpty(string campo)
         {
             return campo == "";
         }
-
       
+        // MENSAJES
         private void MostarErrorCaracteristicas()
         {
             MessageBox.Show("ERROR EN LAS CARACTERISTICAS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
         private void MostrarExitoInsertarDispositivo()
         {
             MessageBox.Show("EL DISPOSITIVO SE HA AÑADIDO CORRECTAMENTE", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
