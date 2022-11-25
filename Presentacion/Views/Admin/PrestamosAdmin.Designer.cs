@@ -85,7 +85,7 @@
             this.boton.Size = new System.Drawing.Size(120, 45);
             this.boton.TabIndex = 17;
             this.boton.Text = "Dispositivo";
-            this.boton.Click += new System.EventHandler(this.btnFiltroMarca_Click);
+            this.boton.Click += new System.EventHandler(this.boton_Click);
             // 
             // btnFiltroModelo
             // 

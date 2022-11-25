@@ -22,6 +22,15 @@ namespace Negocio.Management
 
             return solicitud;
         }
+        public List<Solicitud> obtenerSolicitudes(string correo)
+        {
+
+            WebResponse res = HttpConnection.Send(null, "GET", $"api/Solicitudes?correo={correo}");
+            string json = HttpConnection.ResponseToJson(res);
+            List<Solicitud> solicitud = JsonSerializer.Deserialize<List<Solicitud>>(json);
+
+            return solicitud;
+        }
         public bool insertarSolicitud(string correo, string numSerie)
         {
             try
@@ -38,7 +47,18 @@ namespace Negocio.Management
 
         public bool finalizarSolicitud(string correo, string numSerie)
         {
-            return false;
+
+            try
+            {
+                WebResponse res = HttpConnection.Send(null, "DELETE", $"api/Solicitudes?numSerie={numSerie}&correo={correo}");
+                string json = HttpConnection.ResponseToJson(res);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool aceptarSolicitud(string correo, string numSerie)
@@ -126,10 +146,10 @@ namespace Negocio.Management
             string json = HttpConnection.ResponseToJson(res);
             List<Solicitud> lista = JsonSerializer.Deserialize<List<Solicitud>>(json);
             Dispositivo dispositivo;
-         
+
             foreach (Solicitud solicitud in lista)
             {
-                dispositivo = new DispositivoManagement().ObtenerDispositivo(solicitud.numSerie);            
+                dispositivo = new DispositivoManagement().ObtenerDispositivo(solicitud.numSerie);
 
                 foreach (string marca in marcas)
                 {
@@ -139,7 +159,7 @@ namespace Negocio.Management
                     }
                 }
             }
-            
+
             return listaSolicitudes;
         }
 

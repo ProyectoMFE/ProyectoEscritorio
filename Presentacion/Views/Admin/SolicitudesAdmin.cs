@@ -55,7 +55,7 @@ namespace Presentacion.Views.Admin
         public void CargarTablaSolicitudesRechazadas()
         {
             LimpiarTabla();
-            List<HistoricoSolicitud> solicitudes = new HistoricoSolicitudesManagement().listarSolicitudesAprobadas();
+            List<HistoricoSolicitud> solicitudes = new HistoricoSolicitudesManagement().listarSolicitudesRechazadas();
             Dispositivo dispositivo;
             Usuario usuario;
             Categoria categoria;

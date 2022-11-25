@@ -205,6 +205,8 @@ namespace Presentacion.Views
             DispositivoProfesor dispositivo = new DispositivoProfesor(numSerie);
 
             dispositivo.ShowDialog();
+            LimpiarTabla();
+            RellenarTabla();
         }
 
         private void tablaDispositivos_CellContentClick(object sender, DataGridViewCellEventArgs e)

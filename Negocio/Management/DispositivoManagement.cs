@@ -24,8 +24,8 @@ namespace Negocio.Management
             }
             catch
             {
-                dispositivo= null;
-            }          
+                dispositivo = null;
+            }
 
             return dispositivo;
         }
@@ -41,7 +41,24 @@ namespace Negocio.Management
 
         public bool ModificarDispositivo(Dispositivo dispositivo)
         {
-            return true;
+            try
+            {
+                Dispositivo aux = ObtenerDispositivo(dispositivo.numSerie);
+
+                if (aux == null)
+                {
+                    return false;
+                }
+
+                dispositivo.estado="Disponible";
+                string json = JsonSerializer.Serialize(dispositivo);
+                WebResponse res = HttpConnection.Send(json, "PUT", $"api/Dispositivos/{dispositivo.numSerie}");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool InsertarDispositivo(Dispositivo dispositivo)
@@ -50,7 +67,7 @@ namespace Negocio.Management
             {
                 Dispositivo aux = ObtenerDispositivo(dispositivo.numSerie);
 
-                if (aux!=null)
+                if (aux != null)
                 {
                     return false;
                 }
@@ -58,11 +75,6 @@ namespace Negocio.Management
                 string json = JsonSerializer.Serialize(dispositivo);
                 WebResponse res = HttpConnection.Send(json, "POST", "api/Dispositivos");
 
-             
-
-                //IF (STATUS CODE == 409){
-                // RETURN FALSE
-                //}
                 return true;
             }
             catch (Exception)
@@ -73,7 +85,7 @@ namespace Negocio.Management
 
         public bool BorrarDispositivo(string numSerie)
         {
-            WebResponse res = HttpConnection.Send(null, "DELETE", "api/Dispositivos/"+numSerie);
+            WebResponse res = HttpConnection.Send(null, "DELETE", "api/Dispositivos/" + numSerie);
             string json = HttpConnection.ResponseToJson(res);
 
             return true;
@@ -174,7 +186,7 @@ namespace Negocio.Management
             foreach (Dispositivo dispositivo in lista)
             {
                 foreach (string estado in estados)
-                {                   
+                {
                     if (dispositivo.estado.Equals(estado))
                     {
                         listaDispositivos.Add(dispositivo);
@@ -182,6 +194,6 @@ namespace Negocio.Management
                 }
             }
             return listaDispositivos;
-        }      
+        }
     }
 }

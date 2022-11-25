@@ -143,7 +143,7 @@ namespace Presentacion.Views.Admin
             }
             else
             {
-                MostarMensajeExitoBorrar();
+                MostrarMensajeFalloBorrar();
             }           
         }
 

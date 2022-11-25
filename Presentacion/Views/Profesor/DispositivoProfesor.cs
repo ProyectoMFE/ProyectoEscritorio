@@ -119,11 +119,11 @@ namespace Presentacion.Views
             bool exito = new SolicitudManagement().insertarSolicitud(Login.instanciaLogin.correo, txtNumSerie.Text);
             if (exito)
             {
-                MessageBox.Show("Prueba con exito");
+                MessageBox.Show("Dispositivo reservado con exito","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Prueba fallida");
+                MessageBox.Show("Error al reservar el dispositivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -39,6 +39,7 @@ namespace Presentacion.Views
             this.btnFiltroLocalizacion = new Guna.UI2.WinForms.Guna2Button();
             this.btnReiniciar = new Guna.UI2.WinForms.Guna2Button();
             this.tablaDispositivos = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +84,7 @@ namespace Presentacion.Views
             this.boton.Size = new System.Drawing.Size(120, 45);
             this.boton.TabIndex = 17;
             this.boton.Text = "Dispositivo";
+            this.boton.Click += new System.EventHandler(this.boton_Click);
             // 
             // btnFiltroModelo
             // 
@@ -99,6 +101,7 @@ namespace Presentacion.Views
             this.btnFiltroModelo.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroModelo.TabIndex = 18;
             this.btnFiltroModelo.Text = "Modelo";
+            this.btnFiltroModelo.Click += new System.EventHandler(this.btnFiltroModelo_Click);
             // 
             // btnFiltroMarca
             // 
@@ -115,6 +118,7 @@ namespace Presentacion.Views
             this.btnFiltroMarca.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroMarca.TabIndex = 19;
             this.btnFiltroMarca.Text = "Marca";
+            this.btnFiltroMarca.Click += new System.EventHandler(this.btnFiltroMarca_Click);
             // 
             // btnFiltroLocalizacion
             // 
@@ -131,6 +135,7 @@ namespace Presentacion.Views
             this.btnFiltroLocalizacion.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroLocalizacion.TabIndex = 22;
             this.btnFiltroLocalizacion.Text = "Localizacion";
+            this.btnFiltroLocalizacion.Click += new System.EventHandler(this.btnFiltroLocalizacion_Click);
             // 
             // btnReiniciar
             // 
@@ -147,6 +152,7 @@ namespace Presentacion.Views
             this.btnReiniciar.Size = new System.Drawing.Size(120, 45);
             this.btnReiniciar.TabIndex = 21;
             this.btnReiniciar.Text = "Reiniciar";
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // tablaDispositivos
             // 
@@ -165,6 +171,7 @@ namespace Presentacion.Views
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tablaDispositivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tablaDispositivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.NumSerie,
             this.Marca,
             this.Modelo,
@@ -207,6 +214,15 @@ namespace Presentacion.Views
             this.tablaDispositivos.ThemeStyle.RowsStyle.Height = 22;
             this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.tablaDispositivos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaDispositivos_CellContentClick);
+            this.tablaDispositivos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaDispositivos_CellContentDoubleClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
             // NumSerie
             // 
@@ -266,6 +282,7 @@ namespace Presentacion.Views
         private Guna.UI2.WinForms.Guna2Button btnFiltroLocalizacion;
         private Guna.UI2.WinForms.Guna2Button btnReiniciar;
         private Guna.UI2.WinForms.Guna2DataGridView tablaDispositivos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumSerie;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;

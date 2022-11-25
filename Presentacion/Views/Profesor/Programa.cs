@@ -1,6 +1,7 @@
 ﻿using Negocio.EntitiesDTO;
 using Negocio.Management;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -78,18 +79,36 @@ namespace Presentacion.Views
         }
         private void btnPrestamos1_Click(object sender, EventArgs e)
         {
-
+            List<string> lista = new List<string>();
+            lista.Add(btnDispositivos1.Text);
+            Prestamos prestamos = new Prestamos();
+            prestamos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(prestamos);
         }
         private void btnPrestamos2_Click(object sender, EventArgs e)
         {
+            List<string> lista = new List<string>();
+            lista.Add(btnDispositivos2.Text);
+            Prestamos prestamos = new Prestamos();
+            prestamos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(prestamos);
 
         }
         private void btnPrestamos3_Click(object sender, EventArgs e)
         {
-
+            List<string> lista = new List<string>();
+            lista.Add(btnDispositivos3.Text);
+            Prestamos prestamos = new Prestamos();
+            prestamos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(prestamos);
         }
         private void btnPrestamos4_Click(object sender, EventArgs e)
         {
+            List<string> lista = new List<string>();
+            lista.Add(btnDispositivos4.Text);
+            Prestamos prestamos = new Prestamos();
+            prestamos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(prestamos);
 
         }
 
@@ -104,11 +123,15 @@ namespace Presentacion.Views
         }
         private void btnSolicitudesAprobadas_Click(object sender, EventArgs e)
         {
-
+            Solicitudes solicitudes = new Solicitudes();
+            solicitudes.CargarTablaSolicitudesAprobadas();
+            openChildForm(solicitudes);
         }
         private void btnSolicitudesRechazadas_Click(object sender, EventArgs e)
         {
-
+            Solicitudes solicitudes = new Solicitudes();
+            solicitudes.CargarTablaSolicitudesRechazadas();
+            openChildForm(solicitudes);
         }
 
         // BOTON SALIR DE LA APLICACION
