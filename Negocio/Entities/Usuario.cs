@@ -17,6 +17,6 @@ namespace Negocio.EntitiesDTO
         public string segundoApellido { get; set; }
         public string tipo { get; set; }
         public string contrasenia { get; set; }
-        public List<Solicitud> solicitudes { get; set; }
+       // public List<Solicitud> solicitudes { get; set; }
     }
 }

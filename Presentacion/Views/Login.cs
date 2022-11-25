@@ -60,17 +60,22 @@ namespace Presentacion.Views
                 return;
             }*/
 
-            Usuario usuarioDTO = new UsuarioManagement().ObtenerUsuario(correo);
+            Usuario usuario = new UsuarioManagement().ObtenerUsuario(correo);
             contraseña = cifrarContraseña(contraseña);
 
+            if (usuario==null)
+            {
+                MessageBox.Show("Correo equivocado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            if (!contraseña.Equals(usuarioDTO.contrasenia))
+            if (!contraseña.Equals(usuario.contrasenia))
             {
                 MessageBox.Show("Contraseña incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (usuarioDTO.tipo.Equals("A"))
+            if (usuario.tipo.Equals("A"))
             {
                 ProgramaAdmin principal = new ProgramaAdmin(this);           
                 principal.Show();
@@ -78,7 +83,7 @@ namespace Presentacion.Views
                 return;
             }
 
-            if (usuarioDTO.tipo.Equals("P"))
+            if (usuario.tipo.Equals("P"))
             {
                 this.correo = correo;   
                 Programa principal = new Programa(this);

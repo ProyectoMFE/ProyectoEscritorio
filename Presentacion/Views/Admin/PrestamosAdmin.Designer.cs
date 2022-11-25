@@ -39,10 +39,12 @@
             this.btnReiniciar = new Guna.UI2.WinForms.Guna2Button();
             this.tablaDispositivos = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Localizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDispositivos)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +85,7 @@
             this.boton.Size = new System.Drawing.Size(120, 45);
             this.boton.TabIndex = 17;
             this.boton.Text = "Dispositivo";
+            this.boton.Click += new System.EventHandler(this.btnFiltroMarca_Click);
             // 
             // btnFiltroModelo
             // 
@@ -99,6 +102,7 @@
             this.btnFiltroModelo.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroModelo.TabIndex = 18;
             this.btnFiltroModelo.Text = "Modelo";
+            this.btnFiltroModelo.Click += new System.EventHandler(this.btnFiltroModelo_Click);
             // 
             // btnFiltroMarca
             // 
@@ -115,6 +119,7 @@
             this.btnFiltroMarca.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroMarca.TabIndex = 19;
             this.btnFiltroMarca.Text = "Marca";
+            this.btnFiltroMarca.Click += new System.EventHandler(this.btnFiltroMarca_Click);
             // 
             // btnFiltroLocalizacion
             // 
@@ -131,6 +136,7 @@
             this.btnFiltroLocalizacion.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroLocalizacion.TabIndex = 22;
             this.btnFiltroLocalizacion.Text = "Localizacion";
+            this.btnFiltroLocalizacion.Click += new System.EventHandler(this.btnFiltroLocalizacion_Click);
             // 
             // btnReiniciar
             // 
@@ -147,6 +153,7 @@
             this.btnReiniciar.Size = new System.Drawing.Size(120, 45);
             this.btnReiniciar.TabIndex = 21;
             this.btnReiniciar.Text = "Reiniciar";
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // tablaDispositivos
             // 
@@ -166,10 +173,12 @@
             this.tablaDispositivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tablaDispositivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.Correo,
             this.NumSerie,
             this.Marca,
-            this.Profesor,
+            this.Modelo,
             this.Localizacion,
+            this.Profesor,
             this.Estado});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -208,6 +217,7 @@
             this.tablaDispositivos.ThemeStyle.RowsStyle.Height = 22;
             this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.tablaDispositivos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaDispositivos_CellContentDoubleClick);
             // 
             // id
             // 
@@ -215,6 +225,13 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Visible = false;
+            // 
+            // Correo
+            // 
+            this.Correo.HeaderText = "Correo";
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            this.Correo.Visible = false;
             // 
             // NumSerie
             // 
@@ -228,17 +245,23 @@
             this.Marca.Name = "Marca";
             this.Marca.ReadOnly = true;
             // 
-            // Profesor
+            // Modelo
             // 
-            this.Profesor.HeaderText = "Profesor";
-            this.Profesor.Name = "Profesor";
-            this.Profesor.ReadOnly = true;
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
             // 
             // Localizacion
             // 
             this.Localizacion.HeaderText = "Localizacion";
             this.Localizacion.Name = "Localizacion";
             this.Localizacion.ReadOnly = true;
+            // 
+            // Profesor
+            // 
+            this.Profesor.HeaderText = "Profesor";
+            this.Profesor.Name = "Profesor";
+            this.Profesor.ReadOnly = true;
             // 
             // Estado
             // 
@@ -275,10 +298,12 @@
         private Guna.UI2.WinForms.Guna2Button btnReiniciar;
         private Guna.UI2.WinForms.Guna2DataGridView tablaDispositivos;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumSerie;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Profesor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Localizacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Profesor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

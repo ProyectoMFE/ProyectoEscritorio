@@ -31,6 +31,10 @@
             this.txtNumSerie = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblNumeroSerie = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtProfesor = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblProfesor = new System.Windows.Forms.Label();
+            this.txtCorreo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblCorreo = new System.Windows.Forms.Label();
             this.txtLocalizacion = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtModelo = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMarca = new Guna.UI2.WinForms.Guna2TextBox();
@@ -39,7 +43,7 @@
             this.lblModelo = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
-            this.btnModificar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAceptar = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             this.panelCaracteristicas = new Guna.UI2.WinForms.Guna2Panel();
             this.txtCaracteristica4 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -51,7 +55,7 @@
             this.lblCaracteristica1 = new System.Windows.Forms.Label();
             this.lblCaracteristica2 = new System.Windows.Forms.Label();
             this.lblCaracteristicas = new System.Windows.Forms.Label();
-            this.btnBorrar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRechazar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.panelCaracteristicas.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +91,10 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.txtProfesor);
+            this.guna2Panel1.Controls.Add(this.lblProfesor);
+            this.guna2Panel1.Controls.Add(this.txtCorreo);
+            this.guna2Panel1.Controls.Add(this.lblCorreo);
             this.guna2Panel1.Controls.Add(this.txtLocalizacion);
             this.guna2Panel1.Controls.Add(this.txtModelo);
             this.guna2Panel1.Controls.Add(this.txtMarca);
@@ -97,10 +105,70 @@
             this.guna2Panel1.Controls.Add(this.lblMarca);
             this.guna2Panel1.Controls.Add(this.txtNumSerie);
             this.guna2Panel1.Controls.Add(this.lblNumeroSerie);
-            this.guna2Panel1.Location = new System.Drawing.Point(79, 107);
+            this.guna2Panel1.Location = new System.Drawing.Point(79, 64);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(352, 326);
+            this.guna2Panel1.Size = new System.Drawing.Size(352, 369);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // txtProfesor
+            // 
+            this.txtProfesor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtProfesor.DefaultText = "";
+            this.txtProfesor.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtProfesor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtProfesor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtProfesor.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtProfesor.Enabled = false;
+            this.txtProfesor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtProfesor.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtProfesor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtProfesor.Location = new System.Drawing.Point(120, 310);
+            this.txtProfesor.Name = "txtProfesor";
+            this.txtProfesor.PasswordChar = '\0';
+            this.txtProfesor.PlaceholderText = "";
+            this.txtProfesor.SelectedText = "";
+            this.txtProfesor.Size = new System.Drawing.Size(200, 40);
+            this.txtProfesor.TabIndex = 14;
+            // 
+            // lblProfesor
+            // 
+            this.lblProfesor.AutoSize = true;
+            this.lblProfesor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfesor.Location = new System.Drawing.Point(10, 319);
+            this.lblProfesor.Name = "lblProfesor";
+            this.lblProfesor.Size = new System.Drawing.Size(74, 21);
+            this.lblProfesor.TabIndex = 13;
+            this.lblProfesor.Text = "Profesor";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCorreo.DefaultText = "";
+            this.txtCorreo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCorreo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCorreo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCorreo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCorreo.Enabled = false;
+            this.txtCorreo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCorreo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCorreo.Location = new System.Drawing.Point(120, 260);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.PasswordChar = '\0';
+            this.txtCorreo.PlaceholderText = "";
+            this.txtCorreo.SelectedText = "";
+            this.txtCorreo.Size = new System.Drawing.Size(200, 40);
+            this.txtCorreo.TabIndex = 12;
+            // 
+            // lblCorreo
+            // 
+            this.lblCorreo.AutoSize = true;
+            this.lblCorreo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.Location = new System.Drawing.Point(10, 270);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Size = new System.Drawing.Size(61, 21);
+            this.lblCorreo.TabIndex = 11;
+            this.lblCorreo.Text = "Correo";
             // 
             // txtLocalizacion
             // 
@@ -222,21 +290,21 @@
             this.lblMarca.TabIndex = 2;
             this.lblMarca.Text = "Marca";
             // 
-            // btnModificar
+            // btnAceptar
             // 
-            this.btnModificar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnModificar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnModificar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnModificar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnModificar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(584, 474);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(180, 45);
-            this.btnModificar.TabIndex = 13;
-            this.btnModificar.Text = "Modificar";
-
+            this.btnAceptar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAceptar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAceptar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAceptar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAceptar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnAceptar.ForeColor = System.Drawing.Color.White;
+            this.btnAceptar.Location = new System.Drawing.Point(584, 474);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(180, 45);
+            this.btnAceptar.TabIndex = 13;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -251,7 +319,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(180, 45);
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
-
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panelCaracteristicas
             // 
@@ -278,6 +346,7 @@
             this.txtCaracteristica4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtCaracteristica4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCaracteristica4.Enabled = false;
             this.txtCaracteristica4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCaracteristica4.ForeColor = System.Drawing.Color.Black;
@@ -298,6 +367,7 @@
             this.txtCaracteristica3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtCaracteristica3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCaracteristica3.Enabled = false;
             this.txtCaracteristica3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCaracteristica3.ForeColor = System.Drawing.Color.Black;
@@ -318,6 +388,7 @@
             this.txtCaracteristica2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtCaracteristica2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCaracteristica2.Enabled = false;
             this.txtCaracteristica2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCaracteristica2.ForeColor = System.Drawing.Color.Black;
@@ -338,6 +409,7 @@
             this.txtCaracteristica1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtCaracteristica1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaracteristica1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCaracteristica1.Enabled = false;
             this.txtCaracteristica1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaracteristica1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCaracteristica1.ForeColor = System.Drawing.Color.Black;
@@ -399,34 +471,34 @@
             this.lblCaracteristicas.TabIndex = 1;
             this.lblCaracteristicas.Text = "Caracteristicas";
             // 
-            // btnBorrar
+            // btnRechazar
             // 
-            this.btnBorrar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBorrar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBorrar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBorrar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBorrar.FillColor = System.Drawing.Color.Brown;
-            this.btnBorrar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnBorrar.ForeColor = System.Drawing.Color.White;
-            this.btnBorrar.Location = new System.Drawing.Point(389, 474);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(180, 45);
-            this.btnBorrar.TabIndex = 16;
-            this.btnBorrar.Text = "Borrar";
-
+            this.btnRechazar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRechazar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRechazar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRechazar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRechazar.FillColor = System.Drawing.Color.Brown;
+            this.btnRechazar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnRechazar.ForeColor = System.Drawing.Color.White;
+            this.btnRechazar.Location = new System.Drawing.Point(389, 474);
+            this.btnRechazar.Name = "btnRechazar";
+            this.btnRechazar.Size = new System.Drawing.Size(180, 45);
+            this.btnRechazar.TabIndex = 16;
+            this.btnRechazar.Text = "Rechazar";
+            this.btnRechazar.Click += new System.EventHandler(this.btnRechazar_Click);
             // 
-            // DispositivoAdmin
+            // PrestamoAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 570);
             this.ControlBox = false;
-            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnRechazar);
             this.Controls.Add(this.panelCaracteristicas);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.guna2Panel1);
-            this.Name = "DispositivoAdmin";
+            this.Name = "PrestamoAdmin";
             this.Text = "Dispositivo";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
@@ -449,7 +521,7 @@
         private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblMarca;
-        private Guna.UI2.WinForms.Guna2Button btnModificar;
+        private Guna.UI2.WinForms.Guna2Button btnAceptar;
         private Guna.UI2.WinForms.Guna2Button btnCancelar;
         private Guna.UI2.WinForms.Guna2Panel panelCaracteristicas;
         private Guna.UI2.WinForms.Guna2TextBox txtCaracteristica4;
@@ -461,6 +533,10 @@
         private System.Windows.Forms.Label lblCaracteristica1;
         private System.Windows.Forms.Label lblCaracteristica2;
         private System.Windows.Forms.Label lblCaracteristicas;
-        private Guna.UI2.WinForms.Guna2Button btnBorrar;
+        private Guna.UI2.WinForms.Guna2Button btnRechazar;
+        private System.Windows.Forms.Label lblCorreo;
+        private Guna.UI2.WinForms.Guna2TextBox txtProfesor;
+        private System.Windows.Forms.Label lblProfesor;
+        private Guna.UI2.WinForms.Guna2TextBox txtCorreo;
     }
 }

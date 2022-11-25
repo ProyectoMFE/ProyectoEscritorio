@@ -84,6 +84,7 @@
             this.boton.Size = new System.Drawing.Size(120, 45);
             this.boton.TabIndex = 17;
             this.boton.Text = "Dispositivo";
+            this.boton.Click += new System.EventHandler(this.boton_Click);
             // 
             // btnFiltroModelo
             // 
@@ -100,6 +101,7 @@
             this.btnFiltroModelo.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroModelo.TabIndex = 18;
             this.btnFiltroModelo.Text = "Modelo";
+            this.btnFiltroModelo.Click += new System.EventHandler(this.btnFiltroModelo_Click);
             // 
             // btnFiltroMarca
             // 
@@ -116,6 +118,7 @@
             this.btnFiltroMarca.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroMarca.TabIndex = 19;
             this.btnFiltroMarca.Text = "Marca";
+            this.btnFiltroMarca.Click += new System.EventHandler(this.btnFiltroMarca_Click);
             // 
             // btnFiltroLocalizacion
             // 
@@ -132,6 +135,7 @@
             this.btnFiltroLocalizacion.Size = new System.Drawing.Size(120, 45);
             this.btnFiltroLocalizacion.TabIndex = 22;
             this.btnFiltroLocalizacion.Text = "Localizacion";
+            this.btnFiltroLocalizacion.Click += new System.EventHandler(this.btnFiltroLocalizacion_Click);
             // 
             // btnReiniciar
             // 
@@ -148,6 +152,7 @@
             this.btnReiniciar.Size = new System.Drawing.Size(120, 45);
             this.btnReiniciar.TabIndex = 21;
             this.btnReiniciar.Text = "Reiniciar";
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // tablaDispositivos
             // 
@@ -211,6 +216,7 @@
             this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tablaDispositivos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.tablaDispositivos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaDispositivos_CellContentDoubleClick);
+            this.tablaDispositivos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaDispositivos_CellMouseDoubleClick);
             // 
             // id
             // 

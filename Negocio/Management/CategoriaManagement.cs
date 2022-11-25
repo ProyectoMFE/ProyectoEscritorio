@@ -1,6 +1,7 @@
 ﻿using Datos.DAO;
 using Datos.Infrastructure;
 using Negocio.EntitiesDTO;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
@@ -25,20 +26,33 @@ namespace Negocio.Management
 
             return lista;
         }
-
-        public bool ModificarCategoria(Categoria categoria)
-        {
-            return false;
-        }
-
         public bool InsertarCategoria(Categoria categoria)
         {
-            return false;
+            try
+            {
+                string json = JsonSerializer.Serialize(categoria);
+                WebResponse res = HttpConnection.Send(json, "POST", "api/Categorias");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool BorrarCategoria(int idCategoria)
         {
-            return true;
+            try
+            {
+                WebResponse res = HttpConnection.Send(null, "DELETE", $"api/Categorias/{idCategoria}");
+                string json = HttpConnection.ResponseToJson(res);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

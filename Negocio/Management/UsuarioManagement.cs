@@ -46,17 +46,68 @@ namespace Negocio.Management
 
         public bool ModificarUsuario(Usuario usuario)
         {
-            return false;
+            try
+            {
+                Usuario usu = new UsuarioManagement().ObtenerUsuario(usuario.correo);
+
+                if (usu == null)
+                {
+                    return false;
+                }
+
+                usuario.tipo = "P";
+                string json = JsonSerializer.Serialize(usuario);
+                WebResponse res = HttpConnection.Send(json, "PUT", $"api/Usuarios/{usuario.correo}");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool InsertarUsuario(Usuario usuario)
         {
-            return false;
+            try
+            {
+                Usuario usu = new UsuarioManagement().ObtenerUsuario(usuario.correo);
+
+                if (usu != null)
+                {
+                    return false;
+                }
+
+                usuario.tipo = "P";
+                string json = JsonSerializer.Serialize(usuario);              
+                WebResponse res = HttpConnection.Send(json, "POST", "api/Usuarios");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public bool BorrarUsuario(Usuario usuario)
+        public bool BorrarUsuario(string correo)
         {
-            return false;
+            try
+            {
+                Usuario usu = new UsuarioManagement().ObtenerUsuario(correo);
+
+                if (usu == null)
+                {
+                    return false;
+                }
+
+
+                WebResponse res = HttpConnection.Send(null, "DELETE", $"api/Usuarios/{correo}");
+                string json = HttpConnection.ResponseToJson(res);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

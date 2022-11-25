@@ -75,19 +75,37 @@ namespace Presentacion.Views.Admin
         }
         private void btnPrestamos1_Click(object sender, EventArgs e)
         {
+            List<string> lista = new List<string>();
+            lista.Add(btnPrestamos1.Text);
+            PrestamosAdmin prestamos = new PrestamosAdmin();
+            prestamos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(prestamos);
 
         }
         private void btnPrestamos2_Click(object sender, EventArgs e)
         {
-
+            List<string> lista = new List<string>();
+            lista.Add(btnPrestamos2.Text);
+            PrestamosAdmin prestamos = new PrestamosAdmin();
+            prestamos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(prestamos);
         }
         private void btnPrestamos3_Click(object sender, EventArgs e)
         {
+            List<string> lista = new List<string>();
+            lista.Add(btnPrestamos3.Text);
+            PrestamosAdmin prestamos = new PrestamosAdmin();
+            prestamos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(prestamos);
 
         }
         private void btnPrestamos4_Click(object sender, EventArgs e)
         {
-
+            List<string> lista = new List<string>();
+            lista.Add(btnPrestamos4.Text);
+            PrestamosAdmin prestamos = new PrestamosAdmin();
+            prestamos.RellenarTablaFiltradaPorDispositivos(lista);
+            openChildForm(prestamos);
         }
 
         // MENU BOTON SOLICITUDES Y SU SUBMENU
@@ -101,11 +119,15 @@ namespace Presentacion.Views.Admin
         }
         private void btnSolicitudesAprobadas_Click(object sender, EventArgs e)
         {
-
+            SolicitudesAdmin solicitudesAdmin = new SolicitudesAdmin();
+            solicitudesAdmin.CargarTablaSolicitudesAprobadas();
+            openChildForm(solicitudesAdmin);
         }
         private void btnSolicitudesRechazadas_Click(object sender, EventArgs e)
         {
-
+            SolicitudesAdmin solicitudesAdmin = new SolicitudesAdmin();
+            solicitudesAdmin.CargarTablaSolicitudesRechazadas();
+            openChildForm(solicitudesAdmin);
         }
 
         // MENU BOTON CONFIGURACION Y SU SUBMENU
@@ -113,16 +135,17 @@ namespace Presentacion.Views.Admin
         {
             if (!panelConfiguracion.Visible)
             {
+                openChildForm(new UsuariosAdmin());
                 showSubMenu(panelConfiguracion);
-            }          
+            }
         }
         private void btnConfiguracionUsuarios_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new UsuariosAdmin());
         }
         private void btnConfiguracionCategorias_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new CategoriasAdmin());
         }
 
         // BOTON SALIR DE LA APLICACION
