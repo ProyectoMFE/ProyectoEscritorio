@@ -69,7 +69,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\CaracteristicaDTO.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\Dispositivo.cs" />
     <Compile Include="Entities\HistoricoSolicitud.cs" />

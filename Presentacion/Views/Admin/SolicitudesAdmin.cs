@@ -24,6 +24,7 @@ namespace Presentacion.Views.Admin
         {
 
             List<HistoricoSolicitud> solicitudes = new HistoricoSolicitudesManagement().listarSolicitudes();
+      
             Dispositivo dispositivo;
             Usuario usuario;
             Categoria categoria;
@@ -192,6 +193,8 @@ namespace Presentacion.Views.Admin
             string numSerie = fila.Cells[0].Value.ToString();
             string correo = fila.Cells[1].Value.ToString();
             new SolicitudAdmin(correo, numSerie).ShowDialog();
+            LimpiarTabla();
+            cargarTabla();
         }
     }
 }

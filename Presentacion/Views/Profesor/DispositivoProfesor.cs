@@ -50,7 +50,7 @@ namespace Presentacion.Views
             HWRed aux = new HWManagement().ObtenerHWRed(numSerie);
 
             lblCategoria1.Text = "Nº Puertos";
-            txtCategoria.Text = aux.numPuertos + "";
+            txtCaracteristica1.Text = aux.numPuertos + "";
 
             lblCategoria2.Text = "Velocidad";
             txtCategoria2.Text = aux.velocidad + "";
@@ -69,8 +69,8 @@ namespace Presentacion.Views
             lblCategoria1.Visible= true;
             lblCategoria1.Text = "Procesador";
 
-            txtCategoria1.Visible = true;
-            txtCategoria1.Text = ordenador.procesador;
+            txtCaracteristica1.Visible = true;
+            txtCaracteristica1.Text = ordenador.procesador;
 
             lblCategoria2.Visible = true;
             lblCategoria2.Text = "RAM";
@@ -96,8 +96,8 @@ namespace Presentacion.Views
             lblCategoria1.Visible = true;
             lblCategoria1.Text = "Pulgadas";
 
-            txtCategoria1.Visible = true;
-            txtCategoria1.Text = pantalla.pulgadas + "";
+            txtCaracteristica1.Visible = true;
+            txtCaracteristica1.Text = pantalla.pulgadas + "";
 
             lblCategoria2.Visible = false;
             txtCategoria2.Visible = false;

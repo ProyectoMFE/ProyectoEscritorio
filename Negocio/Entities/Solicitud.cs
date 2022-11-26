@@ -13,7 +13,5 @@ namespace Negocio.EntitiesDTO
         public string numSerie { get; set; }
         public int idUsuario { get; set; }
         public string estado { get; set; }
-        //public virtual Usuario idUsuarioNavigation { get; set; }
-       // public virtual Dispositivo numSerieNavigation { get; set; }
     }
 }

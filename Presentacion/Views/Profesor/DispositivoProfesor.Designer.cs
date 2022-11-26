@@ -46,7 +46,7 @@ namespace Presentacion.Views
             this.txtCategoria4 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtCategoria3 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtCategoria2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtCategoria1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCaracteristica1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblCategoria4 = new System.Windows.Forms.Label();
             this.lblCategoria3 = new System.Windows.Forms.Label();
             this.lblCategoria1 = new System.Windows.Forms.Label();
@@ -261,7 +261,7 @@ namespace Presentacion.Views
             this.guna2Panel2.Controls.Add(this.txtCategoria4);
             this.guna2Panel2.Controls.Add(this.txtCategoria3);
             this.guna2Panel2.Controls.Add(this.txtCategoria2);
-            this.guna2Panel2.Controls.Add(this.txtCategoria1);
+            this.guna2Panel2.Controls.Add(this.txtCaracteristica1);
             this.guna2Panel2.Controls.Add(this.lblCategoria4);
             this.guna2Panel2.Controls.Add(this.lblCategoria3);
             this.guna2Panel2.Controls.Add(this.lblCategoria1);
@@ -332,25 +332,25 @@ namespace Presentacion.Views
             this.txtCategoria2.Size = new System.Drawing.Size(200, 40);
             this.txtCategoria2.TabIndex = 8;
             // 
-            // txtCategoria1
+            // txtCaracteristica1
             // 
-            this.txtCategoria1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCategoria1.DefaultText = "";
-            this.txtCategoria1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCategoria1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCategoria1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategoria1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategoria1.Enabled = false;
-            this.txtCategoria1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategoria1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCategoria1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategoria1.Location = new System.Drawing.Point(120, 60);
-            this.txtCategoria1.Name = "txtCategoria1";
-            this.txtCategoria1.PasswordChar = '\0';
-            this.txtCategoria1.PlaceholderText = "";
-            this.txtCategoria1.SelectedText = "";
-            this.txtCategoria1.Size = new System.Drawing.Size(200, 40);
-            this.txtCategoria1.TabIndex = 7;
+            this.txtCaracteristica1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCaracteristica1.DefaultText = "";
+            this.txtCaracteristica1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCaracteristica1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCaracteristica1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCaracteristica1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCaracteristica1.Enabled = false;
+            this.txtCaracteristica1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCaracteristica1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCaracteristica1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCaracteristica1.Location = new System.Drawing.Point(120, 60);
+            this.txtCaracteristica1.Name = "txtCaracteristica1";
+            this.txtCaracteristica1.PasswordChar = '\0';
+            this.txtCaracteristica1.PlaceholderText = "";
+            this.txtCaracteristica1.SelectedText = "";
+            this.txtCaracteristica1.Size = new System.Drawing.Size(200, 40);
+            this.txtCaracteristica1.TabIndex = 7;
             // 
             // lblCategoria4
             // 
@@ -470,7 +470,7 @@ namespace Presentacion.Views
         private Guna.UI2.WinForms.Guna2TextBox txtCategoria4;
         private Guna.UI2.WinForms.Guna2TextBox txtCategoria3;
         private Guna.UI2.WinForms.Guna2TextBox txtCategoria2;
-        private Guna.UI2.WinForms.Guna2TextBox txtCategoria1;
+        private Guna.UI2.WinForms.Guna2TextBox txtCaracteristica1;
         private System.Windows.Forms.Label lblCategoria4;
         private System.Windows.Forms.Label lblCategoria3;
         private System.Windows.Forms.Label lblCategoria1;

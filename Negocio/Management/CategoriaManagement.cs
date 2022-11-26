@@ -1,6 +1,4 @@
-﻿using Datos.DAO;
-using Datos.Infrastructure;
-using Negocio.EntitiesDTO;
+﻿using Negocio.EntitiesDTO;
 using System;
 using System.Collections.Generic;
 using System.Net;
