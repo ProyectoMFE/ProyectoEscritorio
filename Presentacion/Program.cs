@@ -1,4 +1,5 @@
 ﻿using Negocio.Management;
+using Presentacion.Informes;
 using Presentacion.Views;
 using Presentacion.Views.Admin;
 using System;
@@ -21,7 +22,7 @@ namespace Presentacion
         {        
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new ProgramaAdmin(new Login()));
         }
     }
 }

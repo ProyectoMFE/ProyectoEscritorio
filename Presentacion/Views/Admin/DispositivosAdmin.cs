@@ -1,5 +1,6 @@
 ﻿using Negocio.EntitiesDTO;
 using Negocio.Management;
+using Presentacion.Informes;
 using Presentacion.Views.Admin;
 using System;
 using System.Collections.Generic;
@@ -230,6 +231,12 @@ namespace Presentacion.Views
             popup.ShowDialog();
             LimpiarTabla();
             RellenarTabla();
+        }
+
+        private void btnInforme_Click(object sender, EventArgs e)
+        {
+            InformesAdmin popup = new InformesAdmin();
+            popup.ShowDialog();
         }
     }
 }

@@ -48,6 +48,7 @@ namespace Presentacion.Views
             this.btnReservar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAgregar = new Guna.UI2.WinForms.Guna2Button();
             this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnInforme = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDispositivos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -298,11 +299,29 @@ namespace Presentacion.Views
             this.txtBuscar.Size = new System.Drawing.Size(200, 36);
             this.txtBuscar.TabIndex = 9;
             // 
+            // btnInforme
+            // 
+            this.btnInforme.BorderRadius = 10;
+            this.btnInforme.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInforme.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInforme.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInforme.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInforme.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(157)))), ((int)(((byte)(180)))));
+            this.btnInforme.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnInforme.ForeColor = System.Drawing.Color.White;
+            this.btnInforme.Location = new System.Drawing.Point(90, 622);
+            this.btnInforme.Name = "btnInforme";
+            this.btnInforme.Size = new System.Drawing.Size(157, 45);
+            this.btnInforme.TabIndex = 18;
+            this.btnInforme.Text = "Generar Informe";
+            this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
+            // 
             // DispositivosAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 691);
+            this.Controls.Add(this.btnInforme);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.tablaDispositivos);
             this.Controls.Add(this.btnFiltroLocalizacion);
@@ -336,5 +355,6 @@ namespace Presentacion.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewButtonColumn btnReservar;
         private Guna.UI2.WinForms.Guna2Button btnAgregar;
+        private Guna.UI2.WinForms.Guna2Button btnInforme;
     }
 }
