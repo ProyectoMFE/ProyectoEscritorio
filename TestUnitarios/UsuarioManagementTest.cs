@@ -1,6 +1,7 @@
 using Negocio.Management;
 using Negocio.EntitiesDTO;
 using System.Text.Json;
+using System.Numerics;
 
 namespace TestUnitarios
 {
@@ -39,6 +40,45 @@ namespace TestUnitarios
         }
 
         [TestMethod]
+        public void TestModificarTrue()
+        {
+            UsuarioManagement um = new UsuarioManagement();
+            Usuario test = InicializarUsuario();
+
+            test.nombre = "Willyrex";
+
+            Assert.AreEqual(true, um.ModificarUsuario(test));
+        }
+
+        [TestMethod]
+        public void TestModificarFalse()
+        {
+            UsuarioManagement um = new UsuarioManagement();
+            Usuario test = new Usuario();
+
+            test.nombre = "Pepe";
+
+            Assert.AreEqual(false, um.ModificarUsuario(test));
+        }
+
+        [TestMethod]
+        public void TestConsultarTrue()
+        {
+            UsuarioManagement um = new UsuarioManagement();
+            Usuario test = InicializarUsuario();
+
+            Assert.AreNotEqual(null, um.ObtenerUsuario(test.idUsuario));
+        }
+
+        [TestMethod]
+        public void TestConsultarFalse()
+        {
+            UsuarioManagement um = new UsuarioManagement();
+
+            Assert.AreEqual(null, um.ObtenerUsuario(int.MaxValue));
+        }
+
+        [TestMethod]
         public void TestBorrarTrue()
         {
             UsuarioManagement um = new UsuarioManagement();
@@ -54,17 +94,6 @@ namespace TestUnitarios
             Usuario test = InicializarUsuario();
 
             Assert.AreEqual(false, um.BorrarUsuario(test.correo));
-        }
-
-        [TestMethod]
-        public void TestModificarTrue()
-        {
-            UsuarioManagement um = new UsuarioManagement();
-            Usuario test = InicializarUsuario();
-
-            test.nombre = "Willyrex";
-
-            Assert.AreEqual(true, um.ModificarUsuario(test));
         }
     }
 }
