@@ -33,10 +33,10 @@ namespace Presentacion.Views
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tablaFiltroDispositivos = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.Dispositivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Filtrar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnCerrar = new Presentacion.Controles.BotonPropio();
+            this.btnFiltar = new Presentacion.Controles.BotonPropio();
             ((System.ComponentModel.ISupportInitialize)(this.tablaFiltroDispositivos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,36 +97,6 @@ namespace Presentacion.Views
             this.tablaFiltroDispositivos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tablaFiltroDispositivos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnFiltrar.FlatAppearance.BorderSize = 0;
-            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltrar.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnFiltrar.ForeColor = System.Drawing.Color.White;
-            this.btnFiltrar.Location = new System.Drawing.Point(297, 375);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(150, 50);
-            this.btnFiltrar.TabIndex = 11;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = false;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.Brown;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(37, 375);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(150, 50);
-            this.btnCerrar.TabIndex = 10;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // Dispositivo
             // 
             this.Dispositivo.HeaderText = "Estado";
@@ -138,15 +108,45 @@ namespace Presentacion.Views
             this.Filtrar.HeaderText = "Filtrar";
             this.Filtrar.Name = "Filtrar";
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.Brown;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(38, 381);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(150, 50);
+            this.btnCerrar.TabIndex = 17;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnFiltar
+            // 
+            this.btnFiltar.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnFiltar.FlatAppearance.BorderSize = 0;
+            this.btnFiltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltar.ForeColor = System.Drawing.Color.White;
+            this.btnFiltar.Location = new System.Drawing.Point(298, 381);
+            this.btnFiltar.Name = "btnFiltar";
+            this.btnFiltar.Size = new System.Drawing.Size(150, 50);
+            this.btnFiltar.TabIndex = 18;
+            this.btnFiltar.Text = "Filtrar";
+            this.btnFiltar.UseVisualStyleBackColor = false;
+            this.btnFiltar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
             // FiltroEstado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.ControlBox = false;
-            this.Controls.Add(this.tablaFiltroDispositivos);
-            this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnFiltar);
+            this.Controls.Add(this.tablaFiltroDispositivos);
             this.Name = "FiltroEstado";
             this.Text = "FiltroEstado";
             ((System.ComponentModel.ISupportInitialize)(this.tablaFiltroDispositivos)).EndInit();
@@ -157,9 +157,9 @@ namespace Presentacion.Views
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView tablaFiltroDispositivos;
-        private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dispositivo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Filtrar;
+        private Controles.BotonPropio btnCerrar;
+        private Controles.BotonPropio btnFiltar;
     }
 }

@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles\BotonPropio.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\BotonPropio.Designer.cs">
+      <DependentUpon>BotonPropio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Filtrar.cs" />
     <Compile Include="Informes\InformeDispositivos.cs">
       <AutoGen>True</AutoGen>
