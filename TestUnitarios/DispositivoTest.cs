@@ -5,9 +5,16 @@ using System.Numerics;
 
 namespace TestUnitarios
 {
+    /// <summary>
+    /// Los test se ejecutan de arriba hacia abajo.
+    /// </summary>
     [TestClass]
     public class DispositivoTest
     {
+        /// <summary>
+        /// Inicializa el dispositivo.
+        /// </summary>
+        /// <returns>El dispositivo</returns>
         private Dispositivo InicializarDisppositivo()
         {
             Dispositivo test = new Dispositivo();
@@ -21,6 +28,9 @@ namespace TestUnitarios
             return test;
         }
 
+        /// <summary>
+        /// Inserta un dispositivo, debería insertarlo.
+        /// </summary>
         [TestMethod]
         public void TestInsertarTrue()
         {
@@ -30,6 +40,9 @@ namespace TestUnitarios
             Assert.AreEqual(true, m.InsertarDispositivo(test));
         }
 
+        /// <summary>
+        /// Inserta un dispositivo, no debería insertarlo ya que fue insertado.
+        /// </summary>
         [TestMethod]
         public void TestInsertarFalse()
         {
@@ -39,6 +52,9 @@ namespace TestUnitarios
             Assert.AreEqual(false, m.InsertarDispositivo(test));
         }
 
+        /// <summary>
+        /// Modifica un dispositivo, debería modificarlo.
+        /// </summary>
         [TestMethod]
         public void TestModificarTrue()
         {
@@ -50,6 +66,9 @@ namespace TestUnitarios
             Assert.AreEqual(true, m.ModificarDispositivo(test));
         }
 
+        /// <summary>
+        /// Modifica un dispositivo, no debería modificarlo ya que fue modificado.
+        /// </summary>
         [TestMethod]
         public void TestModificarFalse()
         {
@@ -61,6 +80,9 @@ namespace TestUnitarios
             Assert.AreEqual(false, m.ModificarDispositivo(test));
         }
 
+        /// <summary>
+        /// Consulta un dispositivo, debería encontrarlo ya que si existe.
+        /// </summary>
         [TestMethod]
         public void TestConsultarTrue()
         {
@@ -70,6 +92,9 @@ namespace TestUnitarios
             Assert.AreNotEqual(null, m.ObtenerDispositivo(test.numSerie));
         }
 
+        /// <summary>
+        /// Consulta un dispositivo, no debería encontrarlo ya que no existe.
+        /// </summary>
         [TestMethod]
         public void TestConsultarFalse()
         {
@@ -78,6 +103,9 @@ namespace TestUnitarios
             Assert.AreEqual(null, m.ObtenerDispositivo("pepeahtrana"));
         }
 
+        /// <summary>
+        /// Borra un dispositivo, debería borrarlo ya que existe.
+        /// </summary>
         [TestMethod]
         public void TestBorrarTrue()
         {
@@ -87,6 +115,9 @@ namespace TestUnitarios
             Assert.AreEqual(true, m.BorrarDispositivo(test.numSerie));
         }
 
+        /// <summary>
+        /// Borra un dispositivo, no debería borrarlo ya que no existe.
+        /// </summary>
         [TestMethod]
         public void TestBorrarFalse()
         {
