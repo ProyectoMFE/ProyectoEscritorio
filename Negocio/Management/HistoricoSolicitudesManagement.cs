@@ -13,6 +13,10 @@ namespace Negocio.Management
 {
     public class HistoricoSolicitudesManagement
     {
+        /// <summary>
+        /// Funcion que devulve una lista de todas las solicitudes que tenemos almacenadas en la BD
+        /// </summary>
+        /// <returns>Lista de las solicitudes que tenemos en la BD</returns>
         public List<HistoricoSolicitud> listarSolicitudes()
         {
             WebResponse res = HttpConnection.Send(null, "GET", $"api/HistoricoSolicitudes");
@@ -21,7 +25,12 @@ namespace Negocio.Management
 
             return solicitud;
         }
-
+        /// <summary>
+        /// Funcion que devulve una lista de solicitudes las cuales dichas solicitudes tiene que 
+        /// tener la categoria igual que uno de las categorias recibidas como parametro.
+        /// </summary>
+        /// <param name="categorias">Lista de categorias por las que se va a realizar el filtrado.</param>
+        /// <returns>Lista de solicitudes despues de realizar el filtrado.</returns>
         public List<HistoricoSolicitud> obtenerSolicitudesPorCategoria(List<string> categorias)
         {
             List<HistoricoSolicitud> listaSolicitudes = new List<HistoricoSolicitud>();
@@ -47,7 +56,13 @@ namespace Negocio.Management
 
             return listaSolicitudes;
         }
-        public List<HistoricoSolicitud> obtenerSolicitudesPorMarca(List<string> categorias)
+        /// <summary>
+        /// Funcion que devulve una lista de solicitudes las cuales dichas solicitudes tiene que 
+        /// tener la marca igual que una de las marcas recibidas como parametro.
+        /// </summary>
+        /// <param name="marca">Lista de marcas por las cuales se va a realizar el filtrado</param>
+        /// <returns>Devulve una lista de solicitudes que han pasado el filtrado</returns>
+        public List<HistoricoSolicitud> obtenerSolicitudesPorMarca(List<string> marca)
         {
             List<HistoricoSolicitud> listaSolicitudes = new List<HistoricoSolicitud>();
 
@@ -60,7 +75,7 @@ namespace Negocio.Management
             {
                 dispositivo = new DispositivoManagement().ObtenerDispositivo(solicitud.numSerie);
 
-                foreach (string nombreCategoria in categorias)
+                foreach (string nombreCategoria in marca)
                 {
                     if (dispositivo.marca.Equals(nombreCategoria))
                     {
@@ -71,7 +86,12 @@ namespace Negocio.Management
 
             return listaSolicitudes;
         }
-
+        /// <summary>
+        /// Funcion que devulve una lista de solicitudes las cuales dichas solicitudes tiene que 
+        /// tener el modelo igual que una de los modelos recibidos como parametro.
+        /// </summary>
+        /// <param name="modelos">Lista de modelos por las cuales se va a realizar el filtrado</param>
+        /// <returns>Devulve una lista de solicitudes que han pasado el filtrado</returns>
         public List<HistoricoSolicitud> obtenerSolicitudesPorModelo(List<string> modelos)
         {
             List<HistoricoSolicitud> listaSolicitudes = new List<HistoricoSolicitud>();
@@ -96,7 +116,12 @@ namespace Negocio.Management
 
             return listaSolicitudes;
         }
-
+        /// <summary>
+        /// Funcion que devulve una lista de solicitudes las cuales dichas solicitudes tiene que 
+        /// tener la localizacion igual que una de las localizaciones recibidos como parametro.
+        /// </summary>
+        /// <param name="localizaciones">Lista de localizaciones por las cuales se va a realizar el filtrado</param>
+        /// <returns>Devulve una lista de solicitudes que han pasado el filtrado</</returns>
         public List<HistoricoSolicitud> obtenerSolicitudesPorLocalizacion(List<string> localizaciones)
         {
             List<HistoricoSolicitud> listaSolicitudes = new List<HistoricoSolicitud>();
@@ -121,6 +146,10 @@ namespace Negocio.Management
 
             return listaSolicitudes;
         }
+        /// <summary>
+        /// Funcion que devuelve todas los solicitudes aprovadas que tenemos almacenadas en la BD
+        /// </summary>
+        /// <returns>Devuelve una lista de solicitudes que estan aprobadas</returns>
         public List<HistoricoSolicitud> listarSolicitudesAprobadas()
         {
             List<HistoricoSolicitud> solicitudesAprobadas = new List<HistoricoSolicitud>();
@@ -138,7 +167,10 @@ namespace Negocio.Management
 
             return solicitudesAprobadas;
         }
-
+        /// <summary>
+        /// Funcion que devuelve todas las solicitudes rechazadas que tenemos almacenadas en la BD
+        /// </summary>
+        /// <returns>Devulve una lista de las solicitudes que estan rechazadas</returns>
         public List<HistoricoSolicitud> listarSolicitudesRechazadas()
         {
             List<HistoricoSolicitud> solicitudesAprobadas = new List<HistoricoSolicitud>();

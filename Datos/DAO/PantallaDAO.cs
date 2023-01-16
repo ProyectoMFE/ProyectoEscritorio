@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Datos.DAO
 {
+    /// <summary>
+    /// Clase que realiza operaciondes de lectura, escritura, borrado y modificiacion de 
+    /// las pantallas que hay en la base de datos
+    /// </summary>
     public class PantallaDAO : DAO<PANTALLAS>
     {
         private ProyectoMFEEntities contexto;

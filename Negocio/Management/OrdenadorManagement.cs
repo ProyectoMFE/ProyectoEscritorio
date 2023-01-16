@@ -13,6 +13,11 @@ namespace Negocio.Management
 {
     public class OrdenadorManagement
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="numSerie"></param>
+        /// <returns></returns>
         public Ordenador ObtenerOrdenador(string numSerie)
         {
             Ordenador ordenador;

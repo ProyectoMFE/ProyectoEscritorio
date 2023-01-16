@@ -7,6 +7,10 @@ using Datos.Infrastructure;
 
 namespace Datos.DAO
 {
+    /// <summary>
+    /// Clase que realiza operaciondes de lectura, escritura, borrado y modificiacion de 
+    /// dispositivos en la base de datos.
+    /// </summary>
     public class DispositivoDAO : DAO<DISPOSITIVOS>
     {
         private ProyectoMFEEntities contexto;
