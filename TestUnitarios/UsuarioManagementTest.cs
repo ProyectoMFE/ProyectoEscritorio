@@ -5,6 +5,9 @@ using System.Numerics;
 
 namespace TestUnitarios
 {
+    /// <summary>
+    /// Ejecutar las pruebas de arriba hacia abajo.
+    /// </summary>
     [TestClass]
     public class UsuarioManagementTest
     {
@@ -21,6 +24,9 @@ namespace TestUnitarios
             return test;
         }
 
+        /// <summary>
+        /// Inserta un usuario.
+        /// </summary>
         [TestMethod]
         public void TestInsertarTrue()
         {
@@ -30,6 +36,9 @@ namespace TestUnitarios
             Assert.AreEqual(true, um.InsertarUsuario(test));
         }
 
+        /// <summary>
+        /// Intenta insertar un usuario que ya existe.
+        /// </summary>
        [TestMethod]
         public void TestInsertarFalse()
         {
@@ -39,6 +48,9 @@ namespace TestUnitarios
             Assert.AreEqual(false, um.InsertarUsuario(test));
         }
 
+        /// <summary>
+        /// Modifica un usuario.
+        /// </summary>
         [TestMethod]
         public void TestModificarTrue()
         {
@@ -50,6 +62,9 @@ namespace TestUnitarios
             Assert.AreEqual(true, um.ModificarUsuario(test));
         }
 
+        /// <summary>
+        /// Modifica un usuario que no existe.
+        /// </summary>
         [TestMethod]
         public void TestModificarFalse()
         {
@@ -61,6 +76,9 @@ namespace TestUnitarios
             Assert.AreEqual(false, um.ModificarUsuario(test));
         }
 
+        /// <summary>
+        /// Consulta un usuario que existe.
+        /// </summary>
         [TestMethod]
         public void TestConsultarTrue()
         {
@@ -70,6 +88,9 @@ namespace TestUnitarios
             Assert.AreNotEqual(null, um.ObtenerUsuario(test.idUsuario));
         }
 
+        /// <summary>
+        /// Consulta un usuaio que no existe.
+        /// </summary>
         [TestMethod]
         public void TestConsultarFalse()
         {
@@ -78,6 +99,9 @@ namespace TestUnitarios
             Assert.AreEqual(null, um.ObtenerUsuario(int.MaxValue));
         }
 
+        /// <summary>
+        /// Borra un usuario.
+        /// </summary>
         [TestMethod]
         public void TestBorrarTrue()
         {
@@ -87,6 +111,9 @@ namespace TestUnitarios
             Assert.AreEqual(true, um.BorrarUsuario(test.correo));
         }
 
+        /// <summary>
+        /// Borra un usuario que no existe.
+        /// </summary>
         [TestMethod]
         public void TestBorrarFalse()
         {

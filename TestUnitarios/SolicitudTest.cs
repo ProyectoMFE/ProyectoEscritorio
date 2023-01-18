@@ -6,9 +6,15 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace TestUnitarios
 {
+    /// <summary>
+    /// Ejecutar las pruebas de arriba hacia abajo.
+    /// </summary>
     [TestClass]
     public class SolicitudTest
     {
+        /// <summary>
+        /// Crear una soliciud.
+        /// </summary>
         [TestMethod]
         public void CrearSolicitudTest()
         {
@@ -39,6 +45,9 @@ namespace TestUnitarios
             Assert.AreNotEqual(0, s.obtenerSolicitudes(usuario.correo, dispositivo.numSerie).Count);
         }
 
+        /// <summary>
+        /// Rechazar una solicitud.
+        /// </summary>
         [TestMethod]
         public void RechazarSolicitudTest()
         {
@@ -53,6 +62,9 @@ namespace TestUnitarios
             s.insertarSolicitud("test@test.com", "prueba");
         }
 
+        /// <summary>
+        /// Aceptar una solicitud.
+        /// </summary>
         [TestMethod]
         public void AceptarSolicitudTest()
         {
@@ -65,6 +77,9 @@ namespace TestUnitarios
             Assert.AreEqual(d.ObtenerDispositivo("prueba").estado, "Ocupado");
         }
 
+        /// <summary>
+        /// Finalizar una solicitud.
+        /// </summary>
         [TestMethod]
         public void FinalizarSolicitudTest()
         {
