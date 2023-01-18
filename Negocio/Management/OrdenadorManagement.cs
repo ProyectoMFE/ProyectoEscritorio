@@ -14,10 +14,10 @@ namespace Negocio.Management
     public class OrdenadorManagement
     {
         /// <summary>
-        /// 
+        /// Devulve el ordenador que tenga el mismo numerodeserie que el parametro recibido.
         /// </summary>
-        /// <param name="numSerie"></param>
-        /// <returns></returns>
+        /// <param name="numSerie">Parametro que se utilizara para buscar el ordenador.</param>
+        /// <returns>Ordenador que tenga el numero de serie igual que el parametro recibido. Si este no existe develve null</returns>
         public Ordenador ObtenerOrdenador(string numSerie)
         {
             Ordenador ordenador;
@@ -34,11 +34,19 @@ namespace Negocio.Management
             return ordenador;
         }
 
+      
         public List<Ordenador> ObtenerOrdenadores()
         {
             return null;
         }
 
+
+        /// <summary>
+        /// Reemplaza el ordenador de la base de datos que tenga el mismo numero de serie que el ordenador
+        /// recibido por parametros.
+        /// </summary>
+        /// <param name="dispositivo">Ordenador que reemplazara al que hay en la bd</param>
+        /// <returns>Devuelve true si todo va correctamente false en caso contrario</returns>
         public bool ModificarOrdenador(Ordenador dispositivo)
         {
             try
@@ -54,7 +62,11 @@ namespace Negocio.Management
           
             
         }
-
+        /// <summary>
+        /// Introduce un ordenador en la base de datos.
+        /// </summary>
+        /// <param name="dispositivo">Ordenador que se devuelve en la base de datos.</param>
+        /// <returns>Devulve true si todo va correctamente y false en caso contrario.</returns>
         public bool InsertarOrdenador(Ordenador dispositivo)
         {
             try
@@ -75,7 +87,11 @@ namespace Negocio.Management
                 return false;
             }
         }
-
+        /// <summary>
+        /// Elimina un ordenador en la base de datos basado en el parametro recibido.
+        /// </summary>
+        /// <param name="numSerie">Numerorio de serie del ordenador a eliminar.</param>
+        /// <returns>Devuvelve true si todo funciona correctamente.</returns>
         public bool BorrarOrdenador(string numSerie)
         {
             WebResponse res = HttpConnection.Send(null, "DELETE", "api/Ordenadores/" + numSerie);
