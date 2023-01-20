@@ -227,7 +227,7 @@ namespace Negocio.Management
             return listaDispositivos;
         }
         /// <summary>
-        /// Funcion que devulve una lista de dispositivos los cuales dichos dispositivos tiene que 
+        /// Función que devulve una lista de dispositivos los cuales dichos dispositivos tiene que 
         /// tener el estado igual que uno de los estados recibidas como parametro.
         /// </summary>
         /// <param name="estados">Lista de estados por el que se van a filtrar los dispositivos</param>
