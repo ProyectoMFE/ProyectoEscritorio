@@ -16,7 +16,7 @@ namespace TestUnitarios
         /// Crear una soliciud.
         /// </summary>
         [TestMethod]
-        public void CrearSolicitudTest()
+        public void CrearSolicitudTestTrue()
         {
             Usuario usuario = new Usuario();
             Dispositivo dispositivo = new Dispositivo();
@@ -46,10 +46,23 @@ namespace TestUnitarios
         }
 
         /// <summary>
+        /// Crear una soliciud.
+        /// </summary>
+        [TestMethod]
+        public void CrearSolicitudTestFalse()
+        {
+            SolicitudManagement s = new SolicitudManagement();
+
+            s.insertarSolicitud("test@test.com", "prueba");
+
+            Assert.AreEqual(0, s.obtenerSolicitudes("test@test.com", "prueba").Count);
+        }
+
+        /// <summary>
         /// Rechazar una solicitud.
         /// </summary>
         [TestMethod]
-        public void RechazarSolicitudTest()
+        public void RechazarSolicitudTestTrue()
         {
             SolicitudManagement s = new SolicitudManagement();
             DispositivoManagement d = new DispositivoManagement();
@@ -58,15 +71,13 @@ namespace TestUnitarios
 
             Assert.AreEqual(0, s.obtenerSolicitudes("test@test.com", "prueba").Count);
             Assert.AreEqual(d.ObtenerDispositivo("prueba").estado, "Disponible");
-
-            s.insertarSolicitud("test@test.com", "prueba");
         }
 
         /// <summary>
         /// Aceptar una solicitud.
         /// </summary>
         [TestMethod]
-        public void AceptarSolicitudTest()
+        public void AceptarSolicitudTestTrue()
         {
             SolicitudManagement s = new SolicitudManagement();
             DispositivoManagement d = new DispositivoManagement();
@@ -81,7 +92,7 @@ namespace TestUnitarios
         /// Finalizar una solicitud.
         /// </summary>
         [TestMethod]
-        public void FinalizarSolicitudTest()
+        public void FinalizarSolicitudTestTrue()
         {
             SolicitudManagement s = new SolicitudManagement();
             DispositivoManagement d = new DispositivoManagement();
