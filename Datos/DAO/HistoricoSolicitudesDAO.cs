@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Datos.DAO
 {
+    /// <summary>
+    /// Clase que realiza una consulta a el historial de solicitudes de de la base de datos.
+    /// </summary>
     public class HistoricoSolicitudesDAO
     {
         private ProyectoMFEEntities contexto;

@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 namespace Negocio.EntitiesDTO
 {
     [Serializable]
+    
     public class Categoria
     {
+        
         public int idCategoria { get; set; }
         public string nombre { get; set; }
 
